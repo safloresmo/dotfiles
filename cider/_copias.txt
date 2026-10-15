@@ -1,0 +1,2 @@
+# lo elegido para cada canción en Maku Clips
+.config/maku/mapa.json

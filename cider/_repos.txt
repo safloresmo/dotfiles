@@ -1,0 +1,5 @@
+# ruta en ~ y url; después de clonar, ejecuta ./instalar dentro
+# plugin Maku Clips
+Proyectos/maku-clips https://github.com/safloresmo/maku-clips.git
+# tema Ryoku
+Proyectos/ryoku-cider https://github.com/safloresmo/ryoku-cider.git

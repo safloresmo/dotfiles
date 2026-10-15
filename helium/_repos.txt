@@ -1,0 +1,2 @@
+# ruta en ~ y url; después de clonar, ejecuta ./instalar dentro
+Proyectos/ryoku-helium https://github.com/safloresmo/ryoku-helium.git

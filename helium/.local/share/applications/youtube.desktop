@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=YouTube
+Comment=YouTube en su propia ventana, sin pestañas ni barra de direcciones
+Exec=helium-browser --app=https://www.youtube.com
+Icon=YouTubeDownloader
+Terminal=false
+Categories=AudioVideo;Video;
+StartupWMClass=chrome-www.youtube.com__-Default

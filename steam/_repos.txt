@@ -1,0 +1,2 @@
+# ruta en ~ y url; Millennium también lo instala desde su ventana de temas
+.local/share/Steam/steamui/skins/Material-Theme https://github.com/kuska1/Material-Theme.git

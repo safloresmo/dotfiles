@@ -1,0 +1,7 @@
+# una app por línea
+base
+1password
+cider
+helium
+steam
+tailscale
