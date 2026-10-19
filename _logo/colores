@@ -1,0 +1,5 @@
+# los cuatro tonos del logo, de $1 a $4 (R;G;B); el instalador usa los mismos
+120;0;20
+170;10;30
+220;40;50
+255;80;80
