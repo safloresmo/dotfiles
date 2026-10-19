@@ -1,4 +1,2 @@
-# tema Ryoku con sus ajustes (blur y animaciones aligerados)
+# tema Ryoku de Discord con sus ajustes (blur y animaciones aligerados)
 .config/equibop/themes/Ryoku.theme.css
-# plantilla de matugen: el tema Ryoku con la paleta (reemplaza la de Ryoku)
-.config/ryoku/user_edits/matugen/templates/discord.css

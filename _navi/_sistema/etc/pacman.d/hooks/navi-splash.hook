@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Type = Package
+Target = ryoku-desktop
+
+[Action]
+Description = Restaurar la animación de arranque Navi
+When = PostTransaction
+Exec = /usr/local/sbin/navi-splash-apply

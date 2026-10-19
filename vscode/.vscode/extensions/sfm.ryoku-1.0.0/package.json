@@ -1,0 +1,22 @@
+{
+  "name": "ryoku",
+  "displayName": "Ryoku",
+  "description": "Papel, tinta y los colores del tema de Discord.",
+  "version": "1.0.0",
+  "publisher": "sfm",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Ryoku",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ryoku-color-theme.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+# ajustes del Hub y de la barra; Ryoku los reescribe
+.config/ryoku/brand.json
+.config/ryoku/desktop.json
+.config/ryoku/equalizer.json
+.config/ryoku/keyring.json
+.config/ryoku/launcher.json
+.config/ryoku/lighting.json
+.config/ryoku/matugen.json
+.config/ryoku/performance.json
+.config/ryoku/plugins.json
+.config/ryoku/power-profile.json
+.config/ryoku/recording.json
+.config/ryoku/ryoshot.json
+.config/ryoku/shell.json
+.config/ryoku/stage.json
+.config/ryoku/stash.json
+.config/ryoku/theme.json
+.config/ryoku/visualizer.json
+.config/ryoku/widgets.json
+.config/ryoku/hub.toml
+.config/ryoku/hypridle.conf
+# overlay: atajos y ajustes de Hyprland que escribe el Hub, fish y qt6ct
+.config/ryoku/user_edits/hypr/settings.lua
+.config/ryoku/user_edits/hypr/rebinds.lua
+.config/ryoku/user_edits/fish/config.fish
+.config/ryoku/user_edits/qt6ct/qt6ct.conf
+# matugen: qué apps se pintan con la paleta y las plantillas propias
+.config/ryoku/user_edits/matugen/apps.toml
+.config/ryoku/user_edits/matugen/templates/steam.css
+.config/ryoku/user_edits/matugen/templates/discord.css

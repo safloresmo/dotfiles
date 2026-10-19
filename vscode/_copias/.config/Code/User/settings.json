@@ -1,0 +1,7 @@
+{
+    "idf.hasWalkthroughBeenShown": true,
+    "editor.fontFamily": "JetBrainsMono Nerd Font, JetBrains Mono, monospace",
+    "workbench.colorTheme": "Ryoku",
+    "workbench.productIconTheme": "fluent-icons",
+    "gitlens.graph.details.location": "auto"
+}

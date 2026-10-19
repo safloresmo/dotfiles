@@ -1,0 +1,2 @@
+# lo marca 1Password al activar el inicio con la sesión
+.config/autostart/com.onepassword.OnePassword.desktop

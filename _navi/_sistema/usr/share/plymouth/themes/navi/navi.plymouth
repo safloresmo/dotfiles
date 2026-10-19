@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Navi
+Description=Animación Navi al encender y al apagar.
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/navi
+ScriptFile=/usr/share/plymouth/themes/navi/navi.script

@@ -1,0 +1,8 @@
+{
+  "blurRadius": 64,
+  "mosaicBlock": 12,
+  "zoomFactor": 2,
+  "copyOnSave": false,
+  "saveDir": "",
+  "toolStyle": {}
+}

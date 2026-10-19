@@ -1,0 +1,239 @@
+# Animación al encender y al apagar.
+# Cuadros de /home/sfm/Documentos/navi.webm: 3 s, 30 por segundo.
+# Plymouth llama a este refresco 50 veces por segundo.
+
+Window.SetBackgroundTopColor(0.0, 0.0, 0.0);
+Window.SetBackgroundBottomColor(0.0, 0.0, 0.0);
+
+frames = [];
+frames[0] = Image("f001.png");
+frames[1] = Image("f002.png");
+frames[2] = Image("f003.png");
+frames[3] = Image("f004.png");
+frames[4] = Image("f005.png");
+frames[5] = Image("f006.png");
+frames[6] = Image("f007.png");
+frames[7] = Image("f008.png");
+frames[8] = Image("f009.png");
+frames[9] = Image("f010.png");
+frames[10] = Image("f011.png");
+frames[11] = Image("f012.png");
+frames[12] = Image("f013.png");
+frames[13] = Image("f014.png");
+frames[14] = Image("f015.png");
+frames[15] = Image("f016.png");
+frames[16] = Image("f017.png");
+frames[17] = Image("f018.png");
+frames[18] = Image("f019.png");
+frames[19] = Image("f020.png");
+frames[20] = Image("f021.png");
+frames[21] = Image("f022.png");
+frames[22] = Image("f023.png");
+frames[23] = Image("f024.png");
+frames[24] = Image("f025.png");
+frames[25] = Image("f026.png");
+frames[26] = Image("f027.png");
+frames[27] = Image("f028.png");
+frames[28] = Image("f029.png");
+frames[29] = Image("f030.png");
+frames[30] = Image("f031.png");
+frames[31] = Image("f032.png");
+frames[32] = Image("f033.png");
+frames[33] = Image("f034.png");
+frames[34] = Image("f035.png");
+frames[35] = Image("f036.png");
+frames[36] = Image("f037.png");
+frames[37] = Image("f038.png");
+frames[38] = Image("f039.png");
+frames[39] = Image("f040.png");
+frames[40] = Image("f041.png");
+frames[41] = Image("f042.png");
+frames[42] = Image("f043.png");
+frames[43] = Image("f044.png");
+frames[44] = Image("f045.png");
+frames[45] = Image("f046.png");
+frames[46] = Image("f047.png");
+frames[47] = Image("f048.png");
+frames[48] = Image("f049.png");
+frames[49] = Image("f050.png");
+frames[50] = Image("f051.png");
+frames[51] = Image("f052.png");
+frames[52] = Image("f053.png");
+frames[53] = Image("f054.png");
+frames[54] = Image("f055.png");
+frames[55] = Image("f056.png");
+frames[56] = Image("f057.png");
+frames[57] = Image("f058.png");
+frames[58] = Image("f059.png");
+frames[59] = Image("f060.png");
+frames[60] = Image("f061.png");
+frames[61] = Image("f062.png");
+frames[62] = Image("f063.png");
+frames[63] = Image("f064.png");
+frames[64] = Image("f065.png");
+frames[65] = Image("f066.png");
+frames[66] = Image("f067.png");
+frames[67] = Image("f068.png");
+frames[68] = Image("f069.png");
+frames[69] = Image("f070.png");
+frames[70] = Image("f071.png");
+frames[71] = Image("f072.png");
+frames[72] = Image("f073.png");
+frames[73] = Image("f074.png");
+frames[74] = Image("f075.png");
+frames[75] = Image("f076.png");
+frames[76] = Image("f077.png");
+frames[77] = Image("f078.png");
+frames[78] = Image("f079.png");
+frames[79] = Image("f080.png");
+frames[80] = Image("f081.png");
+frames[81] = Image("f082.png");
+frames[82] = Image("f083.png");
+frames[83] = Image("f084.png");
+frames[84] = Image("f085.png");
+frames[85] = Image("f086.png");
+frames[86] = Image("f087.png");
+frames[87] = Image("f088.png");
+frames[88] = Image("f089.png");
+frames[89] = Image("f090.png");
+
+global.count = 90;
+global.base_w = frames[0].GetWidth();
+global.base_h = frames[0].GetHeight();
+global.ready_w = 0;
+global.ready_h = 0;
+global.sprite_w = global.base_w;
+global.sprite_h = global.base_h;
+global.frame_f = 0;
+
+shown = [];
+for (i = 0; i < global.count; i++)
+  shown[i] = frames[i];
+
+logo = Sprite(frames[0]);
+logo.SetZ(0);
+logo.SetOpacity(1);
+
+fun ensure_layout()
+  {
+    w = Window.GetWidth();
+    h = Window.GetHeight();
+    if (w < 2 || h < 2)
+      return 0;
+    if (w == global.ready_w && h == global.ready_h)
+      return 0;
+
+    fit = Math.Min(w / 1920.0, h / 1080.0);
+    tw = Math.Int(global.base_w * fit);
+    th = Math.Int(global.base_h * fit);
+    if (tw < 1) tw = 1;
+    if (th < 1) th = 1;
+
+    if (tw == global.base_w && th == global.base_h)
+      {
+        for (i = 0; i < global.count; i++)
+          shown[i] = frames[i];
+      }
+    else
+      {
+        for (i = 0; i < global.count; i++)
+          {
+            img = frames[i];
+            shown[i] = img.Scale(tw, th);
+          }
+      }
+
+    global.sprite_w = tw;
+    global.sprite_h = th;
+    global.ready_w = w;
+    global.ready_h = h;
+    logo.SetX(w / 2.0 - tw / 2.0);
+    logo.SetY(h / 2.0 - th / 2.0);
+    logo.SetImage(shown[Math.Int(global.frame_f)]);
+  }
+
+fun refresh_callback()
+  {
+    ensure_layout();
+    global.frame_f = global.frame_f + (30.0 / 50.0);
+    while (global.frame_f >= global.count)
+      global.frame_f = global.frame_f - global.count;
+    logo.SetImage(shown[Math.Int(global.frame_f)]);
+  }
+
+Plymouth.SetRefreshFunction(refresh_callback);
+
+prompt_sprite = Sprite();
+prompt_sprite.SetOpacity(0);
+prompt_sprite.SetZ(20);
+entry_sprite = Sprite();
+entry_sprite.SetOpacity(0);
+entry_sprite.SetZ(21);
+message_sprite = Sprite();
+message_sprite.SetOpacity(0);
+message_sprite.SetZ(22);
+
+fun stars(n)
+  {
+    s = "";
+    i = 0;
+    while (i < n)
+      {
+        s = s + "*";
+        i = i + 1;
+      }
+    return s;
+  }
+
+fun show_prompt(text, extra)
+  {
+    if (extra == "")
+      extra = " ";
+    prompt_image = Image.Text(text, 1, 1, 1);
+    prompt_sprite.SetImage(prompt_image);
+    prompt_sprite.SetPosition(Window.GetWidth() / 2.0 - prompt_image.GetWidth() / 2.0, Window.GetHeight() / 2.0 + global.sprite_h / 2.0 + 28, 20);
+    prompt_sprite.SetOpacity(1);
+    entry_image = Image.Text(extra, 1, 1, 1);
+    entry_sprite.SetImage(entry_image);
+    entry_sprite.SetPosition(Window.GetWidth() / 2.0 - entry_image.GetWidth() / 2.0, Window.GetHeight() / 2.0 + global.sprite_h / 2.0 + 56, 21);
+    entry_sprite.SetOpacity(1);
+  }
+
+fun display_normal_callback()
+  {
+    prompt_sprite.SetOpacity(0);
+    entry_sprite.SetOpacity(0);
+  }
+
+fun display_password_callback(prompt, bullets)
+  {
+    show_prompt(prompt, stars(bullets));
+  }
+
+fun display_question_callback(prompt, entry_text)
+  {
+    show_prompt(prompt, entry_text);
+  }
+
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+Plymouth.SetDisplayQuestionFunction(display_question_callback);
+
+fun display_message_callback(text)
+  {
+    message_image = Image.Text(text, 1, 1, 1);
+    message_sprite.SetImage(message_image);
+    message_sprite.SetPosition(24, 24, 22);
+    message_sprite.SetOpacity(1);
+  }
+
+fun hide_message_callback(text)
+  {
+    message_sprite.SetOpacity(0);
+  }
+
+Plymouth.SetDisplayMessageFunction(display_message_callback);
+Plymouth.SetHideMessageFunction(hide_message_callback);
+
+ensure_layout();
+

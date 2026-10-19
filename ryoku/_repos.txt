@@ -1,0 +1,7 @@
+# ruta en ~ y url; después de clonar, ejecuta ./instalar dentro
+# tema de Cider con la paleta del escritorio
+Proyectos/ryoku-cider https://github.com/safloresmo/ryoku-cider.git
+# Kaku: Helium y los sitios con la paleta del escritorio
+Proyectos/ryoku-helium https://github.com/safloresmo/ryoku-helium.git
+# plugin de barra Tailscale
+Proyectos/tailscale-barra https://github.com/safloresmo/tailscale-barra.git

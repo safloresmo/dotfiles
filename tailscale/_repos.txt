@@ -1,3 +1,0 @@
-# ruta en ~ y url
-# plugin de barra Tailscale
-Proyectos/tailscale-barra https://github.com/safloresmo/tailscale-barra.git

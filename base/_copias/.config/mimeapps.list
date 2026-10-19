@@ -1,0 +1,14 @@
+[Default Applications]
+x-scheme-handler/http=helium.desktop
+x-scheme-handler/https=helium.desktop
+text/html=helium.desktop
+x-scheme-handler/about=helium.desktop
+x-scheme-handler/unknown=helium.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/codex=chatgpt.desktop
+x-scheme-handler/grimoire=grimoire.desktop
+x-scheme-handler/rootapp=rootapp.desktop
+x-scheme-handler/arduino-app-lab=arduino-app-lab.desktop
+x-scheme-handler/deadlock-mod-manager=deadlock-mod-manager-handler.desktop
+x-scheme-handler/deadlock-modmanager=deadlock-mod-manager-handler.desktop
+x-scheme-handler/dlmm=deadlock-mod-manager-handler.desktop

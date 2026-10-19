@@ -1,0 +1,375 @@
+{
+  "desktop": {
+    "appOverrides": [],
+    "appearance": {
+      "activeBorder": "#e0563b",
+      "activeOpacity": 1,
+      "animatedBorder": false,
+      "animations": true,
+      "blurBrightness": 1,
+      "blurContrast": 0.8916,
+      "blurEnabled": true,
+      "blurIgnoreOpacity": true,
+      "blurNewOptimizations": true,
+      "blurNoise": 0.01,
+      "blurPasses": 1,
+      "blurPopups": false,
+      "blurSize": 4,
+      "blurSpecial": false,
+      "blurVibrancy": 0.17,
+      "blurVibrancyDarkness": 0,
+      "blurXray": false,
+      "borderAngleSpeed": 3,
+      "borderFollowsPalette": true,
+      "borderPartOfWindow": true,
+      "borderSize": 2,
+      "dimAround": 0.4,
+      "dimInactive": false,
+      "dimModal": true,
+      "dimSpecial": 0.2,
+      "dimStrength": 0.5,
+      "extendBorderGrab": 15,
+      "fullscreenOpacity": 1,
+      "gapsIn": 12,
+      "gapsOut": 18,
+      "gapsWorkspaces": 0,
+      "glowColor": "#ee33cc",
+      "glowEnabled": false,
+      "glowRange": 10,
+      "hoverIconOnBorder": true,
+      "inactiveBorder": "#313a4d",
+      "inactiveOpacity": 0.85,
+      "layout": "dwindle",
+      "noFocusFallback": false,
+      "resizeCorner": 0,
+      "resizeOnBorder": true,
+      "rounding": 0,
+      "roundingPower": 4,
+      "shadowColor": "#000000",
+      "shadowEnabled": true,
+      "shadowPower": 4,
+      "shadowRange": 45,
+      "shadowScale": 1,
+      "shadowSharp": false,
+      "snapEnabled": false,
+      "windowStyle": "pop",
+      "wobblyWindows": false
+    },
+    "apps": {
+      "browser": "helium-browser",
+      "editor": "code"
+    },
+    "autostart": [
+      {
+        "command": "1password"
+      },
+      {
+        "command": ""
+      }
+    ],
+    "cursor": {
+      "hideOnKeyPress": false,
+      "inactiveTimeout": 0,
+      "size": 24,
+      "theme": "Bibata-Modern-Ice"
+    },
+    "env": [],
+    "input": {
+      "accelProfile": "",
+      "clickfinger": false,
+      "disableWhileTyping": true,
+      "followMouse": 1,
+      "kbLayout": "us",
+      "kbOptions": "",
+      "kbVariant": "",
+      "leftHanded": false,
+      "middleClickPaste": true,
+      "middleEmulation": false,
+      "mouseNaturalScroll": false,
+      "mouseScrollFactor": 1,
+      "naturalScroll": false,
+      "numlockByDefault": false,
+      "repeatDelay": 600,
+      "repeatRate": 25,
+      "sensitivity": 0,
+      "swipeCreateNew": true,
+      "swipeDistance": 300,
+      "swipeFingers": 3,
+      "swipeInvert": true,
+      "tapAndDrag": true,
+      "tapToClick": true,
+      "touchScrollFactor": 1,
+      "workspaceSwipe": false
+    },
+    "keybinds": [
+      {
+        "action": "exec",
+        "keys": "SUPER + SHIFT + X",
+        "release": false,
+        "value": "helium-browser --app=https://x.com"
+      }
+    ],
+    "windowRules": [],
+    "windows": {
+      "tameMaximizeOnOpen": true
+    }
+  },
+  "wm": {
+    "hyprland": {
+      "anim": {
+        "curves": [
+          {
+            "name": "ryokuWobble",
+            "x0": 0.34,
+            "x1": 0.64,
+            "y0": 1.56,
+            "y1": 1
+          },
+          {
+            "name": "ryokuBloom",
+            "x0": 0.16,
+            "x1": 0.24,
+            "y0": 1.12,
+            "y1": 1
+          },
+          {
+            "name": "almostLinear",
+            "x0": 0.5,
+            "x1": 0.75,
+            "y0": 0.5,
+            "y1": 1
+          },
+          {
+            "name": "snap",
+            "x0": 0.05,
+            "x1": 0.1,
+            "y0": 0.9,
+            "y1": 1.05
+          },
+          {
+            "name": "ryokuSettle",
+            "x0": 0.18,
+            "x1": 0.24,
+            "y0": 0.86,
+            "y1": 1
+          },
+          {
+            "name": "quick",
+            "x0": 0.15,
+            "x1": 0.1,
+            "y0": 0,
+            "y1": 1
+          },
+          {
+            "name": "easeOutQuint",
+            "x0": 0.23,
+            "x1": 0.32,
+            "y0": 1,
+            "y1": 1
+          },
+          {
+            "name": "linear",
+            "x0": 0,
+            "x1": 1,
+            "y0": 0,
+            "y1": 1
+          },
+          {
+            "name": "default",
+            "x0": 0,
+            "x1": 0.15,
+            "y0": 0.75,
+            "y1": 1
+          }
+        ],
+        "items": [
+          {
+            "bezier": "ryokuSettle",
+            "enabled": true,
+            "leaf": "windowsMove",
+            "speed": 3.2,
+            "style": ""
+          },
+          {
+            "bezier": "default",
+            "enabled": false,
+            "leaf": "shadowangle",
+            "speed": 1,
+            "style": ""
+          },
+          {
+            "bezier": "easeOutQuint",
+            "enabled": true,
+            "leaf": "specialWorkspace",
+            "speed": 6,
+            "style": "slidefadevert 20%"
+          },
+          {
+            "bezier": "default",
+            "enabled": false,
+            "leaf": "glowangle",
+            "speed": 1,
+            "style": ""
+          },
+          {
+            "bezier": "default",
+            "enabled": false,
+            "leaf": "borderangle",
+            "speed": 1,
+            "style": ""
+          },
+          {
+            "bezier": "almostLinear",
+            "enabled": true,
+            "leaf": "fadeOut",
+            "speed": 2.2,
+            "style": ""
+          },
+          {
+            "bezier": "almostLinear",
+            "enabled": true,
+            "leaf": "fade",
+            "speed": 3,
+            "style": ""
+          },
+          {
+            "bezier": "quick",
+            "enabled": true,
+            "leaf": "border",
+            "speed": 3.5,
+            "style": ""
+          },
+          {
+            "bezier": "easeOutQuint",
+            "enabled": true,
+            "leaf": "workspaces",
+            "speed": 3.5,
+            "style": "slide"
+          },
+          {
+            "bezier": "ryokuSettle",
+            "enabled": true,
+            "leaf": "global",
+            "speed": 3.2,
+            "style": ""
+          },
+          {
+            "bezier": "ryokuBloom",
+            "enabled": true,
+            "leaf": "windowsIn",
+            "speed": 3.8,
+            "style": "popin 78%"
+          },
+          {
+            "bezier": "ryokuSettle",
+            "enabled": true,
+            "leaf": "windowsOut",
+            "speed": 2.4,
+            "style": "popin 86%"
+          },
+          {
+            "bezier": "easeOutQuint",
+            "enabled": true,
+            "leaf": "layers",
+            "speed": 7,
+            "style": "popin 90%"
+          },
+          {
+            "bezier": "almostLinear",
+            "enabled": true,
+            "leaf": "fadeIn",
+            "speed": 3.2,
+            "style": ""
+          },
+          {
+            "bezier": "ryokuSettle",
+            "enabled": true,
+            "leaf": "windows",
+            "speed": 3.2,
+            "style": ""
+          },
+          {
+            "bezier": "easeOutQuint",
+            "enabled": true,
+            "leaf": "fadeLayersIn",
+            "speed": 7,
+            "style": ""
+          },
+          {
+            "bezier": "easeOutQuint",
+            "enabled": true,
+            "leaf": "fadeLayersOut",
+            "speed": 7,
+            "style": ""
+          }
+        ]
+      },
+      "dwindle": {
+        "defaultSplitRatio": 1,
+        "forceSplit": "follow",
+        "preserveSplit": false,
+        "smartResizing": false,
+        "smartSplit": false,
+        "useActiveForSplits": true
+      },
+      "layerRules": [],
+      "master": {
+        "mfact": 0.55,
+        "newOnTop": false,
+        "newStatus": "slave",
+        "orientation": "left",
+        "smartResizing": true
+      },
+      "plugins": {
+        "dynamicCursors": {
+          "enabled": false,
+          "magnify": 4,
+          "mode": "tilt",
+          "shake": true
+        },
+        "hyprbars": {
+          "blur": true,
+          "buttons": true,
+          "enabled": false,
+          "height": 26,
+          "textSize": 11
+        },
+        "hyprfocus": {
+          "bounce": 0.95,
+          "enabled": false,
+          "mode": "flash",
+          "opacity": 0.8,
+          "slide": 20
+        },
+        "hyprglass": {
+          "blurStrength": 2,
+          "brightness": 1,
+          "enabled": false,
+          "opacity": 1,
+          "preset": "clear",
+          "theme": "dark",
+          "tint": "8899aa22"
+        },
+        "hyprscrolling": {
+          "columnWidth": 0.5,
+          "followFocus": true
+        },
+        "imgborders": {
+          "blur": false,
+          "enabled": false,
+          "image": "",
+          "insets": "0,0,0,0",
+          "scale": 1,
+          "sizes": "8,8,8,8",
+          "smooth": true
+        },
+        "keysounds": {
+          "enabled": false,
+          "profile": "cherry-mx-brown",
+          "release": true,
+          "volume": 0.6
+        }
+      }
+    }
+  }
+}

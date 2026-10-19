@@ -1,0 +1,4 @@
+# VS Code reescribe este archivo al guardar
+.config/Code/User/settings.json
+# colores del tema; en Ryoku los reescribe matugen con la paleta del fondo
+.vscode/extensions/sfm.ryoku-1.0.0/themes/ryoku-color-theme.json

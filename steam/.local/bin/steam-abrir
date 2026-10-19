@@ -1,0 +1,3 @@
+#!/bin/sh
+# sin argumentos pide la ventana principal: -foreground la enseña y la vuelve a esconder
+exec steam "${1:-steam://open/main}"

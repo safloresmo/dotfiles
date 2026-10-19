@@ -1,0 +1,22 @@
+{
+  "tailscale": {
+    "enabled": true,
+    "host": "topbarGlyph",
+    "settings": {
+      "barLabel": "name",
+      "poll": 30,
+      "confirmOff": true,
+      "sshUser": "",
+      "terminal": "kitty"
+    }
+  },
+  "cloudflare": {
+    "enabled": true,
+    "host": "topbarGlyph",
+    "settings": {
+      "showCount": true,
+      "resume": true,
+      "poll": 30
+    }
+  }
+}

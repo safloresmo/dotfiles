@@ -1,0 +1,3 @@
+# xdg-user-dirs y las apps reescriben estos
+.config/user-dirs.dirs
+.config/mimeapps.list

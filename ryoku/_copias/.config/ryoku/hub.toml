@@ -1,0 +1,4 @@
+[ui]
+  section = "keybinds"
+  update_interval = "hourly"
+  advanced = "1"

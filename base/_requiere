@@ -1,0 +1,4 @@
+# qué comprobar (comando, /ruta o flatpak:<id>) y de dónde sale en cada sistema:
+# pacman: apt: dnf: zypper: aur: flatpak: web:  · un nombre sin prefijo vale para todos
+fish fish
+git git

@@ -1,4 +1,2 @@
-# plantilla de matugen con la paleta para el tema Material-Theme (reemplaza la de Ryoku)
-.config/ryoku/user_edits/matugen/templates/steam.css
-# ajustes de Millennium: tema activo y sus opciones
+# ajustes de Millennium: tema activo (Material-Theme) y sus opciones
 .config/millennium/config.json

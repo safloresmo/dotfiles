@@ -1,0 +1,9 @@
+{
+    "ambientBarMotion": false,
+    "disableBlur": false,
+    "disableShadows": false,
+    "lowPowerMode": false,
+    "motionSpeed": 1,
+    "powerProfileEffects": true,
+    "reduceMotion": false
+}

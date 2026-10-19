@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "devices": {
+    "Gigabyte GeForce RTX 5060 Ti Gaming OC": {
+      "name": "Gigabyte GeForce RTX 5060 Ti Gaming OC",
+      "managed": true,
+      "mode": "",
+      "source": "accent",
+      "brightness": -1,
+      "speed": -1,
+      "restore": "Static"
+    },
+    "MSI MYSTIC LIGHT#7E62241104A1": {
+      "name": "MSI MYSTIC LIGHT",
+      "managed": true,
+      "mode": "",
+      "source": "accent",
+      "brightness": -1,
+      "speed": -1,
+      "restore": "Direct"
+    }
+  }
+}

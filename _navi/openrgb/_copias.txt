@@ -1,0 +1,2 @@
+# OpenRGB reescribe su configuración
+.config/OpenRGB/OpenRGB.json

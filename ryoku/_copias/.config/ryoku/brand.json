@@ -1,0 +1,13 @@
+{
+    "markImage": "",
+    "markText": "力",
+    "markTint": true,
+    "name": "Ryoku",
+    "reloadCover": {
+        "bytes": 49785,
+        "enabled": true,
+        "kind": "video",
+        "name": "navi.webm",
+        "path": "/home/sfm/.local/share/ryoku/reload-cover/405c2f4a6490acfdfefe003facb2fa6391378feecb7de64702ec061752d7fae3.webm"
+    }
+}

@@ -3,3 +3,6 @@ tailscale 2026-10-14 túnel de la tailnet; lo usa el plugin de barra tailscale-b
 cloudflared 2026-10-14 túneles de Cloudflare con dominio propio; lo usa el plugin de barra cloudflare-barra
 millennium 2026-10-14 temas del cliente de Steam con la paleta de Ryoku (AUR oficial, compilado con --removemake)
 stow 2026-10-14 enlaza las apps de los dotfiles en ~ (install.sh)
+rsync 2026-10-14 copias de las apps de los dotfiles (install.sh: _copias y recoger)
+1password-cli 2026-10-15 CLI de 1Password (op); secretos y contraseñas desde la terminal
+io.github.philipk.boilr 2026-10-18 flatpak; añade a Steam los juegos de Heroic, Lutris y otras tiendas

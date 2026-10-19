@@ -4,5 +4,8 @@ base
 cider
 helium
 steam
-tailscale
 equibop
+vscode
+ryoku
+audio
+openrgb
