@@ -33,11 +33,6 @@ if status is-interactive
   set -g fish_color_escape         93D4E0
   set -g fish_color_autosuggestion 949699
 
-  # branded system readout on terminal open.
-  if command -v ryoku-fastfetch >/dev/null 2>&1
-    ryoku-fastfetch
-  end
-
   # prompt.
   if command -v starship >/dev/null 2>&1
     starship init fish | source
