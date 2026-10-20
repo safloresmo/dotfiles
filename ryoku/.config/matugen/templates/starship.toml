@@ -1,0 +1,53 @@
+# prompt de starship con la paleta de Ryoku; matugen lo escribe en ~/.config/starship.toml
+add_newline = false
+palette = "ryoku"
+
+# ╭─ usuario@equipo ruta
+# ╰─❯
+format = """
+[╭─ ](fg:marco)$username$hostname$directory$git_branch$cmd_duration
+[╰─](fg:marco)$character"""
+
+[palettes.ryoku]
+marco = "{{colors.outline.default.hex}}"
+usuario = "{{colors.primary.default.hex}}"
+ruta = "{{colors.on_surface.default.hex}}"
+git = "{{colors.tertiary.default.hex}}"
+tiempo = "{{colors.secondary.default.hex}}"
+fallo = "{{colors.error.default.hex}}"
+
+[username]
+show_always = true
+style_user = "bold fg:usuario"
+style_root = "bold fg:fallo"
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+style = "bold fg:usuario"
+format = "[@$hostname]($style) "
+
+[directory]
+style = "bold fg:ruta"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " 󰌾"
+read_only_style = "fg:fallo"
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = "󰊢 "
+style = "fg:git"
+format = "[$symbol$branch]($style) "
+
+[cmd_duration]
+min_time = 500
+style = "fg:tiempo"
+format = "[󰔚 $duration]($style) "
+
+[character]
+success_symbol = "[❯](bold fg:usuario)"
+error_symbol = "[❯](bold fg:fallo)"
+
+[package]
+disabled = true

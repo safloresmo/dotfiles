@@ -100,3 +100,12 @@ output_path = "~/.config/ryotunes/skins/matugen/skin.json"
 [templates.vscode]
 input_path = "~/.config/matugen/templates/vscode.json"
 output_path = "~/.vscode/extensions/sfm.ryoku-1.0.0/themes/ryoku-color-theme.json"
+
+# prompt de starship; dos salidas para que la capa user_edits no se quede con colores viejos
+[templates.starship]
+input_path = "~/.config/matugen/templates/starship.toml"
+output_path = "~/.config/starship.toml"
+
+[templates.starship-user-edits]
+input_path = "~/.config/matugen/templates/starship.toml"
+output_path = "~/.config/ryoku/user_edits/starship.toml"
