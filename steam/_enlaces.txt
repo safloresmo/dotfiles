@@ -1,0 +1,2 @@
+# ruta en ~ y su destino en ~; Millennium busca los temas en millennium/themes
+.local/share/Steam/millennium/themes/Material-Theme .local/share/Steam/steamui/skins/Material-Theme

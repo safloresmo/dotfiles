@@ -3,6 +3,7 @@
 # es un espejo de ~ y se enlaza con GNU Stow. Lo que empieza por _ no se enlaza:
 #   _copias/ y _copias.txt   lo que se copia porque no puede ser un enlace
 #   _repos.txt               proyectos con repo propio que la app necesita
+#   _enlaces.txt             enlaces dentro de ~ ("ruta destino"), p. ej. hacia un repo clonado
 #   _sistema/                archivos de fuera de ~ (se instalan con sudo); también en _<equipo>/
 #   _descripcion             una línea que se ve al elegir apps
 #   _requiere                lo que la app necesita: comando, flatpak:<id> o /ruta, y su paquete
@@ -629,6 +630,24 @@ repos() { # app, "clonar" o "avisar": líneas "ruta url" de _repos.txt
     done < "$repo/$1/_repos.txt"
 }
 
+enlaces() { # app, "poner" o "avisar": líneas "ruta destino" de _enlaces.txt, ambas relativas a ~
+    [[ -f "$repo/$1/_enlaces.txt" ]] || return 0
+    local ruta destino
+    while read -r ruta destino; do
+        [[ -z "$ruta" || "$ruta" == \#* ]] && continue
+        [[ "$(readlink -f "$HOME/$ruta")" == "$(readlink -f "$HOME/$destino")" ]] && continue
+        if [[ "$2" == avisar ]]; then
+            echo "$1, falta el enlace: ~/$ruta -> ~/$destino"
+        elif [[ ! -e "$HOME/$destino" ]]; then
+            echo "no existe ~/$destino; no se enlaza ~/$ruta" >&2
+        else
+            [[ -e "$HOME/$ruta" || -L "$HOME/$ruta" ]] && apartar "$ruta"
+            mkdir -p "$(dirname "$HOME/$ruta")"
+            ln -s "$HOME/$destino" "$HOME/$ruta"
+        fi
+    done < "$repo/$1/_enlaces.txt"
+}
+
 # Archivos de fuera de ~. estado los lista; instalar los copia con sudo.
 sistema() { # app: informa, no toca nada
     [[ -d "$repo/$1/_sistema" ]] || return 0
@@ -695,6 +714,7 @@ instalar() { # "" o "adoptar"; usa $elegidos
             if [[ "$1" == adoptar ]]; then recoger_copias "$app"; else copiar "$app"; fi
         fi
         (( hacer_repos )) && repos "$app" clonar
+        (( hacer_config )) && enlaces "$app" poner
         (( hacer_sistema )) && poner_sistema "$app"
     done
     (( hacer_sistema )) && poner_sistema "$(basename "$equipo")"
@@ -735,6 +755,7 @@ estado() {
                 echo "$app, copia distinta: ~/$ruta"
         done < <(copias "$app")
         repos "$app" avisar
+        enlaces "$app" avisar
         sistema "$app"
     done
     sistema "$(basename "$equipo")"
@@ -760,7 +781,7 @@ orden=instalar
 hacer_config=1 hacer_repos=1 hacer_sistema=1 hacer_arranque=1
 case "${1:-}" in
     adoptar | estado | recoger | elegir) orden="$1"; shift ;;
-    -h | --help | ayuda) sed -n '2,18p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h | --help | ayuda) sed -n '2,19p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
 esac
 [[ "$orden" == estado ]] || banner
 if [[ "$orden" == elegir ]] || { [[ "$orden" == instalar && $# -eq 0 && ! -f "$equipo/apps.txt" ]]; }; then
