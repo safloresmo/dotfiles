@@ -3,17 +3,17 @@
     "front": [
     ],
     "motion": {
-        "amount": "normal",
+        "amount": "subtle",
         "backdrop": 0,
-        "idle": "sway",
+        "idle": "none",
         "mouse": false,
-        "music": false,
+        "music": true,
         "musicLevel": 0.6,
         "range": 1,
         "sensitivity": 1,
         "speed": 0.4
     },
     "quality": "fine",
-    "shadow": 0,
-    "shadowAngle": 90
+    "shadow": 1,
+    "shadowAngle": 342
 }

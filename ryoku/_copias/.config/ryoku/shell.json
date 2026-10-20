@@ -362,14 +362,7 @@
     "aiShowCountdown": false,
     "aiShowName": false,
     "aiShowPct": true,
-    "aiTools": [
-      "claude",
-      "codex",
-      "opencode",
-      "grok",
-      "gemini",
-      "antigravity"
-    ],
+    "aiTools": "claude,codex,opencode,grok,gemini,antigravity",
     "audioBoost": false,
     "barAnim": 3,
     "barAutoHide": false,
@@ -388,7 +381,8 @@
       "G10",
       "G4",
       "G17",
-      "G1"
+      "G1",
+      "G3"
     ],
     "barShadowEnabled": true,
     "barShellStyle": "islands",

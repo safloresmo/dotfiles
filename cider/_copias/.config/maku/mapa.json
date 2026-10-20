@@ -29,6 +29,17 @@
     "videoId": "EZ4yTJuUmZE",
     "videoTitulo": "LISA Gurenge (From Kimetsu No Yaiba) (Official Video)"
   },
+  "155658342": {
+    "artista": "Fobia",
+    "canal": "FobiaTV",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Hoy Tengo Miedo",
+    "videoId": "R4Kq5BRv0ZA",
+    "videoTitulo": "Fobia - Hoy Tengo Miedo (Video)"
+  },
   "1621482900": {
     "artista": "Camellia",
     "canal": "Camellia Official",
@@ -133,6 +144,17 @@
     "videoId": "HRlW6yZo6Kc",
     "videoTitulo": "YOASOBI「New me」Official Music Video"
   },
+  "6803287330": {
+    "artista": "Creed",
+    "canal": "Creed",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "My Sacrifice (Radio Edit / Remastered 2026)",
+    "videoId": "O-fyNgHdmLI",
+    "videoTitulo": "Creed - My Sacrifice (Official HD Music Video)"
+  },
   "6804544889": {
     "artista": "Dannie May",
     "canal": "Dannie May",
@@ -143,5 +165,13 @@
     "titulo": "DAME DAME",
     "videoId": "tTwjfdrQqvM",
     "videoTitulo": "Dannie May「DAME DAME」（MUSIC VIDEO）"
+  },
+  "727494900": {
+    "artista": "Enjambre",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Estás Dormida",
+    "visto": 1792035878
   }
 }
