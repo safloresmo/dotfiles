@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=X
+Comment=X en su propia ventana, sin pestañas ni barra de direcciones
+Exec=helium-browser --app=https://x.com
+Icon=twitter-x
+Terminal=false
+Categories=Network;WebBrowser;
+StartupWMClass=chrome-x.com__-Default
