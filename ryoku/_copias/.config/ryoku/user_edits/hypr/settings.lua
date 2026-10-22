@@ -5,7 +5,7 @@
 hl.config({
   dwindle = { smart_resizing = false },
   decoration = { inactive_opacity = 0.85 },
-  input = { kb_layout = "us", kb_variant = "", kb_options = "" },
+  input = { kb_layout = "us", kb_variant = "altgr-intl", kb_options = "" },
 })
 
 hl.curve("ryokuWobble", { type = "bezier", points = { { 0.34, 1.56 }, { 0.64, 1.0 } } })
