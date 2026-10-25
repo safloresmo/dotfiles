@@ -64,7 +64,7 @@
         "command": "1password"
       },
       {
-        "command": ""
+        "command": "fluxdeck"
       }
     ],
     "cursor": {
@@ -76,12 +76,12 @@
     "env": [],
     "input": {
       "accelProfile": "",
-      "clickfinger": false,
+      "clickfinger": true,
       "disableWhileTyping": true,
       "followMouse": 1,
       "kbLayout": "us",
       "kbOptions": "",
-      "kbVariant": "altgr-intl",
+      "kbVariant": "",
       "leftHanded": false,
       "middleClickPaste": true,
       "middleEmulation": false,
@@ -122,7 +122,7 @@
             "name": "ryokuWobble",
             "x0": 0.34,
             "x1": 0.64,
-            "y0": 1.56,
+            "y0": 1.5,
             "y1": 1
           },
           {
@@ -321,6 +321,13 @@
         "smartResizing": true
       },
       "plugins": {
+        "borders-plus-plus": {
+          "color": "#e0563b",
+          "count": 1,
+          "enabled": false,
+          "naturalRounding": true,
+          "size": 2
+        },
         "dynamicCursors": {
           "enabled": false,
           "magnify": 4,
@@ -344,11 +351,19 @@
         "hyprglass": {
           "blurStrength": 2,
           "brightness": 1,
-          "enabled": false,
+          "enabled": true,
           "opacity": 1,
           "preset": "clear",
           "theme": "dark",
           "tint": "8899aa22"
+        },
+        "hyprgrass": {
+          "edgeMargin": 10,
+          "enabled": false,
+          "longPressDelay": 400,
+          "resizeOnBorderLongPress": false,
+          "sensitivity": 1,
+          "threeFingerTap": false
         },
         "hyprscrolling": {
           "columnWidth": 0.5,
@@ -369,6 +384,11 @@
           "release": true,
           "volume": 0.6
         }
+      },
+      "settingsWindow": {
+        "height": 0.5,
+        "mode": "full",
+        "width": 0.5
       }
     }
   }

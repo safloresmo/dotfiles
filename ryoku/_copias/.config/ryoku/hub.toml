@@ -1,4 +1,4 @@
 [ui]
-  section = "desktop"
+  section = "launcher"
   update_interval = "hourly"
   advanced = "1"

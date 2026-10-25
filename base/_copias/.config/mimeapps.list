@@ -12,3 +12,8 @@ x-scheme-handler/arduino-app-lab=arduino-app-lab.desktop
 x-scheme-handler/deadlock-mod-manager=deadlock-mod-manager-handler.desktop
 x-scheme-handler/deadlock-modmanager=deadlock-mod-manager-handler.desktop
 x-scheme-handler/dlmm=deadlock-mod-manager-handler.desktop
+x-scheme-handler/rpi-imager=com.raspberrypi.rpi-imager-uri-handler.desktop
+application/pdf=helium.desktop
+
+[Added Associations]
+application/pdf=helium.desktop;

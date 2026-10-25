@@ -1,4 +1,61 @@
 {
+  "1021593352": {
+    "artista": "Enjambre",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "La Duda",
+    "visto": 1792801895
+  },
+  "1054530383": {
+    "artista": "Electric Light Orchestra",
+    "canal": "BEEMOG 비목",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 88,
+    "titulo": "Last Train to London",
+    "videoId": "VJNG4VFtyCI",
+    "videoTitulo": "Electric Light Orchestra - Last Train to London (MV 1979) HD"
+  },
+  "1062959663": {
+    "artista": "Macuiles",
+    "canal": "Macuiles",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 90,
+    "titulo": "Alebrije",
+    "videoId": "L7avJU62bY8",
+    "videoTitulo": "Alebrije | Videoclip Oficial"
+  },
+  "106348854": {
+    "artista": "Danza Invisible",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Sabor de Amor (88)",
+    "visto": 1792715231
+  },
+  "1076361123": {
+    "artista": "Lolabúm",
+    "canal": "Lolabúm",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Ventanas",
+    "videoId": "DqcyYSKuJK4",
+    "videoTitulo": "Ventanas"
+  },
+  "1081701410": {
+    "artista": "Bear Ghost",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Gypsy",
+    "visto": 1792520559
+  },
   "1081701416": {
     "artista": "Bear Ghost",
     "descartados": [],
@@ -6,6 +63,648 @@
     "origen": "auto",
     "titulo": "All at Once",
     "visto": 1791928854
+  },
+  "1108856260": {
+    "artista": "Phil Collins",
+    "canal": "Phil Collins",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 90,
+    "titulo": "Another Day in Paradise (2016 Remastered)",
+    "videoId": "Qt2mbGP6vFI",
+    "videoTitulo": "Phil Collins - Another Day In Paradise (Official Music Video) [HD Upgrade]"
+  },
+  "1145561029": {
+    "artista": "Siddhartha",
+    "canal": "Yosoy Siddhartha",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Ser Parte",
+    "videoId": "-XZud3y0aLI",
+    "videoTitulo": "Siddhartha - Ser Parte (Video Oficial)"
+  },
+  "1154665233": {
+    "artista": "Yuridia",
+    "canal": "EL GURU ",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 53,
+    "titulo": "Ángel (Angels)",
+    "videoId": "gp6cIgR6Bl4",
+    "videoTitulo": "Belinda - Ángel (Official Music Video) 4K"
+  },
+  "1155802713": {
+    "artista": "Régulo Caro",
+    "canal": "Regulo Caro",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 91,
+    "titulo": "Sería Un Error",
+    "videoId": "x0p9kUFItmc",
+    "videoTitulo": "Sería Un Error"
+  },
+  "1157801238": {
+    "artista": "Noel Torres",
+    "canal": "katymoreno21",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 65,
+    "titulo": "Me Interesas",
+    "videoId": "bIpncaYxHrI",
+    "videoTitulo": "Me interesas Noel Torres"
+  },
+  "1185037892": {
+    "artista": "The Electric Swing Circus",
+    "canal": "Manifold",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 61,
+    "titulo": "Empires",
+    "videoId": "GDwY7Exgn2E",
+    "videoTitulo": "The Electric Swing Circus - Empires"
+  },
+  "1247181752": {
+    "artista": "Banda MS de Sergio Lizárraga",
+    "canal": "Miguel Cervantes",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 65,
+    "titulo": "Háblame De Ti",
+    "videoId": "4PYIfjxJ9JQ",
+    "videoTitulo": "Banda ms-Hablame de ti (video oficial)"
+  },
+  "1275812431": {
+    "artista": "Maretu",
+    "canal": "MARETU",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "うみなおし",
+    "videoId": "Tu2xgl1303M",
+    "videoTitulo": "【初音ミク】　うみなおし　【オリジナル】"
+  },
+  "1286662899": {
+    "artista": "Rex Orange County",
+    "canal": "The RT Visuals",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Best Friend",
+    "videoId": "9y_CuJo-SpQ",
+    "videoTitulo": "Best Friend ~ Rex Orange County (Unofficial Music Video)"
+  },
+  "1293903289": {
+    "artista": "Eagles",
+    "canal": "Quang Thành Dư",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 80,
+    "titulo": "Hotel California (Remastered)",
+    "videoId": "rIzzMfhnvWk",
+    "videoTitulo": "MV FULL HD   Eagles   Hotel California"
+  },
+  "1293903290": {
+    "artista": "Eagles",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "New Kid In Town (Remastered)",
+    "visto": 1792521638
+  },
+  "1302158484": {
+    "artista": "The Marías",
+    "canal": "The Marías",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "I Don't Know You",
+    "videoId": "YzKM5g_FwYU",
+    "videoTitulo": "The Marías - I Don't Know You"
+  },
+  "1324623557": {
+    "artista": "Swingrowers",
+    "canal": "SWINGROWERS",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 91,
+    "titulo": "Midnight",
+    "videoId": "i0QYGZGuy8Q",
+    "videoTitulo": "Midnight"
+  },
+  "1324664151": {
+    "artista": "Pisk",
+    "canal": "Music Injection",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 69,
+    "titulo": "Minnie the Moocher (feat. Cab Calloway)",
+    "videoId": "Bbab-Y6nRKI",
+    "videoTitulo": "[ElectroSwing] Pisk - Minnie The Moocher (ft Cab Calloway)"
+  },
+  "1338767705": {
+    "artista": "Swingrowers",
+    "canal": "Freshly Squeezed",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "No Strings Attached",
+    "videoId": "IbRxuy-S96U",
+    "videoTitulo": "Swingrowers - No Strings Attached (Official MV) #electroswing"
+  },
+  "1338768407": {
+    "artista": "Swingrowers",
+    "canal": "SWINGROWERS",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 93,
+    "titulo": "Healing Dance",
+    "videoId": "UlkYUdTLF1Y",
+    "videoTitulo": "Healing Dance"
+  },
+  "1362761892": {
+    "artista": "Pasion Sonidera",
+    "canal": "Robin Revilla - Cumbiando el Mundo",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Oye Traicionera",
+    "videoId": "r6O14y5eV0I",
+    "videoTitulo": "OYE TRAICIONERA -PASION SONIDERA"
+  },
+  "1384487468": {
+    "artista": "Laura Branigan",
+    "canal": "Laura Branigan Forever",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 73,
+    "titulo": "Self Control",
+    "videoId": "gm5F1-kfaJ8",
+    "videoTitulo": "Laura Branigan - Self Control - All Night Fuji (1984)"
+  },
+  "1398638532": {
+    "artista": "Los Bunkers",
+    "canal": "Los Bunkers",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Si Estás Pensando Mal de Mí",
+    "videoId": "ff1SZIdJwzQ",
+    "videoTitulo": "Los Bunkers - Si Estás Pensando Mal de Mí (Video Oficial)"
+  },
+  "1403568417": {
+    "artista": "Los Tigres del Norte",
+    "canal": "Machetony",
+    "descartados": [],
+    "offset": 80.4,
+    "origen": "auto",
+    "puntos": 75,
+    "recorte": 0.0,
+    "titulo": "Tumba Falsa",
+    "videoId": "L1IkaaDa33g",
+    "videoTitulo": "La Tumba Falsa - Los Tigres del Norte"
+  },
+  "1435820264": {
+    "artista": "Kings of Leon",
+    "canal": "Kings of Leon",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Red Morning Light",
+    "videoId": "Dv7vr6oE3U8",
+    "videoTitulo": "Kings Of Leon - Red Morning Light (Official Video)"
+  },
+  "1440095193": {
+    "artista": "Alonso Y Su Integracion Musical",
+    "canal": "ALONSO Y SU INTEGRACION MUSICAL - Topic",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 45,
+    "titulo": "Cumbia Santa María",
+    "videoId": "y9feMBi_Auc",
+    "videoTitulo": "Cumbia Santa María"
+  },
+  "1440826088": {
+    "artista": "Tame Impala",
+    "canal": "Tame Impala",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "Feels Like We Only Go Backwards",
+    "videoId": "wycjnCCgUes",
+    "videoTitulo": "Tame Impala - Feels Like We Only Go Backwards (Official Video)"
+  },
+  "1440832990": {
+    "artista": "Mon Laferte",
+    "canal": "taikiyan",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 49,
+    "titulo": "Amor Completo",
+    "videoId": "R3f5_-0UHNA",
+    "videoTitulo": "mon laferte - amor completo | the fragrant flowers blooms with dignity (letra + amv)"
+  },
+  "1440840465": {
+    "artista": "EDEN",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "rock + roll",
+    "visto": 1792805736
+  },
+  "1440887516": {
+    "artista": "Post Malone",
+    "canal": "How to get drunk without alcoho l Music",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "No Option",
+    "videoId": "RCj-yMLa9dU",
+    "videoTitulo": "Post Malone - No option - 中文歌詞 -"
+  },
+  "1440914481": {
+    "artista": "Calibre 50",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "manual",
+    "titulo": "Amor Del Bueno",
+    "videoId": "MuYlqcNGlYE"
+  },
+  "1440948088": {
+    "artista": "Creedence Clearwater Revival",
+    "canal": "Creedence Clearwater Revival",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "Have You Ever Seen the Rain?",
+    "videoId": "u1V8YRJnr4Q",
+    "videoTitulo": "Creedence Clearwater Revival - Have You Ever Seen The Rain (Official)"
+  },
+  "1442452469": {
+    "artista": "Lana Del Rey",
+    "canal": "Lana Del Rey",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 83,
+    "titulo": "Blue Jeans (Remastered)",
+    "videoId": "8t-I-Lqy06g",
+    "videoTitulo": "LANA DEL REY-BLUE JEANS"
+  },
+  "1443194683": {
+    "artista": "Okills",
+    "canal": "Tártaro /",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Lo Mejor, Lo Peor",
+    "videoId": "n1N2Qjdn2gs",
+    "videoTitulo": "[English] Okills - Lo mejor, lo peor (The best, the worst)"
+  },
+  "1443216192": {
+    "artista": "The Cure",
+    "canal": "The Cure",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Lovesong",
+    "videoId": "ks_qOI0lzho",
+    "videoTitulo": "The Cure - Lovesong"
+  },
+  "1443490019": {
+    "artista": "Rayito Colombiano",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Al Despertar",
+    "visto": 1792805153
+  },
+  "1443528653": {
+    "artista": "Aarón y Su Grupo Ilusión",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "manual",
+    "titulo": "Todo Me Gusta de Ti",
+    "videoId": "4S2Mb0jlCps"
+  },
+  "1443661001": {
+    "artista": "Emmanuel Del Real & Chetes",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "16 de Febrero",
+    "visto": 1792714895
+  },
+  "1443739862": {
+    "artista": "Café Tacvba",
+    "canal": "ro Alvarez Aucar",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 52,
+    "titulo": "Esta Vez",
+    "videoId": "pZfx5xpm1Vs",
+    "videoTitulo": "Esta Vez"
+  },
+  "1443889665": {
+    "artista": "Molotov",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Lagunas Metales",
+    "visto": 1792808111
+  },
+  "1444179495": {
+    "artista": "Odisseo",
+    "canal": "odisseomx",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Mentía",
+    "videoId": "pGTXYXjgsgg",
+    "videoTitulo": "Odisseo - Mentía"
+  },
+  "1444211540": {
+    "artista": "Comisario Pantera",
+    "canal": "Comisario Pantera",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "No Es por Ti",
+    "videoId": "L8G_zNa3wAQ",
+    "videoTitulo": "Comisario Pantera - No Es Por Ti"
+  },
+  "1445156474": {
+    "artista": "Gloria Trevi",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Vestida de Azúcar",
+    "visto": 1792712629
+  },
+  "1445259935": {
+    "artista": "Mili",
+    "canal": "Mili",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "Rightfully(TVアニメゴブリンスレイヤーOPテーマ)",
+    "videoId": "Q6Ik94T99Ag",
+    "videoTitulo": "Mili - Rightfully / Goblin Slayer OP/Opening [Full] (Official Music Video)"
+  },
+  "1445888202": {
+    "artista": "Los Tigres del Norte",
+    "canal": "carlos zapata",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 90,
+    "titulo": "Qué Tal Si Eres Tú",
+    "videoId": "Wl1b9nU5MaE",
+    "videoTitulo": "Los tigres del norte que tal si eres tu vídeo oficial"
+  },
+  "1446862104": {
+    "artista": "Liquits",
+    "canal": "Liquits",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Desde Que",
+    "videoId": "zg7zvHkbYiQ",
+    "videoTitulo": "LIQUITS - DESDE QUE (Official Video)"
+  },
+  "1447524323": {
+    "artista": "Lyre le Temps",
+    "canal": "LyreLeTemps",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 65,
+    "titulo": "Sad Swing",
+    "videoId": "MRRP5DkApPg",
+    "videoTitulo": "Lyre Le Temps - Sad Swing"
+  },
+  "1450670650": {
+    "artista": "Wallows",
+    "canal": "Wallows",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Are You Bored Yet? (feat. Clairo)",
+    "videoId": "wIgmyE5Juzw",
+    "videoTitulo": "Wallows - Are You Bored Yet? (feat. Clairo) [Official Video]"
+  },
+  "1452934524": {
+    "artista": "ShiroNeko",
+    "canal": "M I S A K I ᵗᵖʷᵏ",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 58,
+    "titulo": "Kawaki Wo Ameku (From \"Domestic Na Kanojo\")",
+    "videoId": "KxMfBoyctV0",
+    "videoTitulo": "Kawaki wo Ameku - Minami |Domestic na kanojo Op.1| Sub español"
+  },
+  "1458013147": {
+    "artista": "Say Yes Dog",
+    "canal": "SAY YES DOG",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Feel Better",
+    "videoId": "Mz6NpiRu9i0",
+    "videoTitulo": "Say Yes Dog  - Feel Better (Official Video)"
+  },
+  "1460234914": {
+    "artista": "Chiai Fujikawa",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Kimino Namae",
+    "visto": 1792715533
+  },
+  "1465676358": {
+    "artista": "Los Amigos Invisibles",
+    "canal": "Nacional Records",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 80,
+    "titulo": "Mentiras",
+    "videoId": "eEjrqWcKzbE",
+    "videoTitulo": "Los Amigos Invisibles - Mentiras (Official Music Video)"
+  },
+  "1467205050": {
+    "artista": "Or3o",
+    "canal": "OR3O",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 53,
+    "titulo": "Welcome Home",
+    "videoId": "6Qvk6E5UWeY",
+    "videoTitulo": "【BATIM】 Welcome Home (Electro Swing Cover)"
+  },
+  "1469116985": {
+    "artista": "Grupo Colt",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "17 Años",
+    "visto": 1792715175
+  },
+  "1470269671": {
+    "artista": "El Cholulita y su Cumbia Poblana",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "La Muñequita Fea",
+    "visto": 1792711510
+  },
+  "1483701911": {
+    "artista": "Grupo G",
+    "canal": "",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 63,
+    "titulo": "Perdón",
+    "videoId": "R9lvYHDKMAs",
+    "videoTitulo": "Cazzu - Perdón si no te llamé (Official Video)"
+  },
+  "1485215965": {
+    "artista": "MIYAVI & KenKen",
+    "canal": "MIYAVI",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 60,
+    "titulo": "Flashback",
+    "videoId": "1n19mhKWoLk",
+    "videoTitulo": "Flashback"
+  },
+  "1486882323": {
+    "artista": "El Trono de México",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Ganas de Volver a Amar (Remastered)",
+    "visto": 1792776749
+  },
+  "1492024194": {
+    "artista": "Maná",
+    "canal": "OficialMana",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "Rayando El Sol (2020 Remasterizado)",
+    "videoId": "8lbsQyMhMT8",
+    "videoTitulo": "Maná - Rayando El Sol (Video Oficial)"
+  },
+  "1492024341": {
+    "artista": "Maná",
+    "canal": "OficialMana",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Mariposa Traicionera (2020 Remasterizado)",
+    "videoId": "av3wkasS-WQ",
+    "videoTitulo": "Maná - Mariposa Traicionera (Video Oficial)"
+  },
+  "1498206296": {
+    "artista": "VK Blanka",
+    "canal": "VK Blanka ",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Black Catcher",
+    "videoId": "hP6VM6YAMIE",
+    "videoTitulo": "Vickeblanka / 『Black Catcher』(official music video)"
+  },
+  "1500515794": {
+    "artista": "MOB CHOIR",
+    "canal": "oldskullnime*",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 90,
+    "titulo": "99",
+    "videoId": "efvv9ae1GI4",
+    "videoTitulo": "Mob Psycho 100 Opening Full【AMV】|『99』by MOB CHOIR [HD]"
+  },
+  "1503213320": {
+    "artista": "CyYu",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Wild Side (From \"Beastars\")",
+    "visto": 1792806648
+  },
+  "1508190962": {
+    "artista": "La Sonora Dinamita",
+    "canal": "Chicos Super Dinamita",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 58,
+    "titulo": "Escándalo",
+    "videoId": "934OJ8xepTA",
+    "videoTitulo": "Chicos Súper Dinamita \"Escándalo\""
+  },
+  "1511868563": {
+    "artista": "Sonora Tropicana",
+    "descartados": [],
+    "offset": 3.0,
+    "origen": "manual",
+    "titulo": "El Gran Barón",
+    "videoId": "sckoCH2XXU4",
+    "visto": 1792715229
+  },
+  "1512305883": {
+    "artista": "Panteón Rococó",
+    "canal": "edith caporal",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 45,
+    "titulo": "La Dosis Perfecta",
+    "videoId": "h1_9ohumhVk",
+    "videoTitulo": "La dosis perfecta - Panteón Rococó Tlaxcala 2014"
   },
   "1517154697": {
     "artista": "Romix",
@@ -18,6 +717,28 @@
     "videoId": "Varkxnyuwtc",
     "videoTitulo": "AMV Mix (Hyori Ittai)"
   },
+  "1523642993": {
+    "artista": "RADWIMPS",
+    "canal": "RADWIMPS",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Blame Summer",
+    "videoId": "Owqn2QrtOBU",
+    "videoTitulo": "RADWIMPS - Blame Summer [Official Music Video]"
+  },
+  "1524341156": {
+    "artista": "Jósean Log",
+    "canal": "Jósean Log",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "Si Hay Algo",
+    "videoId": "W6c1_61zVaw",
+    "videoTitulo": "Jósean Log - Si Hay Algo (video oficial)"
+  },
   "1529543135": {
     "artista": "LiSA",
     "canal": "KNYMusicChannelVEVO",
@@ -28,6 +749,146 @@
     "titulo": "Gurenge",
     "videoId": "EZ4yTJuUmZE",
     "videoTitulo": "LISA Gurenge (From Kimetsu No Yaiba) (Official Video)"
+  },
+  "1529543498": {
+    "artista": "LiSA",
+    "canal": "SURAIMAKKU",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 53,
+    "titulo": "cancellation",
+    "videoId": "fIwCah206Fk",
+    "videoTitulo": "LiSA - cancellation - EVE & BiRTH - Eng, Jpn Sub"
+  },
+  "1530913156": {
+    "artista": "Nakimushi",
+    "canal": "泣き虫☔︎ - Nakimushi☔︎",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Shake It Now. (feat. Ado)",
+    "videoId": "QZx7Iq1M1xU",
+    "videoTitulo": "泣き虫☔︎ - Shake It Now.(feat. Ado)   1st Album「rendez-vous」2021.02.10 On Sale"
+  },
+  "1531418215": {
+    "artista": "UNISON SQUARE GARDEN",
+    "canal": "unisonsgofficial",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 80,
+    "titulo": "Phantom Joke",
+    "videoId": "3KGjAw0fGX0",
+    "videoTitulo": "UNISON SQUARE GARDEN「Phantom Joke」MV"
+  },
+  "1531758024": {
+    "artista": "Enjambre",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "manual",
+    "titulo": "El Derrumbe",
+    "videoId": "DcJra6uCgPg",
+    "visto": 1792806694
+  },
+  "1534342078": {
+    "artista": "Riff Kitten",
+    "canal": "Immortal Swings",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 73,
+    "titulo": "Star Saloon",
+    "videoId": "rmeWCg6Sn2k",
+    "videoTitulo": "Riff Kitten - Star Saloon (Electro Swing)"
+  },
+  "1538260315": {
+    "artista": "Porno Graffitti",
+    "canal": "PORNOGRAFFITTI Official YouTube Channel",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 65,
+    "titulo": "THE DAY",
+    "videoId": "Th7MAZYFIMc",
+    "videoTitulo": "PORNOGRAFFITTI『THE DAY』MUSIC VIDEO(OP theme for “My Hero Academia”)"
+  },
+  "1542182776": {
+    "artista": "YOASOBI",
+    "canal": "YOASOBI",
+    "descartados": [
+      "x8VYWazR5mE"
+    ],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 93,
+    "titulo": "夜に駆ける",
+    "videoId": "by4SYYWlhEs",
+    "videoTitulo": "夜に駆ける"
+  },
+  "1542698942": {
+    "artista": "Aina The End",
+    "canal": "AiNA THE END Official",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 65,
+    "titulo": "STEP by STEP",
+    "videoId": "KEPmmO_xFDE",
+    "videoTitulo": "アイナ・ジ・エンド - STEP by STEP [AiNA with Shin Sakiura]"
+  },
+  "1548412548": {
+    "artista": "Eve",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Nonsense Bungaku",
+    "visto": 1792715531
+  },
+  "1551257376": {
+    "artista": "Primavera Club",
+    "canal": "Primavera Club",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Factores",
+    "videoId": "_slcP0SOYdA",
+    "videoTitulo": "Primavera Club - Factores"
+  },
+  "1552019511": {
+    "artista": "Dayglow",
+    "canal": "Dayglow",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Close to You",
+    "videoId": "otPB54Wxf5c",
+    "videoTitulo": "Dayglow - Close to You (Official Video)"
+  },
+  "1552538780": {
+    "artista": "Primavera Club",
+    "canal": "Primavera Club",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Lentes Negros",
+    "videoId": "Pm5HNNto8WY",
+    "videoTitulo": "Primavera Club - Lentes Negros"
+  },
+  "1555393944": {
+    "artista": "Fujifabric",
+    "canal": "フジファブリック Official Channel",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 60,
+    "titulo": "楽園",
+    "videoId": "TzlecLbdo-s",
+    "videoTitulo": "フジファブリック 『楽園』(TVアニメ「Ｄｒ．ＳＴＯＮＥ」第2期オープニングテーマ)"
   },
   "155658342": {
     "artista": "Fobia",
@@ -40,6 +901,189 @@
     "videoId": "R4Kq5BRv0ZA",
     "videoTitulo": "Fobia - Hoy Tengo Miedo (Video)"
   },
+  "1564009215": {
+    "artista": "柊キライ",
+    "canal": "柊キライ",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "エウレカ",
+    "videoId": "hKIDiRJpHmw",
+    "videoTitulo": "エウレカ / 柊キライ feat.flower"
+  },
+  "1571838424": {
+    "artista": "Kairiki Bear",
+    "canal": "かいりきベア／Kairiki bear",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "ベノム(feat. flower)",
+    "videoId": "oRJBwaZ59fQ",
+    "videoTitulo": "【公式】 ベノム／かいりきベア feat.flower"
+  },
+  "1575799598": {
+    "artista": "Aniceto Molina",
+    "canal": "Aniceto Molina",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Cumbia Cienaguera",
+    "videoId": "iaE80LAVAyw",
+    "videoTitulo": "La Cumbia Sampuesana Y La Cumbia Cienaguera"
+  },
+  "1576021258": {
+    "artista": "blackbear",
+    "canal": "blackbear",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 93,
+    "titulo": "I feel bad",
+    "videoId": "NtGtB19kgh4",
+    "videoTitulo": "I feel bad"
+  },
+  "1576836858": {
+    "artista": "jon-YAKITORY",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "アンチシステム's",
+    "visto": 1792889117
+  },
+  "1577723529": {
+    "artista": "Arawato",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Suplentes",
+    "visto": 1792802431
+  },
+  "1582335572": {
+    "artista": "KANKAKU PIERO",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "ハルカミライ",
+    "visto": 1792806659
+  },
+  "1587295400": {
+    "artista": "NILFRUITS",
+    "canal": "煮ル果実 / NILFRUITS",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "アランダーノ",
+    "videoId": "E3xVcw7--aM",
+    "videoTitulo": "∴煮ル果実「アランダーノ」with Flower【Official】- Arandano"
+  },
+  "1587475868": {
+    "artista": "Kairiki Bear",
+    "canal": "かいりきベア／Kairiki bear",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "レミングミング",
+    "videoId": "4oCuGeHWzCo",
+    "videoTitulo": "【公式】 レミングミング／かいりきベア feat.flower"
+  },
+  "1587920758": {
+    "artista": "Azari",
+    "canal": "Renvee",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 67,
+    "titulo": "Shadow Shadow",
+    "videoId": "2eIW4fVhpW0",
+    "videoTitulo": "Shadow Shadow - Azari (OC MV)"
+  },
+  "1589119763": {
+    "artista": "Shiina Mota",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "少女A",
+    "visto": 1792805432
+  },
+  "1589624669": {
+    "artista": "NILFRUITS & Harumakigohan",
+    "canal": "煮ル果実 / NILFRUITS and HarumakiGohan Official",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 60,
+    "titulo": "フランケンX",
+    "videoId": "hhchkAnUAbE",
+    "videoTitulo": "∴煮ル果実×はるまきごはん「フランケンX」with Flower×初音ミク【Official】- FrankenX"
+  },
+  "1598942641": {
+    "artista": "DLD",
+    "canal": "doremon514",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Por Siempre",
+    "videoId": "bQlAYATw57g",
+    "videoTitulo": "DLD - Por Siempre"
+  },
+  "160140196": {
+    "artista": "Grupo Kual Dinastia Pedraza",
+    "canal": "AVARecordsVEVO",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Rumba Cha-Cha-Cha",
+    "videoId": "SSdY5lWLnso",
+    "videoTitulo": "Grupo Kual? - Rumba Cha Cha Cha (Official)"
+  },
+  "1611037052": {
+    "artista": "late night drive home",
+    "canal": "late night drive home and Epitaph Records",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Stress Relief",
+    "videoId": "g2i-u-9A7UA",
+    "videoTitulo": "late night drive home - \"Stress Relief\" (Official Video)"
+  },
+  "1611527058": {
+    "artista": "Eve",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Kaikai Kitan",
+    "visto": 1792889322
+  },
+  "1618546595": {
+    "artista": "Rare Americans",
+    "canal": "Rare Americans",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Full Moon",
+    "videoId": "Dk6Qyx5VzLA",
+    "videoTitulo": "Rare Americans - Full Moon (Official Lyric Video)"
+  },
+  "1621309307": {
+    "artista": "TyKim",
+    "canal": "TyKim",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "To the King",
+    "videoId": "fhS83VEUB5Y",
+    "videoTitulo": "[Hollow Knight Song] To The King"
+  },
   "1621482900": {
     "artista": "Camellia",
     "canal": "Camellia Official",
@@ -51,6 +1095,47 @@
     "videoId": "od4QcDPpNVk",
     "videoTitulo": "Camellia - Play With Fire / Hiasobi (feat. Hatsune Miku) 「Electroswing」"
   },
+  "1623199078": {
+    "artista": "Swingrowers",
+    "canal": "Freshly Squeezed",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 80,
+    "titulo": "Love!",
+    "videoId": "1vIqdzyH6bo",
+    "videoTitulo": "Swingrowers - Love! (Official MV) #electroswing"
+  },
+  "1625004633": {
+    "artista": "Eminem",
+    "canal": "EminemMusic",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Without Me",
+    "videoId": "YVkUvmDQ3HY",
+    "videoTitulo": "Eminem - Without Me (Official Music Video)"
+  },
+  "1628040869": {
+    "artista": "Alfakyun.",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Kakurembo",
+    "visto": 1792713013
+  },
+  "1631405525": {
+    "artista": "El Cuarteto de Nos",
+    "canal": "seven songs",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "La Ciudad Sin Alma",
+    "videoId": "GeyqS0fEL7g",
+    "videoTitulo": "el cuarteto de nos-la ciudad sin alma-video oficial/letra"
+  },
   "1635863690": {
     "artista": "Wagakki Band",
     "canal": "CC W",
@@ -61,6 +1146,281 @@
     "titulo": "Venom",
     "videoId": "BFiC9460naw",
     "videoTitulo": "和楽器バンド Wagakki Band : ベノム (Venom) - 2022 ボカロ三昧2 大演奏会 (2022 Vocalo Zanmai2 Dai ensoukai)(sub CC)"
+  },
+  "1636885606": {
+    "artista": "Grupo Vibraciones H",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Muñequita Fea",
+    "visto": 1792517846
+  },
+  "1640564842": {
+    "artista": "Lola Club",
+    "canal": "Joaquin Arias",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 55,
+    "titulo": "Perderme en Ti",
+    "videoId": "rUsUusSQEZg",
+    "videoTitulo": "Perderme en ti - Lola Club [Letra]"
+  },
+  "1647502616": {
+    "artista": "LiSA",
+    "canal": "キリサキ",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 57,
+    "titulo": "シャンプーソング",
+    "videoId": "UvlY7u1bxqU",
+    "videoTitulo": "LiSA／シャンプーソング【うたスキ動画】 2025/08/30"
+  },
+  "1648876543": {
+    "artista": "稲葉曇",
+    "canal": "inabakumori",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "ロストアンブレラ",
+    "videoId": "DeKLpgzh-qQ",
+    "videoTitulo": "稲葉曇『ロストアンブレラ』Vo. 歌愛ユキ"
+  },
+  "1652016308": {
+    "artista": "YOASOBI",
+    "canal": "YOASOBI",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 93,
+    "titulo": "If I Could Draw Life",
+    "videoId": "c65XHGurYRY",
+    "videoTitulo": "If I Could Draw Life"
+  },
+  "1652016598": {
+    "artista": "YOASOBI",
+    "canal": "YOASOBI and Echoes",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Halzion",
+    "videoId": "kzdJkT4kp-A",
+    "videoTitulo": "YOASOBI「ハルジオン・Halzion」Official Music Video"
+  },
+  "1656324843": {
+    "artista": "Blnko",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "A Escondidas de Sus Papás :'(",
+    "visto": 1792810459
+  },
+  "1657313213": {
+    "artista": "Shiro SAGISU",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Number One - Bankai (feat. Hazel Fernandes)",
+    "visto": 1792805907
+  },
+  "1660170178": {
+    "artista": "¿?shimon",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Noro (Selfcover)",
+    "visto": 1792805910
+  },
+  "1661623953": {
+    "artista": "ALI",
+    "canal": "ALI",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 93,
+    "titulo": "Wild Side (2023 ver.)",
+    "videoId": "u5heWZ9occg",
+    "videoTitulo": "Wild Side"
+  },
+  "1667625058": {
+    "artista": "Bratty, Nsqk & Méne",
+    "canal": "𝑻𝒓𝒂𝒑𝑺𝒐𝒖𝒍𝑯𝒊𝒓𝒐",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Continental",
+    "videoId": "rx99j-yPKbQ",
+    "videoTitulo": "Continental - BRATTY, Nsqk, Méne (Lyrics) #"
+  },
+  "1675858138": {
+    "artista": "Minami",
+    "canal": "Minami",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "RUDE LOSE DANCE",
+    "videoId": "F86GZpO_ZeU",
+    "videoTitulo": "Minami「 RUDE LOSE DANCE」（Anime「Record of RagnarokⅡ」Opening song）"
+  },
+  "1679910961": {
+    "artista": "ATARASHII GAKKO!",
+    "canal": "artangxl",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Otome No Bigaku",
+    "videoId": "wHOvhmSzS-E",
+    "videoTitulo": "ATARASHII GAKKO! - OTOME NO BIGAKU [Español]"
+  },
+  "1684607067": {
+    "artista": "Juanes",
+    "canal": "Juanes",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "La Camisa Negra",
+    "videoId": "kRt2sRyup6A",
+    "videoTitulo": "Juanes - La Camisa Negra"
+  },
+  "1688352607": {
+    "artista": "Inukai",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Ghost in Kansai",
+    "visto": 1792805739
+  },
+  "1696625757": {
+    "artista": "Ironmouse, shirobeats & ThunderScott",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Hollow Hunger",
+    "visto": 1792805722
+  },
+  "1698400138": {
+    "artista": "Post Malone",
+    "canal": "Post Malone",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 93,
+    "titulo": "Chemical",
+    "videoId": "Sk9rrM3DoFU",
+    "videoTitulo": "Post Malone - Chemical (Official Lyric Video)"
+  },
+  "1699398066": {
+    "artista": "AI",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "World Dance (feat. Chanmina)",
+    "visto": 1792805151
+  },
+  "1705252186": {
+    "artista": "Romix",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Where Our Blue Is \"Jujutsu Kaisen\"",
+    "visto": 1792804764
+  },
+  "1706059393": {
+    "artista": "Cuco & Conexión Divina",
+    "canal": "F O R E V E R S T A R S",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 40,
+    "titulo": "Dime",
+    "videoId": "jYAx5xcz5cA",
+    "videoTitulo": "Cuco ft. Conexión Divina - Dime (Letra) // Lyrics"
+  },
+  "171308120": {
+    "artista": "Elefante",
+    "canal": "S. MANYA C.",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 65,
+    "titulo": "Mentirosa",
+    "videoId": "boWxC5-hnvc",
+    "videoTitulo": "Elefante - Mentirosa"
+  },
+  "1714089840": {
+    "artista": "Aleyna Moon",
+    "canal": "Aleyna Moon",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Hobbies",
+    "videoId": "XIMB7U5qyas",
+    "videoTitulo": "hobbies"
+  },
+  "1714599674": {
+    "artista": "Vaundy",
+    "canal": "Vaundy",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 93,
+    "titulo": "逆光 - replica -",
+    "videoId": "RhDxXvn6YaQ",
+    "videoTitulo": "逆光 - replica -"
+  },
+  "1715287168": {
+    "artista": "La Furia Colombiana",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Los Caminos de la Vida",
+    "visto": 1792711585
+  },
+  "1716321157": {
+    "artista": "Hombres G",
+    "canal": "MisterLorgin",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 67,
+    "titulo": "El ataque de las chicas cocodrilo",
+    "videoId": "AxCL6RfY1bY",
+    "videoTitulo": "forced memes MV: el ataque de las chicas cocodrilo"
+  },
+  "1718531994": {
+    "artista": "Ado",
+    "canal": "Ado",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Dried Flowers",
+    "videoId": "qhmrt3ZNgcs",
+    "videoTitulo": "Dried Flowers"
+  },
+  "1718745117": {
+    "artista": "LadyMonsters.",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Jill-O'-Lantern",
+    "visto": 1792805149
+  },
+  "1724766827": {
+    "artista": "Caravan Palace",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Raccoons",
+    "visto": 1792778117
   },
   "1725802551": {
     "artista": "Minami",
@@ -95,6 +1455,17 @@
     "videoId": "jg09lNupc1s",
     "videoTitulo": "【Ado】レディメイド (Readymade)"
   },
+  "1731599387": {
+    "artista": "VocaloKAT",
+    "canal": "KAT",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 60,
+    "titulo": "Dizzy Paranoia Girl",
+    "videoId": "__P9OMgoLNs",
+    "videoTitulo": "KAT - Dizzy Paranoia Girl ft. Kasane Teto (SynthV Original Song)"
+  },
   "1735891760": {
     "artista": "鯨木",
     "canal": "鯨木",
@@ -106,6 +1477,408 @@
     "videoId": "lpc9MQcjrYg",
     "videoTitulo": "TOXY! / 鯨木【Official Music Video】"
   },
+  "1737242592": {
+    "artista": "biz & ZERA",
+    "canal": "biz",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 65,
+    "titulo": "Love Cat (feat. LOLUET)",
+    "videoId": "hrNHsbYjFNg",
+    "videoTitulo": "Love cat / biz×ZERA feat LOLUET"
+  },
+  "1740149031": {
+    "artista": "seeeeecun",
+    "canal": "seeeeecun (しーくん)",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Mad Dancer",
+    "videoId": "nMU0MqDVoPI",
+    "videoTitulo": "seeeeecun - Mad Dancer (Official Music Video)"
+  },
+  "1740294943": {
+    "artista": "WEDNESDAY CAMPANELLA",
+    "canal": "AstreaFugaz",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 53,
+    "titulo": "Prince Shoutoku",
+    "videoId": "R5LYL1o0QDk",
+    "videoTitulo": "Wednesday Campanella - Prince Shoutoku || Sub. Español y Letra"
+  },
+  "1741918974": {
+    "artista": "Skillbea",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "A/B",
+    "visto": 1792809341
+  },
+  "1743267506": {
+    "artista": "Esteman",
+    "canal": "Esteman",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Hasta Morir",
+    "videoId": "0yhGHbYDrA0",
+    "videoTitulo": "Esteman - Hasta Morir (Lyric Video)"
+  },
+  "1744272726": {
+    "artista": "MILLENNIUM PARADE",
+    "canal": "MILLENNIUM PARADE Official YouTube Channel",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "GOLDENWEEK",
+    "videoId": "f2Bs41goGS0",
+    "videoTitulo": "MILLENNIUM PARADE - GOLDENWEEK"
+  },
+  "1744355459": {
+    "artista": "YUZU",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Hyouriittai",
+    "visto": 1792805732
+  },
+  "1751967658": {
+    "artista": "Odisseo",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Lo Que Tienes Con Él",
+    "visto": 1792803369
+  },
+  "1754263831": {
+    "artista": "Ado",
+    "canal": "Ado",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Eien No Akuruhi",
+    "videoId": "ZHAnZTVF_10",
+    "videoTitulo": "【Ado】Eien No Akuruhi / 永遠のあくる日"
+  },
+  "1764190917": {
+    "artista": "9Lana",
+    "canal": "9Lana",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Let me battle",
+    "videoId": "whTcBozYrOo",
+    "videoTitulo": "【アニメ「ポケットモンスター」エンディングテーマ】『Let me battle』9Lana (Prod.Giga & TeddyLoid) Music Video"
+  },
+  "1766905143": {
+    "artista": "Wagakki Band",
+    "canal": "歌う蛍",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 47,
+    "titulo": "GIFT",
+    "videoId": "f0LINBVhCCI",
+    "videoTitulo": "蛍 - gift(MV)"
+  },
+  "1769697004": {
+    "artista": "Maná",
+    "canal": "OficialMana",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "En El Muelle de San Blas (2019 Remasterizado)",
+    "videoId": "teprNzF6J1I",
+    "videoTitulo": "Maná - En El Muelle De San Blás (Official Video)"
+  },
+  "1771873054": {
+    "artista": "INOHA",
+    "canal": "INOHA",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 90,
+    "titulo": "Seventh Heaven",
+    "videoId": "GCW5pDY2PtA",
+    "videoTitulo": "INOHA - Seventh Heaven (Official Tour Lyric Video)"
+  },
+  "1773034705": {
+    "artista": "SERINA",
+    "canal": "LAWLESS WEEB AMVs 無法",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 53,
+    "titulo": "RUBY",
+    "videoId": "aIC7dtgtH1w",
+    "videoTitulo": "Aqua x Ruby - Oshi no Ko AMV - A Place For Me -【推しの子】"
+  },
+  "1774402357": {
+    "artista": "Phantom Siita",
+    "canal": "Taro Yotsukiri",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 80,
+    "titulo": "Otomodachi",
+    "videoId": "jcvT3r2pihk",
+    "videoTitulo": "[MV Comparison] Phantom Siita – Otomodachi"
+  },
+  "1775310950": {
+    "artista": "Bandalos Chinos",
+    "canal": "BANDALOS CHINOS",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "Cállame",
+    "videoId": "yst78g5t1A8",
+    "videoTitulo": "Bandalos Chinos - Cállame (Video Oficial)"
+  },
+  "1775612785": {
+    "artista": "NILFRUITS",
+    "canal": "煮ル果実 / NILFRUITS",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Funny Insipid Candy Vendor",
+    "videoId": "izZiAkwMP2M",
+    "videoTitulo": "∴煮ル果実「ファニー・インシピッド・キャンディ・ベンダー」with Flower【Official】- Funny Insipid Candy Vendor"
+  },
+  "1776311924": {
+    "artista": "Los Bunkers",
+    "canal": "Nacional Records",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 80,
+    "titulo": "Llueve Sobre La Ciudad",
+    "videoId": "5OuFnuhXUBc",
+    "videoTitulo": "Los Bunkers - Llueve Sobre La Ciudad (Official Music Video)"
+  },
+  "1777375741": {
+    "artista": "ano & Lilas Ikuta",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Shinsekai Yori",
+    "visto": 1792804558
+  },
+  "1780995313": {
+    "artista": "DECO*27",
+    "canal": "DECO*27",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Monitoring",
+    "videoId": "kbNdx0yqbZE",
+    "videoTitulo": "DECO*27 - Monitoring feat. Hatsune Miku"
+  },
+  "1781034415": {
+    "artista": "Shayfer James & Will Wood",
+    "canal": "Shayfer James",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 90,
+    "titulo": "Ferryman",
+    "videoId": "em3QhcVZZhU",
+    "videoTitulo": "Shayfer James & Will Wood  - Ferryman (Official)"
+  },
+  "1783715208": {
+    "artista": "ALI",
+    "canal": "ALI",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "CASANOVA POSSE",
+    "videoId": "sPxXiXucYcM",
+    "videoTitulo": "ALI - CASANOVA POSSE"
+  },
+  "1787328177": {
+    "artista": "System Of A Down",
+    "canal": "System Of A Down",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Chop Suey!",
+    "videoId": "CSvFpBOe8eY",
+    "videoTitulo": "System Of A Down - Chop Suey! (Official HD Video)"
+  },
+  "1789478393": {
+    "artista": "Ado",
+    "canal": "LunClips",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 65,
+    "titulo": "Elf",
+    "videoId": "BHdqWGpwP_U",
+    "videoTitulo": "[Ado] エルフ Elf  Music Video 中日歌詞翻譯對照"
+  },
+  "1789739282": {
+    "artista": "mass",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Gradually Turning into a Dog",
+    "visto": 1792810087
+  },
+  "1793726612": {
+    "artista": "Chogakusei",
+    "canal": "AymenZero",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Medicine",
+    "videoId": "zXyOZvD1zU0",
+    "videoTitulo": "IGAKU/Medicine (Full Animated Music Video)"
+  },
+  "1805993521": {
+    "artista": "Los Yaguaru",
+    "canal": "Los Yaguaru",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Vida No Te Vayas",
+    "videoId": "OOqbEws6uFk",
+    "videoTitulo": "Vida No Te Vayas"
+  },
+  "1806781337": {
+    "artista": "Los Yaguaru",
+    "canal": "Christian Mv",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 50,
+    "titulo": "Loco Soñador",
+    "videoId": "Z94Px6DD_Ww",
+    "videoTitulo": "Loco soñador - A.Venegas Un Loco Soñador"
+  },
+  "1810094172": {
+    "artista": "ORACLE & MØØNE",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Again",
+    "visto": 1792519050
+  },
+  "1810537855": {
+    "artista": "Los Fumancheros",
+    "canal": "Los Fumancheros",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 93,
+    "titulo": "Bum Bum Bum",
+    "videoId": "hwPsK75K9XE",
+    "videoTitulo": "Bum Bum Bum"
+  },
+  "1811241869": {
+    "artista": "Sabino",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Maripositas",
+    "visto": 1792777536
+  },
+  "1811429105": {
+    "artista": "Ruffnux & NEIMY",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "This Sunset",
+    "visto": 1792809543
+  },
+  "1813983531": {
+    "artista": "Rehash",
+    "canal": "rehash*",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "yako",
+    "videoId": "dIFoT2ZKvM0",
+    "videoTitulo": "yako - rehash (Official Music Video)"
+  },
+  "1815215923": {
+    "artista": "Azsagawa",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "マジか!",
+    "visto": 1792803363
+  },
+  "1815567516": {
+    "artista": "Rachie",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Monitoring",
+    "visto": 1792805726
+  },
+  "1818600318": {
+    "artista": "Grupo Cañaveral",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "manual",
+    "titulo": "Tiene Espinas El Rosal",
+    "videoId": "THZbjHKyhR0",
+    "visto": 1792807471
+  },
+  "1820915819": {
+    "artista": "Wendy Moore",
+    "canal": "Wendy Moore",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Tangled Wiring",
+    "videoId": "cTbyik1Ntjg",
+    "videoTitulo": "Wendy Moore - Tangled Wiring (Official Music Video)"
+  },
+  "1821455379": {
+    "artista": "Nathan C & Darla Jade",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Bittersweet",
+    "visto": 1792805731
+  },
+  "1821632447": {
+    "artista": "Hela Mid",
+    "canal": "Hela Mid",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 55,
+    "titulo": "Propose",
+    "videoId": "5RWiORsrlXw",
+    "videoTitulo": "Propose (Hela Mid English Cover)「プロポーズ  - 内緒のピアス, 9Lana」"
+  },
+  "1824118252": {
+    "artista": "dada",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Aldehyde (feat. ROSU)",
+    "visto": 1792805740
+  },
   "1826660647": {
     "artista": "Monte Carlo",
     "descartados": [],
@@ -113,6 +1886,55 @@
     "origen": "auto",
     "titulo": "Fantasma (Tú)",
     "visto": 1791928442
+  },
+  "1829665639": {
+    "artista": "黒うさぎ",
+    "canal": "黒うさぎ",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Goat!",
+    "videoId": "c8dpj3I2pt0",
+    "videoTitulo": "GOAT! - 黒うさぎ × Ci flower × 重音テト × 可不"
+  },
+  "1833247176": {
+    "artista": "Tudor & Embody",
+    "canal": "Deep Culture Beat Oficial ",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 88,
+    "titulo": "Waiting for Love",
+    "videoId": "s2rNUhcHw3E",
+    "videoTitulo": "TUDOR & EMBODY - Waiting For Love [Deep Music Video]"
+  },
+  "1833372036": {
+    "artista": "Madge & VALORANT Music",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "2WORLDS",
+    "visto": 1792805911
+  },
+  "1833855072": {
+    "artista": "Tokyo Manaka",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "manual",
+    "titulo": "Doomer",
+    "videoId": "YcO-MxPf_Vg"
+  },
+  "1833993346": {
+    "artista": "Trickle & Tikaal",
+    "canal": "Trickle",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 60,
+    "titulo": "I'm Sorry I'm a Monster",
+    "videoId": "_qHFyUu7Y6Q",
+    "videoTitulo": "Trickle • I'm Sorry I'm a Monster (MV)"
   },
   "1835130973": {
     "artista": "ROMA",
@@ -125,6 +1947,236 @@
     "videoId": "51Al0hX_g58",
     "videoTitulo": "Rock Teto"
   },
+  "1837083846": {
+    "artista": "Neru",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Becoming Pigs Yeah Yeah",
+    "visto": 1792715239
+  },
+  "1838104841": {
+    "artista": "Jeanette",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "manual",
+    "titulo": "Porque Te Vas",
+    "videoId": "TjUhXbGdLYo"
+  },
+  "1839130595": {
+    "artista": "syudou",
+    "canal": "syudou",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 83,
+    "titulo": "yattyattawa",
+    "videoId": "0tvR79q69Jc",
+    "videoTitulo": "【Hatsune Miku】yattyattawane【syudou】"
+  },
+  "1841583531": {
+    "artista": "Lappy",
+    "canal": "Lappy",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "What a Lovely Masquerade",
+    "videoId": "xiZZ53kWWuM",
+    "videoTitulo": "Arknights: Lappland the Decadenza Theme – What a Lovely Masquerade"
+  },
+  "1842290544": {
+    "artista": "THE ORAL CIGARETTES",
+    "canal": "THE ORAL CIGARETTES",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "Kyouran Hey Kids!!",
+    "videoId": "C-o8pTi6vd8",
+    "videoTitulo": "〈NORAGAMI ARAGOTO〉OP THEME SONG  THE ORAL CIGARETTES 「Kyouran Hey Kids!!」Music Video"
+  },
+  "1845105676": {
+    "artista": "Caravan Palace",
+    "canal": "CaravanPalace",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 70,
+    "titulo": "Lone Digger",
+    "videoId": "UbQgXeY_zi4",
+    "videoTitulo": "Caravan Palace - Lone Digger (Official MV)"
+  },
+  "1847083463": {
+    "artista": "Trickle",
+    "canal": "Trickle",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 45,
+    "titulo": "IRIS OUT",
+    "videoId": "ZFIwJlyPjOo",
+    "videoTitulo": "Trickle • IRIS OUT (English Cover) – Kenshi Yonezu"
+  },
+  "1848275442": {
+    "artista": "The Neighbourhood",
+    "canal": "S1XTE6N",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 63,
+    "titulo": "The Beach",
+    "videoId": "3rPF4W6iXUQ",
+    "videoTitulo": "The Neighbourhood - The Beach"
+  },
+  "1850604243": {
+    "artista": "Serbia",
+    "canal": "Serbia MX",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Fin del Mundo",
+    "videoId": "M3g5iDo4wEE",
+    "videoTitulo": "Fin Del Mundo - SERBIA (Video Oficial)"
+  },
+  "185716601": {
+    "artista": "Toto",
+    "canal": "TOTO",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Rosanna",
+    "videoId": "qmOLtTGvsbM",
+    "videoTitulo": "Toto - Rosanna (Official HD Video)"
+  },
+  "1857569972": {
+    "artista": "Nishiki & 鏡音リン",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "lose-lose",
+    "visto": 1792518486
+  },
+  "1858169065": {
+    "artista": "natori",
+    "canal": "なとり / natori",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "プロポーズ",
+    "videoId": "VDdLF1YubI0",
+    "videoTitulo": "なとり - プロポーズ"
+  },
+  "1859849800": {
+    "artista": "Boehm",
+    "canal": "Boehm",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Sun Goes Down",
+    "videoId": "awjpROQe14s",
+    "videoTitulo": "Sun Goes Down"
+  },
+  "1862168753": {
+    "artista": "Daydream Affiliate",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Playback",
+    "visto": 1792518670
+  },
+  "1862924857": {
+    "artista": "Carla Morrison",
+    "descartados": [],
+    "offset": 11.7,
+    "origen": "manual",
+    "titulo": "Me Encanta",
+    "videoId": "mrQo157TLJQ",
+    "visto": 1792807871
+  },
+  "1867378786": {
+    "artista": "Azari",
+    "canal": "Azari",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Wink (feat. Rosu)",
+    "videoId": "ooEkrEXOls4",
+    "videoTitulo": "Azari, Rosu - Wink"
+  },
+  "1870548361": {
+    "artista": "Clavick & Ado THE FIRST TAKE",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "うっせぇわ",
+    "visto": 1792809145
+  },
+  "1872543559": {
+    "artista": "Anya Nami",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Sadistic",
+    "visto": 1792805851
+  },
+  "1874648320": {
+    "artista": "CaronzBekaluz",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "いたみわけ",
+    "visto": 1792809918
+  },
+  "1878113790": {
+    "artista": "PIXY",
+    "canal": "PIXY",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "LEGACY",
+    "videoId": "Ps_6IcvAEm8",
+    "videoTitulo": "PIXY - LEGACY"
+  },
+  "1893175139": {
+    "artista": "Clairo",
+    "canal": "Jason Photography",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 73,
+    "titulo": "Sofia",
+    "videoId": "0y8AEEyS20Q",
+    "videoTitulo": "Clairo - Sofia (Music Video)"
+  },
+  "198227598": {
+    "artista": "Toto",
+    "canal": "TOTO",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Hold the Line",
+    "videoId": "htgr3pvBr-I",
+    "videoTitulo": "Toto - Hold The Line (Official Video)"
+  },
+  "205999629": {
+    "artista": "Genitallica",
+    "canal": "Genitallica",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "No Tengo Amigos",
+    "videoId": "KxWQCsE_GTo",
+    "videoTitulo": "Genitallica - No tengo amigos (Video Oficial)"
+  },
   "212195250": {
     "artista": "Pastilla",
     "descartados": [],
@@ -132,6 +2184,374 @@
     "origen": "auto",
     "titulo": "Amor Metal",
     "visto": 1791930220
+  },
+  "216330876": {
+    "artista": "Super Grupo Colombia",
+    "canal": "dj ultramix",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 44,
+    "titulo": "Cumbia del Chinito",
+    "videoId": "1nKKMtMUpEY",
+    "videoTitulo": "05.-Cumbia Del Chinito Dj Chore Los Socios Del Genero"
+  },
+  "251197279": {
+    "artista": "Julieta Venegas",
+    "canal": "Juan Enriquez (Jay Rickz)",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 49,
+    "titulo": "Andar Conmigo",
+    "videoId": "ZNvcO-oByj8",
+    "videoTitulo": "Andar Conmigo - Julieta Venegas (English Lyrics)"
+  },
+  "280674400": {
+    "artista": "La Ley",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Aquí",
+    "visto": 1792807861
+  },
+  "283810889": {
+    "artista": "Radio Futura",
+    "canal": "Rarezas de Radio Futura",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "Veneno en la Piel",
+    "videoId": "RzRzPHuzYsk",
+    "videoTitulo": "Radio Futura - Concierto en Directo 1990 - 09 - Veneno en la piel"
+  },
+  "29276049": {
+    "artista": "Franz Ferdinand",
+    "canal": "Cyberpunk 2077",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 63,
+    "titulo": "This Fffire",
+    "videoId": "mH2wmyeiIpA",
+    "videoTitulo": "Cyberpunk: Edgerunners | This Fffire by Franz Ferdinand | Music Video"
+  },
+  "293018389": {
+    "artista": "Ska-P",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Mestizaje",
+    "visto": 1792805725
+  },
+  "293937533": {
+    "artista": "Calle 13",
+    "canal": "elvecindariocalle13",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 55,
+    "titulo": "No Hay Nadie Como Tú (feat. Café Tacuba)",
+    "videoId": "t0DeJ5HeG8o",
+    "videoTitulo": "Calle 13 - No Hay Nadie Como Tú (Video) ft. Café Tacuba"
+  },
+  "297860436": {
+    "artista": "Los Fabulosos Cadillacs",
+    "canal": "Angus og",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 73,
+    "titulo": "Vasos Vacíos",
+    "videoId": "p5hC-3UA3yg",
+    "videoTitulo": "Lapidot AMV / vasos vacios (los fabulosos cadillacs)"
+  },
+  "300855110": {
+    "artista": "Foo Fighters",
+    "canal": "Foo Fighters",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Best of You",
+    "videoId": "h_L4Rixya64",
+    "videoTitulo": "Foo Fighters - Best Of You (Official HD Video)"
+  },
+  "305373911": {
+    "artista": "La Oreja de Van Gogh",
+    "canal": "Martin Serrano B",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 69,
+    "titulo": "La Playa",
+    "videoId": "PviqDjMjy0s",
+    "videoTitulo": "La Oreja de Van Gogh - La Playa"
+  },
+  "312072742": {
+    "artista": "Howie Day",
+    "canal": "Howie Day",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Collide",
+    "videoId": "ca9ub9rpNK4",
+    "videoTitulo": "Howie Day - Collide"
+  },
+  "315025933": {
+    "artista": "Avril Lavigne",
+    "canal": "spallie86",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 90,
+    "titulo": "Things I'll Never Say",
+    "videoId": "Mnn9M9_JQSY",
+    "videoTitulo": "Avril Lavigne - Things I'll Never Say | Music Video"
+  },
+  "319834694": {
+    "artista": "Inspector",
+    "canal": "Inspector Oficial",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Y Qué",
+    "videoId": "kdMKNhqzQTE",
+    "videoTitulo": "Inspector - Y Que - Sonando desde El Auditorio Nacional (Video Oficial)"
+  },
+  "321883388": {
+    "artista": "Soda Stereo",
+    "canal": "Soda Stereo",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 90,
+    "titulo": "Cuando Pase el Temblor",
+    "videoId": "ZNzYr4U7Zs8",
+    "videoTitulo": "Soda Stereo - Cuando Pase el Temblor (Official Video)"
+  },
+  "322133802": {
+    "artista": "Caifanes",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Estás Dormida",
+    "visto": 1792805719
+  },
+  "322260030": {
+    "artista": "Panteón Rococó",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Vendedora de Caricias",
+    "visto": 1792888188
+  },
+  "36510762": {
+    "artista": "Café Tacvba",
+    "canal": "Gabriella Perez",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 55,
+    "titulo": "Las Batallas",
+    "videoId": "qPYmCwx6lSM",
+    "videoTitulo": "Las Batallas - Cafe Tacvba"
+  },
+  "370727532": {
+    "artista": "Lyre le Temps",
+    "canal": "LyreLeTemps",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Lady Swing",
+    "videoId": "vSoh5KMDsRQ",
+    "videoTitulo": "Lyre Le Temps - Lady Swing"
+  },
+  "401328669": {
+    "artista": "Los Daniels",
+    "canal": "Los Daniels Oficial",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Sin Documentos",
+    "videoId": "jnDZ_W4DJD4",
+    "videoTitulo": "Sin Documentos"
+  },
+  "422304407": {
+    "artista": "Santana",
+    "canal": "Santana",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Corazón Espinado (feat. Mana)",
+    "videoId": "t6omUxqhG78",
+    "videoTitulo": "Santana - Corazon Espinado (Official Video) ft. Mana"
+  },
+  "475864316": {
+    "artista": "Maná",
+    "canal": "OficialMana",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Amor Clandestino",
+    "videoId": "d2YAeSKdJdc",
+    "videoTitulo": "Maná - Amor Clandestino (Lyric Video)"
+  },
+  "476993465": {
+    "artista": "Men At Work",
+    "canal": "Men At Work",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Who Can It Be Now?",
+    "videoId": "SECVGN4Bsgg",
+    "videoTitulo": "Men At Work - Who Can It Be Now? (Official Video)"
+  },
+  "507245543": {
+    "artista": "Caravan Palace",
+    "canal": "CaravanPalace",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 80,
+    "titulo": "Rock It for Me",
+    "videoId": "fBGSJ3sbivI",
+    "videoTitulo": "Caravan Palace - Rock It For Me (Official MV)"
+  },
+  "542738868": {
+    "artista": "Ricchi & Poveri",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Será Porque Te Amo",
+    "visto": 1792887285
+  },
+  "604808080": {
+    "artista": "Julieta Venegas",
+    "canal": "Julieta Venegas",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "Me Voy",
+    "videoId": "y8rBC6GCUjg",
+    "videoTitulo": "Julieta Venegas - Me Voy (Video Stereo)"
+  },
+  "604824332": {
+    "artista": "Los Enanitos Verdes",
+    "canal": "Los Enanitos Verdes",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "El Extraño del Pelo Largo",
+    "videoId": "r3KqxOab9zE",
+    "videoTitulo": "Los Enanitos Verdes - El Extraño del Pelo Largo (Official Video)"
+  },
+  "610632420": {
+    "artista": "Caravan Palace",
+    "canal": "CaravanPalace",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "Jolie Coquine",
+    "videoId": "9BoaOsvZmpw",
+    "videoTitulo": "Caravan Palace - Jolie Coquine (Official MV)"
+  },
+  "625318855": {
+    "artista": "Estudio K L",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Detrás De Mi Ventana",
+    "visto": 1792776960
+  },
+  "640075259": {
+    "artista": "Pito Perez",
+    "canal": "Alexis Mvgler OFICIAL",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 53,
+    "titulo": "Lupita",
+    "videoId": "G1ubf0DXbuY",
+    "videoTitulo": "Alexis Mvgler - LA TRIPLE P (Ft. Lupita TikTok) (Video Oficial)"
+  },
+  "666509533": {
+    "artista": "DLD",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Viernes",
+    "visto": 1792521414
+  },
+  "6762697099": {
+    "artista": "Strawberry Pom",
+    "canal": "Strawberry Pom ",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "I Can Lose You",
+    "videoId": "iPVsZAIRoJY",
+    "videoTitulo": "Strawberry Pom - I Can Lose You (Video Oficial)"
+  },
+  "6766174401": {
+    "artista": "Moon Walker",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "THE WORLD YOU BUILT",
+    "visto": 1792806304
+  },
+  "6768312737": {
+    "artista": "The Correspondents",
+    "canal": "The Correspondents",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Finally",
+    "videoId": "BBgPd7I8oSQ",
+    "videoTitulo": "Finally - The Correspondents (Official Music Video)"
+  },
+  "6768343607": {
+    "artista": "The Correspondents",
+    "canal": "The Correspondents",
+    "descartados": [
+      "0J3JbNbmRDQ"
+    ],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 43,
+    "titulo": "Well Measured Vice",
+    "videoId": "VBSGTy_nKgw",
+    "videoTitulo": "The Correspondents - Well Measured Vice (Chucks remix)"
+  },
+  "6768766316": {
+    "artista": "Coldabank",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Lie to Me",
+    "visto": 1792805906
+  },
+  "6773697587": {
+    "artista": "The Broots",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Position",
+    "visto": 1792810874
   },
   "6775750942": {
     "artista": "YOASOBI",
@@ -143,6 +2563,66 @@
     "titulo": "New me",
     "videoId": "HRlW6yZo6Kc",
     "videoTitulo": "YOASOBI「New me」Official Music Video"
+  },
+  "6776133469": {
+    "artista": "ぐちり",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Evening Calm (feat. 鏡音リン)",
+    "visto": 1792800215
+  },
+  "6784455238": {
+    "artista": "Los Fabulosos Cadillacs",
+    "canal": "Los Fabulosos Cadillacs",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "Matador (Remasterizado 2008)",
+    "videoId": "pjPA7CXutDw",
+    "videoTitulo": "Los Fabulosos Cadillacs - Matador (Official Video)"
+  },
+  "6786859133": {
+    "artista": "Valdo Rodriguez",
+    "canal": "un canal mas de SUB !¡",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 43,
+    "titulo": "De Mentiritas",
+    "videoId": "2UJNaFu90Mo",
+    "videoTitulo": "Valdo Rodriguez - De mentiritas /Letra"
+  },
+  "6789298345": {
+    "artista": "Sonora Tropicana",
+    "canal": "cliffboysdfw",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 50,
+    "titulo": "Que Bello",
+    "videoId": "06K4FYBV3JA",
+    "videoTitulo": "que bello cliff boyz y las dinamitas"
+  },
+  "6789732643": {
+    "artista": "HalaCG",
+    "canal": "HalaCG",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Entertaining",
+    "videoId": "v_872GMoe08",
+    "videoTitulo": "SPARKLE SONG - “Entertaining” | HalaCG (Honkai Star Rail) [Official MV] #MultiverseVistas"
+  },
+  "6793371195": {
+    "artista": "Nofu & Roce",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Rose.",
+    "visto": 1792808984
   },
   "6803287330": {
     "artista": "Creed",
@@ -166,6 +2646,140 @@
     "videoId": "tTwjfdrQqvM",
     "videoTitulo": "Dannie May「DAME DAME」（MUSIC VIDEO）"
   },
+  "6804831259": {
+    "artista": "DRAMA",
+    "canal": "DRAMA",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 85,
+    "titulo": "DRAMA club: Ya Hayati",
+    "videoId": "ynD3P4zugFA",
+    "videoTitulo": "DRAMA - DRAMA club: Ya Hayati (Official Video)"
+  },
+  "6809421538": {
+    "artista": "Mulasaki Ima & muque",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "ブルーチーズ",
+    "visto": 1792811703
+  },
+  "6813605101": {
+    "artista": "fakemink & Buckshot",
+    "canal": "BUCKSHOT",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 60,
+    "titulo": "Fever",
+    "videoId": "mqEZcXdtAUA",
+    "videoTitulo": "BUCKSHOT & FAKEMINK - FEVER"
+  },
+  "6814641682": {
+    "artista": "Enjambre",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Reflejo",
+    "visto": 1792518804
+  },
+  "696026039": {
+    "artista": "Bunbury",
+    "canal": "Enrique Bunbury",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 63,
+    "titulo": "Sí",
+    "videoId": "SqB4FSettTI",
+    "videoTitulo": "Héroes del Silencio - Maldito duende"
+  },
+  "696026044": {
+    "artista": "Bunbury",
+    "canal": "Enrique Bunbury",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 93,
+    "titulo": "Enganchado a Tí",
+    "videoId": "Ckc-QjKRc1M",
+    "videoTitulo": "Enganchado a ti"
+  },
+  "696839873": {
+    "artista": "Héroes del Silencio",
+    "canal": "Andres Terrones",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 69,
+    "titulo": "Héroe De Leyenda",
+    "videoId": "miM-eEWKa-Q",
+    "videoTitulo": "Héroe de leyenda - Berserk Edit            Héroes del Silencio"
+  },
+  "709175318": {
+    "artista": "Avril Lavigne",
+    "canal": "Avril Lavigne",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 110,
+    "titulo": "Give You What You Like",
+    "videoId": "-rF-_4vwiMs",
+    "videoTitulo": "Avril Lavigne - Give You What You Like (Official Music Video)"
+  },
+  "714014046": {
+    "artista": "Zoé",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Reptilectric",
+    "visto": 1792808761
+  },
+  "722361671": {
+    "artista": "Spandau Ballet",
+    "canal": "Spandau Ballet (Official)",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 93,
+    "titulo": "True (Remastered)",
+    "videoId": "sWBueqYA2Es",
+    "videoTitulo": "True (2003 Remaster)"
+  },
+  "724011169": {
+    "artista": "Los Pericos",
+    "canal": "KINCHOSS",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 50,
+    "titulo": "Pupilas lejanas",
+    "videoId": "NZCyBaVfSpg",
+    "videoTitulo": "LUGER & THE KINCHOS, PUPILAS LEJANAS.MP4"
+  },
+  "724214046": {
+    "artista": "Culture Club",
+    "canal": "Culture Club",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 100,
+    "titulo": "Karma Chameleon",
+    "videoId": "JmcA9LIIXWw",
+    "videoTitulo": "Culture Club - Karma Chameleon (Official Music Video)"
+  },
+  "725830426": {
+    "artista": "La Mosca Tse-Tse",
+    "canal": "La Mosca Oficial",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 75,
+    "titulo": "El Demonio (Está En Esa Mujer)",
+    "videoId": "Uozgf8ln6qE",
+    "videoTitulo": "La Mosca Tse-Tse - El Demonio (Esta En Esa Mujer)"
+  },
   "727494900": {
     "artista": "Enjambre",
     "descartados": [],
@@ -173,5 +2787,51 @@
     "origen": "auto",
     "titulo": "Estás Dormida",
     "visto": 1792035878
+  },
+  "852203669": {
+    "artista": "LINKIN PARK",
+    "canal": "Linkin Park",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 95,
+    "titulo": "New Divide",
+    "videoId": "ysSxxIqKNN0",
+    "videoTitulo": "New Divide (Official Music Video) [4K Upgrade] - Linkin Park"
+  },
+  "881963266": {
+    "artista": "La Sonora De Lucho Argaín",
+    "canal": "SonieroMS",
+    "descartados": [],
+    "offset": 0.0,
+    "origen": "auto",
+    "puntos": 50,
+    "titulo": "Hechicería",
+    "videoId": "696T3mn0S9A",
+    "videoTitulo": "La Sonora Dinamita de Lucho Argain Hechicería (versión original)"
+  },
+  "924821183": {
+    "artista": "Cumbia Sonidera",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "El Gigante de Hierro",
+    "visto": 1792806374
+  },
+  "924821186": {
+    "artista": "Cumbia Sonidera",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Cumbia Morena 2000",
+    "visto": 1792776463
+  },
+  "973881955": {
+    "artista": "Goose house",
+    "descartados": [],
+    "none": true,
+    "origen": "auto",
+    "titulo": "Hikarunara",
+    "visto": 1792805737
   }
 }

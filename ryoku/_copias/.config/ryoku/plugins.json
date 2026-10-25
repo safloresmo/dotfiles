@@ -18,5 +18,69 @@
       "resume": true,
       "poll": 30
     }
+  },
+  "claude-companion": {
+    "enabled": false,
+    "host": "desktopWidget",
+    "settings": {
+      "pixelScale": 3,
+      "sleepAfter": 120,
+      "reducedMotion": false,
+      "season": "auto",
+      "bridge": "auto",
+      "chatCwd": "",
+      "permissionMode": "default",
+      "loginMethod": "claudeai"
+    },
+    "desktopWidget": {
+      "x": 96,
+      "y": 544
+    }
+  },
+  "github-heatmap": {
+    "enabled": true,
+    "host": "desktopWidget",
+    "settings": {
+      "username": "safloresmo",
+      "design": "blocks",
+      "background": "card",
+      "palette": "mono",
+      "cellShape": "rounded",
+      "range": "last",
+      "months": 3,
+      "showMonths": false,
+      "showWeekdays": false,
+      "showStats": false,
+      "showLegend": false,
+      "showToolbar": false,
+      "language": "auto",
+      "futureDays": "dim",
+      "colorScale": "github",
+      "refreshMin": 30,
+      "clickOpens": false,
+      "hoverStyle": "tooltip",
+      "showTodayCount": true,
+      "showEmpty": true,
+      "highlightToday": true,
+      "cellSize": 13,
+      "cellGap": 3,
+      "monthGap": 6,
+      "weekStart": "sun",
+      "monthFormat": "cap",
+      "weekdayStyle": "alt",
+      "textScale": 100,
+      "showBorder": true,
+      "bgStyle": "glass",
+      "bgOpacity": 100,
+      "cardRadius": 12,
+      "colorAuto": true,
+      "color": "#FFB59E"
+    },
+    "desktopWidget": {
+      "x": 32,
+      "y": 826,
+      "scale": 1,
+      "locked": false
+    }
   }
 }

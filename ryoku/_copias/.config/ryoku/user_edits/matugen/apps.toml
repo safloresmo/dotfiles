@@ -29,6 +29,7 @@ output_path = "~/.config/obs-studio/themes/matugen.theme"
 [templates.zed]
 input_path = "~/.config/matugen/templates/zed.json"
 output_path = "~/.config/zed/themes/matugen.json"
+post_hook = "'/home/sfm/.local/bin/ryoku-zed-theme-sync-installed'"
 
 [templates.heroic]
 input_path = "~/.config/matugen/templates/heroic.css"

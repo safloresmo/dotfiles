@@ -5,10 +5,10 @@
 hl.config({
   dwindle = { smart_resizing = false },
   decoration = { inactive_opacity = 0.85 },
-  input = { kb_layout = "us", kb_variant = "altgr-intl", kb_options = "" },
+  input = { kb_layout = "us", kb_variant = "", kb_options = "", touchpad = { clickfinger_behavior = true } },
 })
 
-hl.curve("ryokuWobble", { type = "bezier", points = { { 0.34, 1.56 }, { 0.64, 1.0 } } })
+hl.curve("ryokuWobble", { type = "bezier", points = { { 0.34, 1.5 }, { 0.64, 1.0 } } })
 hl.curve("ryokuBloom", { type = "bezier", points = { { 0.16, 1.12 }, { 0.24, 1.0 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1.0 } } })
 hl.curve("snap", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
@@ -39,7 +39,22 @@ hl.env("BROWSER", "helium-browser")
 
 hl.window_rule({ name = "ryoku-tame-maximize-on-open", match = { class = ".*" }, suppress_event = "maximize" })
 hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd("helium-browser --app=https://x.com"))
+local function ryoku_plugin_loaded(name)
+  for _, p in ipairs(hl.get_loaded_plugins()) do
+    if p.name == name then return true end
+  end
+  return false
+end
+
+pcall(function()
+  hl.plugin.load("/usr/lib/hyprland/plugins/hyprglass.so")
+  if ryoku_plugin_loaded("hyprglass") then
+    hl.config({ plugin = { hyprglass = { enabled = 1, default_preset = "clear", blur_strength = 2.0, glass_opacity = 1.0, tint_color = 0x8899aa22, brightness = 1.0, default_theme = "dark" } } })
+  end
+end)
+
 
 hl.on("hyprland.start", function()
   hl.exec_cmd("1password")
+  hl.exec_cmd("fluxdeck")
 end)
