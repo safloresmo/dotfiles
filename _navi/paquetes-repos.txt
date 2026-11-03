@@ -58,6 +58,7 @@ gnome-keyring
 gnome-themes-extra
 go
 gpu-screen-recorder
+gpu-screen-recorder-ui
 grim
 gst-libav
 gst-plugins-bad
@@ -188,6 +189,7 @@ ttf-maple-mono-nf
 ttf-material-symbols-variable
 ttf-readex-pro
 ttf-rubik-vf
+umu-launcher
 upower
 v4l2loopback-dkms
 vdirsyncer

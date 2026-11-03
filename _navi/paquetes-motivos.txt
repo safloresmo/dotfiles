@@ -8,6 +8,17 @@ rsync 2026-10-14 copias de las apps de los dotfiles (install.sh: _copias y recog
 io.github.philipk.boilr 2026-10-18 flatpak; añade a Steam los juegos de Heroic, Lutris y otras tiendas
 varlock-bin 2026-10-21 aur; variables de entorno con .env.schema y secretos de 1Password en los proyectos
 android-tools 2026-10-22 adb para limpiar el Android TV con CleanYourTV
-app.zen_browser.zen 2026-10-24 flatpak user; Zen Browser (Firefox de rendimiento)
+zen-browser-bin 2026-10-24 aur; Zen Browser, navegador principal (sustituye a Helium)
 org.mozilla.firefox 2026-10-24 flatpak user; Firefox estable
 nct6687d-dkms-git 2026-10-25 aur; driver de sensores de la placa MSI (RPM de ventiladores y bomba)
+gpu-screen-recorder-ui 2026-10-25 interfaz y atajos de gpu-screen-recorder (arranca con el escritorio)
+umu-launcher 2026-10-27 Proton fuera de Steam para Hikari (lanzador de juegos)
+legendary 2026-10-27 aur; motor de Epic Games para Hikari
+heroic-gogdl 2026-10-27 aur; motor de GOG para Hikari
+nile-git 2026-10-27 aur; motor de Amazon Games para Hikari
+rustup 2026-10-27 sustituye a rust; targets embebidos (riscv32imc para ESP32-C3) en embedded-rust-lab
+espflash 2026-10-27 subir firmware a placas ESP32 desde embedded-rust-lab
+mdbook 2026-10-27 compilar la guía (docs/) de embedded-rust-lab
+espup 2026-10-27 compilador Rust para Xtensa (ESP32-S3) en embedded-rust-lab; instala ~/.rustup/toolchains/esp
+discord 2026-10-22 cliente oficial de Discord; Equicord va encima (sustituye a equibop)
+equicord-installer-bin 2026-10-22 aur; equilotl, mete Equicord en Discord (repetir tras cada actualización de Discord)

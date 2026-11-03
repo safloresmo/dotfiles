@@ -22,6 +22,7 @@
 # overlay: atajos y ajustes de Hyprland que escribe el Hub, fish y qt6ct
 .config/ryoku/user_edits/hypr/settings.lua
 .config/ryoku/user_edits/hypr/rebinds.lua
+.config/ryoku/user_edits/hypr/settings_window.lua
 .config/ryoku/user_edits/fish/config.fish
 .config/ryoku/user_edits/qt6ct/qt6ct.conf
 # matugen: qué apps se pintan con la paleta y las plantillas propias

@@ -1,11 +1,13 @@
 # una app por línea
 base
+fastfetch
 1password
 cider
-helium
+zen
 steam
-equibop
+equicord
 vscode
 ryoku
+animacion
 audio
 openrgb

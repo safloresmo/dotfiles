@@ -82,5 +82,13 @@
       "scale": 1,
       "locked": false
     }
+  },
+  "fluxdeck": {
+    "enabled": true,
+    "host": "topbarGlyph",
+    "settings": {
+      "barLabel": "profile",
+      "poll": 5
+    }
   }
 }

@@ -81,7 +81,7 @@
     "widthPercent": 65
   },
   "controls": {
-    "edgeGap": 17,
+    "edgeGap": 21,
     "hidden": [],
     "position": "top-left",
     "sections": [
@@ -2222,13 +2222,13 @@
         "fileUploadApiEndpoint": "https://0x0.st",
         "fileUploadApiFallback": "https://litterbox.catbox.moe/resources/internals/api.php",
         "fileUploadApiFallback2": "https://catbox.moe/user/api.php",
-        "imageSearchEngineBaseUrl": "https://yandex.com/images/search?rpt=imageview\u0026url=",
+        "imageSearchEngineBaseUrl": "https://yandex.com/images/search?rpt=imageview&url=",
         "useCircleSelection": false
       },
       "nonAppResultDelay": 30,
       "prefix": {
         "action": "/",
-        "app": "\u003e",
+        "app": ">",
         "clipboard": ";",
         "emojis": ":",
         "math": "=",
@@ -3014,7 +3014,7 @@
     "theme": "Wallpaper"
   },
   "wallpaper": {
-    "content_fit": "Contain",
+    "content_fit": "Cover",
     "transition_preset": "random",
     "video_enabled": true,
     "video_engine": "ryogami",

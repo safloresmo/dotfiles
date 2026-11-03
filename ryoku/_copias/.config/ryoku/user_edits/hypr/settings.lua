@@ -35,10 +35,10 @@ hl.animation({ leaf = "windows", enabled = true, speed = 3.2, bezier = "ryokuSet
 hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 7.0, bezier = "easeOutQuint" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 7.0, bezier = "easeOutQuint" })
 
-hl.env("BROWSER", "helium-browser")
+hl.env("BROWSER", "zen-browser")
 
 hl.window_rule({ name = "ryoku-tame-maximize-on-open", match = { class = ".*" }, suppress_event = "maximize" })
-hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd("helium-browser --app=https://x.com"))
+hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd("zen-browser --name zen-x --profile /home/sfm/.config/zen/webapps/x --new-window https://x.com"))
 local function ryoku_plugin_loaded(name)
   for _, p in ipairs(hl.get_loaded_plugins()) do
     if p.name == name then return true end
@@ -57,4 +57,5 @@ end)
 hl.on("hyprland.start", function()
   hl.exec_cmd("1password")
   hl.exec_cmd("fluxdeck")
+  hl.exec_cmd("gsr-ui launch-daemon")
 end)

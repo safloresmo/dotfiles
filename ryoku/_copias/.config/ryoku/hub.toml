@@ -1,4 +1,4 @@
 [ui]
-  section = "launcher"
+  section = "fastfetch"
   update_interval = "hourly"
   advanced = "1"
