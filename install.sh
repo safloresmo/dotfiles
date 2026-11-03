@@ -7,6 +7,8 @@
 #   _sistema/                archivos de fuera de ~ (se instalan con sudo); también en _<equipo>/
 #   _descripcion             una línea que se ve al elegir apps
 #   _requiere                lo que la app necesita: comando, flatpak:<id> o /ruta, y su paquete
+#   _solo-si                 la app solo se ofrece si esto existe (comando o /ruta), p. ej. ryoku
+#   _vista                   lo que enseña la tecla v al elegir apps (se corre desde su carpeta)
 # _<equipo>/apps.txt dice qué apps lleva cada equipo; junto a él van
 # paquetes-motivos.txt, las listas de paquetes de pacman y las apps que solo
 # sirven en ese equipo (una carpeta con _descripcion). _logo/ es el banner.
@@ -16,6 +18,8 @@
 #   ./install.sh adoptar [apps]   en un equipo ya configurado: se queda con lo que hay en ~
 #   ./install.sh estado [apps]    qué falta, qué enlace fue sustituido y qué copia difiere
 #   ./install.sh recoger [apps]   trae al repo las copias y los archivos que sustituyeron a su enlace
+#   ./install.sh quitar apps      deshace sus enlaces y las saca de _<equipo>/apps.txt
+#   ./install.sh actualizar       sin preguntar ni sudo, tras un git pull (lo usa la app sincronizar)
 #
 # Sin decir apps se usan las de _<equipo>/apps.txt; si el equipo no tiene, se eligen.
 set -euo pipefail
@@ -60,7 +64,10 @@ apps_del_repo() { # por categoría y nombre; base primero y las del equipo al fi
                 dir="_$nombre_equipo/$(basename "$dir")"
             else
                 dir="$(basename "$dir")"
-                [[ "$dir" == _* || "$dir" == rices ]] && continue
+                # sincronizar no es una app: se ofrece como paso, «actualización automática»
+                [[ "$dir" == _* || "$dir" == rices || "$dir" == sincronizar ]] && continue
+                # una app de un sistema concreto (ryoku) solo sale donde ese sistema está
+                [[ -f "$repo/$dir/_solo-si" ]] && ! hay "$(head -n1 "$repo/$dir/_solo-si")" && continue
             fi
             c="$(categoria_de "$dir")" orden=50
             for i in "${!categorias[@]}"; do [[ "${categorias[i]}" == "$c" ]] && orden=$(( i + 10 )); done
@@ -101,9 +108,33 @@ banner() {
         linea="${linea//\$1/${tono[0]}}" linea="${linea//\$2/${tono[1]}}"
         linea="${linea//\$3/${tono[2]}}" linea="${linea//\$4/${tono[3]}}"
         printf '%s%s%s\n' "$sangria" "$linea" "$fin"
+        [[ -n "$fin" ]] && sleep 0.025
     done < "$logo"
     printf '%s%s%s%s\n\n' "$(margen ${#pie})" "$tenue" "$pie" "$fin"
 }
+
+raya() { # carácter, cuántos
+    local s
+    printf -v s '%*s' "$2" ""
+    printf '%s' "${s// /$1}"
+}
+
+progreso() { # hechos, total, texto: una barra que se rehace en la misma línea
+    [[ -t 1 ]] || return 0
+    local llenas=$(( $1 * 24 / $2 ))
+    printf '\r\e[K%s%s%s%s%s%s %s/%s  %s%s' "$(margen 44)" "${tono[3]}" "$(raya ━ "$llenas")" \
+        "$tenue" "$(raya ─ $(( 24 - llenas )))" "$fin" "$1" "$2" "$tenue$3" "$fin"
+}
+
+paso_n=0 paso_total=0
+paso() { # título de un paso de la instalación, numerado si se sabe cuántos hay
+    paso_n=$(( paso_n + 1 ))
+    local n=""
+    (( paso_total )) && n="$paso_n/$paso_total  "
+    printf '\n  %s%s━━ %s%s%s\n' "${tono[2]}" "$negrita" "$n" "$1" "$fin"
+}
+listo() { printf '  %s✔%s %s\n' "${tono[3]}" "$fin" "$1"; }
+fallo() { printf '  %s✖ %s%s\n' "${tono[1]}" "$1" "$fin" >&2; }
 
 columnas() { tput cols 2> /dev/null || echo 80; }
 
@@ -161,6 +192,12 @@ poner_paquetes() { # paquetes: sin actualizar el resto del sistema
         dnf) "${root[@]}" dnf install "$@" ;;
         zypper) "${root[@]}" zypper install "$@" ;;
     esac
+}
+
+con_systemd() { [[ -d /run/systemd/system ]]; }
+
+sistema_fijo() { # distros donde /usr no se puede escribir: Silverblue, Bazzite, NixOS…
+    [[ -e /run/ostree-booted || -e /etc/NIXOS ]]
 }
 
 anotar_motivo() { # paquete, motivo
@@ -252,6 +289,7 @@ analizar() { # por cada app de $lista: desc, inst ("origen:paquete" …), mano, 
     local i que fuentes r nombre
     desc=() inst=() mano=() webs=() app_marca=()
     for i in "${!lista[@]}"; do
+        progreso "$i" "${#lista[@]}" "${lista[i]##*/}"
         desc[i]="$(head -n1 "$repo/${lista[i]}/_descripcion" 2> /dev/null || true)"
         inst[i]="" mano[i]="" webs[i]=""
         while read -r que fuentes; do
@@ -268,6 +306,9 @@ analizar() { # por cada app de $lista: desc, inst ("origen:paquete" …), mano, 
         done < <(faltan "${lista[i]}")
         if [[ -n "${inst[i]}" ]]; then app_marca[i]=1; else app_marca[i]=0; fi
     done
+    progreso "${#lista[@]}" "${#lista[@]}" "listo"
+    [[ -t 1 ]] && printf '\r\e[K'
+    return 0
 }
 
 extra_de() { # fila -> $extra_plano y $extra_txt: qué pasa con la aplicación
@@ -291,21 +332,49 @@ extra_de() { # fila -> $extra_plano y $extra_txt: qué pasa con la aplicación
     fi
 }
 
+otros_equipos() { # equipos con apps.txt, menos este
+    local f
+    for f in "$repo"/_*/apps.txt; do
+        [[ -f "$f" && "$f" != "$equipo/apps.txt" ]] && basename "$(dirname "$f")" | cut -c2-
+    done
+    return 0
+}
+
+partir_ayuda() { # "a · b · c" -> líneas que caben en la terminal
+    local trozo linea="" max=$(( $(columnas) - 4 ))
+    local -a trozos
+    IFS=$'\x1f' read -ra trozos <<< "${1// · /$'\x1f'}"
+    for trozo in "${trozos[@]}"; do
+        if [[ -n "$linea" ]] && (( ${#linea} + 3 + ${#trozo} > max )); then
+            echo "$linea"
+            linea="$trozo"
+        else
+            linea+="${linea:+ · }$trozo"
+        fi
+    done
+    echo "$linea"
+}
+
 casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc y marca
     local cabecera="$1" ayuda="$2" modo="${3:-}"
-    local n=${#lista[@]} pos=0 arriba=0 alto tecla resto i caja cursor texto relleno
-    local ancho ancho_desc ancho_extra limite sangria filas grupos=0 anterior
-    local -a cats=()
+    local n=${#lista[@]} pos=0 arriba=0 alto tecla resto i caja cursor nombre texto relleno
+    local ancho ancho_desc ancho_extra limite sangria grupos=0 anterior lineas cuantas
+    local resumen detalle primera=1 perfil="" perfil_i=-1 apps_perfil l
+    local -a cats=() marco=() otros=() ayudas=()
     if [[ "$modo" == app ]]; then
         for i in "${!lista[@]}"; do
             cats[i]="$(categoria_de "${lista[i]}")"
             [[ "${cats[i]}" == "${cats[i-1]:-}" && $i -gt 0 ]] || grupos=$(( grupos + 1 ))
         done
+        mapfile -t otros < <(otros_equipos)
+        (( ${#otros[@]} )) && ayuda="${ayuda/ · Enter/ · p como otro equipo · Enter}"
+        compgen -G "$repo/*/_vista" > /dev/null && ayuda="${ayuda/ · Enter/ · v ver cómo se ve · Enter}"
     fi
     tput smcup 2> /dev/null || true
     tput civis 2> /dev/null || true
     trap 'tput cnorm 2> /dev/null; tput rmcup 2> /dev/null; exit 130' INT TERM
     while true; do
+        mapfile -t ayudas < <(partir_ayuda "$ayuda")
         ancho_desc=0 ancho_extra=0
         for i in "${!lista[@]}"; do
             (( ${#desc[i]} > ancho_desc )) && ancho_desc=${#desc[i]}
@@ -317,38 +386,70 @@ casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc 
         limite=$(( $(columnas) - 20 - ancho_extra ))
         (( limite < 10 )) && limite=10
         (( ancho_desc > limite )) && ancho_desc=$limite
-        ancho=$(( 2 + 3 + 1 + 11 + 1 + ancho_desc + ancho_extra ))
-        alto=$(( $(tput lines 2> /dev/null || echo 24) - 6 - grupos ))
+        ancho=$(( 2 + 2 + 11 + 1 + ancho_desc + ancho_extra ))
+        lineas=$(tput lines 2> /dev/null || echo 24)
+        alto=$(( lineas - 8 - ${#ayudas[@]} - grupos ))
         (( alto < 3 )) && alto=3
         (( pos < arriba )) && arriba=$pos
         (( pos >= arriba + alto )) && arriba=$(( pos - alto + 1 ))
         sangria="$(margen "$ancho")"
-        printf '\e[H\e[2J'
-        # centrado también en vertical: título, ayuda, hueco, flechas y filas
-        filas=$(( n < alto ? n : alto ))
-        for (( i = ($(tput lines 2> /dev/null || echo 24) - filas - grupos - 5) / 2; i > 0; i-- )); do echo; done
-        titulo "$cabecera"
-        printf '%s%s%s%s\n\n' "$(margen ${#ayuda})" "$tenue" "$ayuda" "$fin"
-        (( arriba > 0 )) && printf '%s  %s↑ hay más%s\n' "$sangria" "$tenue" "$fin" || echo
+
+        # se arma la pantalla entera y se pinta de una vez: sin parpadeo
+        marco=()
+        for (( i = (lineas - (n < alto ? n : alto) - grupos - 7 - ${#ayudas[@]}) / 2; i > 0; i-- )); do marco+=(""); done
+        marco+=("$(margen ${#cabecera})${tono[2]}$negrita$cabecera$fin")
+        for l in "${ayudas[@]}"; do marco+=("$(margen ${#l})$tenue$l$fin"); done
+        marco+=("")
+        if (( arriba > 0 )); then marco+=("$sangria  $tenue▲ hay más$fin"); else marco+=(""); fi
         anterior=""
         for (( i = arriba; i < n && i < arriba + alto; i++ )); do
             if [[ "$modo" == app && "${cats[i]}" != "$anterior" ]]; then
-                printf '%s      %s%s%s\n' "$sangria" "${tono[1]}" "${cats[i]}" "$fin"
+                marco+=("$sangria  ${tono[1]}── ${cats[i]} $(raya ─ $(( ancho - ${#cats[i]} - 6 )))$fin")
                 anterior="${cats[i]}"
             fi
-            cursor="  " caja="[ ]" extra_txt=""
-            (( i == pos )) && cursor="${tono[3]}${negrita}>${fin} "
-            (( marca[i] )) && caja="[${tono[3]}${negrita}x${fin}]"
+            cursor="  " nombre="${lista[i]##*/}"
+            if (( i == pos )); then
+                cursor="${tono[3]}▌$fin "
+                printf -v nombre '%s%-11s%s' "$negrita" "$nombre" "$fin"
+            else
+                printf -v nombre '%-11s' "$nombre"
+            fi
+            if (( marca[i] )); then caja="${tono[3]}●$fin"; else caja="$tenue○$fin"; fi
             texto="${desc[i]}"
             (( ${#texto} > ancho_desc )) && texto="${texto:0:ancho_desc-1}…"
             relleno=$(( ancho_desc - ${#texto} ))
+            (( marca[i] )) || texto="$tenue$texto$fin"
+            extra_txt=""
             if [[ "$modo" == app ]]; then
                 extra_de "$i"
                 (( marca[i] )) || extra_txt="$tenue$extra_plano$fin"
             fi
-            printf '%s%s%s %-11s %s%*s%s\n' "$sangria" "$cursor" "$caja" "${lista[i]##*/}" "$texto" "$relleno" "" "${extra_txt:+  $extra_txt}"
+            marco+=("$(printf '%s%s%s %s %s%*s%s' "$sangria" "$cursor" "$caja" "$nombre" "$texto" "$relleno" "" "${extra_txt:+  $extra_txt}")")
         done
-        (( arriba + alto < n )) && printf '%s  %s↓ hay más%s\n' "$sangria" "$tenue" "$fin"
+        if (( arriba + alto < n )); then marco+=("$sangria  $tenue▼ hay más$fin"); else marco+=(""); fi
+        cuantas=0
+        for i in "${!lista[@]}"; do (( marca[i] )) && cuantas=$(( cuantas + 1 )); done
+        resumen="$cuantas de $n elegidas${perfil:+ · como $perfil}"
+        marco+=("" "$(margen ${#resumen})${tono[3]}$resumen$fin")
+        # la descripción entera de la fila elegida, si en la lista no cabe
+        detalle=""
+        (( ${#desc[pos]} > ancho_desc )) && detalle="${desc[pos]}"
+        (( ${#detalle} > $(columnas) - 4 )) && detalle="${detalle:0:$(columnas)-5}…"
+        marco+=("$(margen ${#detalle})$tenue$detalle$fin")
+        if [[ "$modo" == app && -f "$repo/${lista[pos]}/_vista" ]]; then
+            marco+=("$(margen 26)${tono[1]}◆ pulsa v para verla antes$fin")
+        else
+            marco+=("")
+        fi
+
+        printf '\e[H'
+        for l in "${marco[@]}"; do
+            printf '%s\e[K\n' "$l"
+            (( primera )) && sleep 0.008
+        done
+        printf '\e[J'
+        primera=0
+
         IFS= read -rsn1 tecla || tecla=q
         if [[ "$tecla" == $'\e' ]]; then
             IFS= read -rsn2 -t 0.05 resto || resto=""
@@ -357,10 +458,27 @@ casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc 
         case "$tecla" in
             $'\e[A' | k) (( pos > 0 )) && pos=$(( pos - 1 )) ;;
             $'\e[B' | j) (( pos < n - 1 )) && pos=$(( pos + 1 )) ;;
+            $'\e[H' | g) pos=0 ;;
+            $'\e[F' | G) pos=$(( n - 1 )) ;;
             " ") marca[pos]=$(( ! marca[pos] )) ;;
             i) [[ "$modo" == app && -n "${inst[pos]}" ]] && app_marca[pos]=$(( ! app_marca[pos] )) ;;
             a) for i in "${!lista[@]}"; do marca[i]=1; done ;;
             n) for i in "${!lista[@]}"; do marca[i]=0; done ;;
+            p)
+                (( ${#otros[@]} )) || continue
+                perfil_i=$(( (perfil_i + 1) % ${#otros[@]} )) perfil="${otros[perfil_i]}"
+                apps_perfil=" $(grep -Ev '^[[:space:]]*(#|$)' "$repo/_$perfil/apps.txt" | awk '{print $1}' | tr '\n' ' ') "
+                for i in "${!lista[@]}"; do
+                    [[ "$apps_perfil" == *" ${lista[i]##*/} "* ]] && marca[i]=1 || marca[i]=0
+                done ;;
+            v)
+                [[ "$modo" == app && -f "$repo/${lista[pos]}/_vista" ]] || continue
+                # vista previa a pantalla completa; cualquier tecla vuelve a la lista
+                printf '\e[2J\e[H\n'
+                (cd "$repo/${lista[pos]}" && bash _vista) || true
+                printf '\n\n%s%sCualquier tecla para volver%s' "$(margen 27)" "$tenue" "$fin"
+                IFS= read -rsn1 tecla || true
+                printf '\e[2J' ;;
             "") break ;;
             q | $'\e') pos=-1; break ;;
         esac
@@ -428,7 +546,7 @@ identidad_git() { # crea ~/.config/git/usuario la primera vez
             done
         fi
     } > "$archivo"
-    titulo "Guardado en $archivo"
+    titulo "Guardado en ${archivo/#$HOME/\~}"
 }
 
 poner_de() { # origen, paquetes: instala sin actualizar el resto del sistema
@@ -507,11 +625,11 @@ elegir() { # dos pantallas: qué apps y qué hacer; deja $elegidos y $hacer_* li
         lista+=("repos") pasos+=(repos) desc+=("clonar: $pendientes")
     fi
     cuenta="$(sistema_pendiente "${elegidos[@]}" "$(basename "$equipo")")"
-    if (( cuenta > 0 )); then
+    if (( cuenta > 0 )) && ! sistema_fijo; then
         lista+=("sistema") pasos+=(sistema) desc+=("$cuenta archivos fuera de tu carpeta, con sudo")
     fi
-    if [[ -f "$equipo/_sistema/usr/local/sbin/navi-splash-apply" ]]; then
-        lista+=("arranque") pasos+=(arranque) desc+=("animación de arranque de $nombre_equipo, con sudo")
+    if [[ " ${elegidos[*]} " == *" animacion "* ]] && ! sistema_fijo; then
+        lista+=("arranque") pasos+=(arranque) desc+=("poner la animación Navi al encender y al apagar, con sudo")
     fi
     for i in "${!lista[@]}"; do marca[i]=1; done
     # reinstalar lo que este equipo tenía: solo se ofrece, viene sin marcar
@@ -526,34 +644,63 @@ elegir() { # dos pantallas: qué apps y qué hacer; deja $elegidos y $hacer_* li
         lista+=("rest. AUR") pasos+=("restaurar:aur") marca+=(0)
         desc+=("reinstalar lo que tenía $nombre_equipo: ${#guardados_aur[@]} de AUR")
     fi
+    if con_systemd; then
+        lista+=("actualizar") pasos+=(sincronizar)
+        desc+=("actualización automática: bajar los cambios de GitHub cada hora")
+        if [[ "$actuales" == *" sincronizar "* ]]; then marca+=(1); else marca+=(0); fi
+    fi
     casillas "Esto es lo que se va a hacer" \
         "↑↓ moverse · espacio quitar o poner · Enter empezar · q salir sin instalar" ||
         { titulo "No se instaló nada; tu elección quedó en _$nombre_equipo/apps.txt"; exit 0; }
     titulo "Guardado en _$nombre_equipo/apps.txt: ${elegidos[*]##*/}"
 
     hacer_config=0 hacer_repos=0 hacer_sistema=0 hacer_arranque=0
+    # config y repos se hacen en un mismo paso
+    local marcados=" " auto=0
+    for i in "${!pasos[@]}"; do
+        [[ "${pasos[i]}" != sincronizar ]] && (( marca[i] )) && marcados+="${pasos[i]} " paso_total=$(( paso_total + 1 ))
+    done
+    [[ "$marcados" == *" config "* && "$marcados" == *" repos "* ]] && paso_total=$(( paso_total - 1 ))
     for i in "${!pasos[@]}"; do
         (( marca[i] )) || continue
         case "${pasos[i]}" in
             paquetes:*)
                 o="${pasos[i]#paquetes:}"
-                titulo "Instalando con $(nombre_origen "$o"): ${por_origen[$o]}"
+                paso "Instalando con $(nombre_origen "$o"): ${por_origen[$o]}"
                 # shellcheck disable=SC2086
                 if poner_de "$o" ${por_origen[$o]}; then
-                    if [[ "$o" != flatpak ]]; then
-                        for paquete in ${por_origen[$o]}; do anotar_motivo "$paquete" "${motivo[$paquete]}"; done
-                    fi
+                    for paquete in ${por_origen[$o]}; do anotar_motivo "$paquete" "${motivo[$paquete]}"; done
+                    listo "instalado"
                 else
-                    aviso "No se pudo instalar todo con $(nombre_origen "$o"); sigo con lo demás."
+                    fallo "No se pudo instalar todo con $(nombre_origen "$o"); sigo con lo demás."
                 fi ;;
-            restaurar:repo) poner_paquetes "${guardados_repo[@]}" || aviso "No se pudo reinstalar todo; sigo." ;;
-            restaurar:aur) "$(ayudante_aur)" -S --needed "${guardados_aur[@]}" || aviso "No se pudo reinstalar todo de AUR; sigo." ;;
+            restaurar:repo)
+                paso "Reinstalando lo que tenía $nombre_equipo"
+                poner_paquetes "${guardados_repo[@]}" && listo "reinstalado" || fallo "No se pudo reinstalar todo; sigo." ;;
+            restaurar:aur)
+                paso "Reinstalando lo que tenía $nombre_equipo de AUR"
+                "$(ayudante_aur)" -S --needed "${guardados_aur[@]}" && listo "reinstalado" ||
+                    fallo "No se pudo reinstalar todo de AUR; sigo." ;;
             config) hacer_config=1 ;;
             repos) hacer_repos=1 ;;
             sistema) hacer_sistema=1 ;;
             arranque) hacer_arranque=1 ;;
+            sincronizar)
+                auto=1 elegidos+=(sincronizar)
+                echo sincronizar >> "$equipo/apps.txt" ;;
         esac
     done
+    (( auto )) || apagar_sincronizar
+    return 0
+}
+
+apagar_sincronizar() { # quita el timer si estaba puesto
+    local wants="$HOME/.config/systemd/user/timers.target.wants/dotfiles-sincronizar.timer"
+    [[ -L "$wants" || -L "$HOME/.local/bin/dotfiles-sincronizar" ]] || return 0
+    if command -v systemctl > /dev/null; then systemctl --user stop dotfiles-sincronizar.timer 2> /dev/null || true; fi
+    rm -f "$wants"
+    stow --dir="$repo" --target="$HOME" --no-folding --delete sincronizar
+    listo "actualización automática apagada"
 }
 
 enlazables() { # app -> rutas que van enlazadas, relativas a ~
@@ -592,6 +739,11 @@ copiar() { # app: del repo a ~; si pisa algo distinto, lo de antes va al respald
     while read -r ruta; do
         ruta="${ruta%/}"
         padre="$(dirname "$ruta")"
+        # al actualizar, una copia que no cambió en el repo se queda como el programa la dejó
+        if [[ -n "${DOTFILES_DESDE:-}" && -e "$HOME/$ruta" ]] &&
+            git -C "$repo" diff --quiet "$DOTFILES_DESDE" HEAD -- "$1/_copias/$ruta"; then
+            continue
+        fi
         if [[ -e "$HOME/$ruta" ]] && ! diff -rq "$repo/$1/_copias/$ruta" "$HOME/$ruta" > /dev/null 2>&1; then
             mkdir -p "$respaldo/$padre"
             cp -a "$HOME/$ruta" "$respaldo/$padre/"
@@ -683,15 +835,15 @@ poner_sistema() { # app o _equipo: instala lo que difiere
     if [[ "$(id -u)" -eq 0 ]]; then
         bash "$tmp"
     else
-        sudo bash "$tmp"
+        sudo bash "$tmp" || aviso "No se pusieron los archivos de sistema de ${nombre##*/}; ./install.sh estado dice cuáles."
     fi
     rm -f "$tmp"
 }
 
-# La animación de arranque vive en _<equipo>. Si ya está en el UKI, no pide sudo.
+# La animación de arranque es de la app animacion. Si ya está puesta, no pide sudo.
 aplicar_splash() {
-    local apply="$equipo/_sistema/usr/local/sbin/navi-splash-apply"
-    local src="$equipo/_sistema/usr/share/plymouth/themes/navi"
+    local apply="$repo/animacion/_sistema/usr/local/sbin/navi-splash-apply"
+    local src="$repo/animacion/_sistema/usr/share/plymouth/themes/navi"
     local theme=/usr/share/plymouth/themes/navi stamp=/var/lib/navi/splash.stamp
     local cur fp
     [[ -f "$apply" && -d "$src" ]] || return 0
@@ -700,43 +852,117 @@ aplicar_splash() {
         fp=$(find "$theme" -type f -exec sha256sum {} + | sort | sha256sum | cut -d' ' -f1)
         [[ "$cur" == navi && "$(cat "$stamp")" == "$fp" ]] && return 0
     fi
+    if ! command -v plymouth-set-default-theme > /dev/null; then
+        aviso "Para la animación de arranque hace falta Plymouth (paquete plymouth)."
+        return 0
+    fi
+    local root=()
+    [[ "$(id -u)" -eq 0 ]] || root=(sudo)
     echo "arranque: animación Navi"
-    sudo "$apply"
+    "${root[@]}" "$apply" || aviso "No se aplicó la animación de arranque."
 }
 
 instalar() { # "" o "adoptar"; usa $elegidos
     requisitos_instalador
     mkdir -p "$HOME/.config" "$HOME/.local/bin" "$HOME/.local/share"
-    local app
-    for app in "${elegidos[@]}"; do
-        if (( hacer_config )); then
-            enlazar "$app" "$1"
-            if [[ "$1" == adoptar ]]; then recoger_copias "$app"; else copiar "$app"; fi
-        fi
-        (( hacer_repos )) && repos "$app" clonar
-        (( hacer_config )) && enlaces "$app" poner
-        (( hacer_sistema )) && poner_sistema "$app"
-    done
-    (( hacer_sistema )) && poner_sistema "$(basename "$equipo")"
-    (( hacer_arranque )) && aplicar_splash
+    local app t
+    local -a de_sistema=("${elegidos[@]}")
+    # con apps sueltas solo se toca lo de esas apps, no lo del equipo
+    (( apps_sueltas )) || de_sistema+=("$(basename "$equipo")")
+    (( hacer_sistema )) && (( $(sistema_pendiente "${de_sistema[@]}") == 0 )) && hacer_sistema=0
+    [[ " ${elegidos[*]} " == *" animacion "* ]] || hacer_arranque=0
+    if sistema_fijo && (( hacer_sistema || hacer_arranque )); then
+        aviso "Este sistema no deja escribir en /usr: me salto los archivos de sistema y la animación de arranque."
+        hacer_sistema=0 hacer_arranque=0
+    fi
+    (( paso_total )) || paso_total=$(( (hacer_config || hacer_repos) + hacer_sistema + hacer_arranque ))
+    if (( hacer_config || hacer_repos )); then
+        paso "Configuración"
+        for app in "${elegidos[@]}"; do
+            if (( hacer_config )); then
+                enlazar "$app" "$1"
+                if [[ "$1" == adoptar ]]; then recoger_copias "$app"; else copiar "$app"; fi
+            fi
+            (( hacer_repos )) && repos "$app" clonar
+            (( hacer_config )) && enlaces "$app" poner
+            listo "${app##*/}"
+        done
+    fi
+    if (( hacer_sistema )); then
+        paso "Archivos de sistema (pide sudo)"
+        for app in "${de_sistema[@]}"; do poner_sistema "$app"; done
+    fi
+    if (( hacer_arranque )); then
+        paso "Animación de arranque"
+        aplicar_splash
+    fi
     if (( hacer_config )) && [[ " ${elegidos[*]} " == *" base "* ]]; then identidad_git; fi
+    # recarga las unidades y arranca las que activan las apps elegidas en su _enlaces.txt
+    if command -v systemctl > /dev/null && systemctl --user daemon-reload 2> /dev/null; then
+        for app in "${elegidos[@]}"; do
+            [[ -f "$repo/$app/_enlaces.txt" ]] || continue
+            while read -r t _; do
+                [[ "$t" == *.target.wants/* ]] && { systemctl --user start "${t##*/}" 2> /dev/null || true; }
+            done < "$repo/$app/_enlaces.txt"
+        done
+    fi
+
+    echo
+    titulo "✔ Listo"
+    [[ -d "$respaldo" ]] && bloque "Lo que estorbaba quedó en $respaldo"
+    if [[ " ${elegidos[*]} " == *" animacion "* ]] && ! con_systemd; then
+        bloque "Sin systemd, la animación al recargar la shell no arranca sola:" \
+            "añade navi-intro-vigia a lo que tu escritorio lanza al iniciar sesión."
+    fi
+    if [[ " ${elegidos[*]} " == *" sincronizar "* && "$orden" != actualizar ]]; then
+        bloque "Este equipo baja solo los cambios de GitHub cada hora." "Para bajarlos ya: dotfiles-sincronizar"
+    fi
     if [[ -n "${a_mano:-}" ]]; then
+        echo
         titulo "Falta instalar a mano:"
         mapfile -t _lineas < <(printf '%s' "$a_mano" | sort -u)
         bloque "${_lineas[@]}"
     fi
-    if command -v systemctl > /dev/null; then systemctl --user daemon-reload 2> /dev/null || true; fi
-    [[ -d "$respaldo" ]] && echo "lo apartado quedó en $respaldo"
     return 0
 }
 
-sin_motivo() { # lo instalado a mano que ni venía con el sistema ni tiene motivo anotado
-    local base="$equipo/paquetes-base.txt" motivos="$equipo/paquetes-motivos.txt" nombre
-    [[ -f "$base" ]] && command -v pacman > /dev/null || return 0
+motivos() { # nombres de paquetes-motivos.txt
+    grep -Ev '^[[:space:]]*(#|$)' "$equipo/paquetes-motivos.txt" 2> /dev/null | awk '{print $1}' || true
+}
+
+sin_motivo() { # lo instalado a mano sin motivo anotado, y los motivos de algo que ya no está
+    local base="$equipo/paquetes-base.txt" nombre instalado flatpaks=""
+    command -v pacman > /dev/null || return 0
+    command -v flatpak > /dev/null && flatpaks="$(flatpak list --app --columns=application)"
+    instalado="$( { pacman -Qq 2> /dev/null; echo "$flatpaks"; } | sort -u)"
+    # sin paquetes-base.txt no se sabe qué vino con el sistema: solo se miran los flatpaks
     while read -r nombre; do
         echo "instalado sin motivo: $nombre"
-    done < <(pacman -Qqe | grep -Fvxf "$base" |
-        grep -Fvxf <(grep -Ev '^[[:space:]]*(#|$)' "$motivos" 2> /dev/null | awk '{print $1}') || true)
+    done < <( { [[ -f "$base" ]] && pacman -Qqe 2> /dev/null | grep -Fvxf "$base"; echo "$flatpaks"; } |
+        grep -v '^$' | grep -Fvxf <(motivos) || true)
+    while read -r nombre; do
+        echo "motivo de algo que no está instalado: $nombre"
+    done < <(motivos | grep -Fvxf <(echo "$instalado") || true)
+}
+
+enlaces_rotos() { # enlaces de ~ que apuntan al repo a un archivo que ya no existe
+    local enlace
+    while IFS= read -r enlace; do
+        [[ "$(readlink -m "$enlace")" == "$repo"/* ]] && echo "enlace roto: ~/${enlace#"$HOME/"}"
+    done < <(find "$HOME" -xdev -xtype l -lname "*$(basename "$repo")/*" 2> /dev/null)
+    return 0
+}
+
+quitar() { # deshace los enlaces de las apps; copias, repos y _sistema se quedan
+    local app
+    for app in "${elegidos[@]}"; do
+        stow --dir="$repo/$(dirname "$app")" --target="$HOME" --no-folding --delete "$(basename "$app")"
+        if [[ -f "$equipo/apps.txt" ]]; then
+            awk -v a="${app##*/}" '$1 != a' "$equipo/apps.txt" > "$equipo/apps.txt.nuevo"
+            mv "$equipo/apps.txt.nuevo" "$equipo/apps.txt"
+        fi
+        echo "quitada: ${app##*/} (sus copias en ~ se quedan)"
+    done
 }
 
 estado() {
@@ -760,6 +986,7 @@ estado() {
     done
     sistema "$(basename "$equipo")"
     sin_motivo
+    enlaces_rotos
     return 0
 }
 
@@ -780,13 +1007,19 @@ recoger() {
 orden=instalar
 hacer_config=1 hacer_repos=1 hacer_sistema=1 hacer_arranque=1
 case "${1:-}" in
-    adoptar | estado | recoger | elegir) orden="$1"; shift ;;
-    -h | --help | ayuda) sed -n '2,19p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    adoptar | estado | recoger | elegir | quitar) orden="$1"; shift ;;
+    actualizar) orden="$1" hacer_sistema=0 hacer_arranque=0; shift ;;
+    -h | --help | ayuda) sed -n '2,23p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
 esac
-[[ "$orden" == estado ]] || banner
+apps_sueltas=$(( $# > 0 ))
+if [[ "$orden" == quitar ]] && (( ! apps_sueltas )); then
+    echo "di qué apps quitar: ./install.sh quitar <apps>" >&2
+    exit 1
+fi
+[[ "$orden" == estado || "$orden" == actualizar ]] || banner
 if [[ "$orden" == elegir ]] || { [[ "$orden" == instalar && $# -eq 0 && ! -f "$equipo/apps.txt" ]]; }; then
     if [[ ! -t 0 ]]; then
-        aviso "Elegir apps necesita una terminal; o pásalas: ./install.sh base helium"
+        aviso "Elegir apps necesita una terminal; o pásalas: ./install.sh base zen"
         exit 1
     fi
     requisitos_instalador
@@ -814,8 +1047,9 @@ for app in "${elegidos[@]}"; do
 done
 
 case "$orden" in
-    instalar) instalar "" ;;
+    instalar | actualizar) instalar "" ;;
     adoptar) instalar adoptar ;;
     estado) estado ;;
     recoger) recoger ;;
+    quitar) quitar ;;
 esac

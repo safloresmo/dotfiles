@@ -1,0 +1,17 @@
+name: instalador
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        distro: [archlinux:latest, fedora:latest, ubuntu:latest, debian:stable, opensuse/tumbleweed]
+    container: ${{ matrix.distro }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash .github/probar.sh
