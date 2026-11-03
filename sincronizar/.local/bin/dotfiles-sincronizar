@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Baja los cambios de los dotfiles y los aplica con ./install.sh actualizar.
+# Lo lanza dotfiles-sincronizar.timer cada hora; también se puede correr a mano.
+# Nunca mezcla: si aquí hay cambios o commits sin subir, avisa y no toca nada.
+set -euo pipefail
+
+repo="$(git -C "$(dirname "$(readlink -f "$0")")" rev-parse --show-toplevel)"
+equipo="_${DOTFILES_EQUIPO:-$(uname -n)}"
+cd "$repo"
+
+avisar() {
+    echo "$1"
+    command -v notify-send > /dev/null && notify-send -a Dotfiles -i system-software-update "Dotfiles" "$1" 2> /dev/null || true
+}
+
+# sin red no hay nada que hacer; se reintenta en la próxima vuelta
+git fetch --quiet || { echo "sin conexión con $(git remote get-url origin)"; exit 0; }
+
+antes="$(git rev-parse HEAD)"
+[[ "$antes" == "$(git rev-parse '@{u}')" ]] && { echo "ya está al día"; exit 0; }
+
+# lo de la carpeta de este equipo (apps.txt, motivos) puede estar cambiado: el otro equipo no lo toca
+sucio="$(git status --porcelain --untracked-files=no | awk '{print $NF}' | grep -v "^$equipo/" || true)"
+if [[ -n "$sucio" ]]; then
+    avisar "Hay cambios sin subir en $repo; no se bajó nada. Súbelos o descártalos."
+    exit 0
+fi
+if ! git merge --ff-only --quiet '@{u}'; then
+    avisar "Este equipo tiene commits que GitHub no tiene; no se bajó nada. Revisa $repo con git status."
+    exit 1
+fi
+
+DOTFILES_DESDE="$antes" "$repo/install.sh" actualizar
+cambios="$(git rev-list --count "$antes"..HEAD)"
+if (( cambios == 1 )); then cambios="1 cambio"; else cambios="$cambios cambios"; fi
+if git diff --name-only "$antes" HEAD | grep -q '/_sistema/'; then
+    avisar "Bajé $cambios. Hay archivos de sistema nuevos: corre $repo/install.sh en una terminal (pide sudo)."
+else
+    avisar "Bajé $cambios de GitHub y ya están aplicados."
+fi

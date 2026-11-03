@@ -1,0 +1,2 @@
+# activa el timer: el enlace apunta a la unidad de ~, no al repo
+.config/systemd/user/timers.target.wants/dotfiles-sincronizar.timer .config/systemd/user/dotfiles-sincronizar.timer

@@ -1,0 +1,10 @@
+[Unit]
+Description=Mantener los dotfiles al día con GitHub
+
+[Timer]
+OnActiveSec=2min
+OnUnitActiveSec=1h
+RandomizedDelaySec=2min
+
+[Install]
+WantedBy=timers.target
