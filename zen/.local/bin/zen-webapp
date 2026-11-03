@@ -1,0 +1,4 @@
+#!/bin/bash
+# uso: zen-webapp <nombre> <url>  · abre <url> con el perfil de ~/.config/zen/webapps/<nombre>
+[[ $# -eq 2 ]] || { echo "uso: zen-webapp <nombre> <url>" >&2; exit 2; }
+exec zen-browser --name "zen-$1" --profile "${XDG_CONFIG_HOME:-$HOME/.config}/zen/webapps/$1" --new-window "$2"

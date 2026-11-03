@@ -1,9 +1,9 @@
 [Default Applications]
-x-scheme-handler/http=helium.desktop
-x-scheme-handler/https=helium.desktop
-text/html=helium.desktop
-x-scheme-handler/about=helium.desktop
-x-scheme-handler/unknown=helium.desktop
+x-scheme-handler/http=zen.desktop
+x-scheme-handler/https=zen.desktop
+text/html=zen.desktop
+x-scheme-handler/about=zen.desktop
+x-scheme-handler/unknown=zen.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 x-scheme-handler/codex=chatgpt.desktop
 x-scheme-handler/grimoire=grimoire.desktop
@@ -14,6 +14,7 @@ x-scheme-handler/deadlock-modmanager=deadlock-mod-manager-handler.desktop
 x-scheme-handler/dlmm=deadlock-mod-manager-handler.desktop
 x-scheme-handler/rpi-imager=com.raspberrypi.rpi-imager-uri-handler.desktop
 application/pdf=helium.desktop
+application/xhtml+xml=zen.desktop
 
 [Added Associations]
 application/pdf=helium.desktop;
