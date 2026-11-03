@@ -1,0 +1,9 @@
+# vista previa del instalador (tecla v): la animación tal cual sale al recargar la shell
+if command -v quickshell > /dev/null && [[ -n "${WAYLAND_DISPLAY:-}" ]]; then
+    echo "  Mira la pantalla: así sale al recargar la shell (y en el arranque, en grande)."
+    NAVI_CUADROS="$PWD/_sistema/usr/share/plymouth/themes/navi" quickshell -p .local/share/navi-intro/intro.qml > /dev/null 2>&1
+elif command -v kitten > /dev/null; then
+    kitten icat --align center _sistema/usr/share/plymouth/themes/navi/f090.png
+else
+    echo "  La animación está en $PWD/_origen/navi.webm"
+fi

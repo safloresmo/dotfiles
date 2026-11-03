@@ -1,0 +1,11 @@
+[Unit]
+Description=Animación Navi al recargar la shell
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/navi-intro-vigia
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

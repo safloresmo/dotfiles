@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Dibuja la animación Navi encima de todo durante unos 3 segundos.
+app="$(readlink -f "$(dirname "$(readlink -f "$0")")/../..")"
+export NAVI_CUADROS="$app/_sistema/usr/share/plymouth/themes/navi"
+exec timeout 10 quickshell -p "$app/.local/share/navi-intro/intro.qml" > /dev/null 2>&1

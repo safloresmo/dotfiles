@@ -1,0 +1,36 @@
+#!/bin/bash
+# Pone la animación Navi como tema de Plymouth y rehace el arranque.
+# ./install.sh deja el tema en /usr/share/plymouth/themes/navi antes de llamarlo.
+# En Ryoku, una actualización de ryoku-desktop vuelve a su tema;
+# /etc/pacman.d/hooks/navi-splash.hook llama a este script y lo restaura.
+set -u
+
+theme=/usr/share/plymouth/themes/navi
+stamp=/var/lib/navi/splash.stamp
+
+[ "$(id -u)" -eq 0 ] || { echo "hace falta root" >&2; exit 1; }
+[ -f "$theme/navi.script" ] || { echo "falta el tema navi en $theme" >&2; exit 1; }
+command -v plymouth-set-default-theme > /dev/null || { echo "falta plymouth" >&2; exit 1; }
+
+fp=$(find "$theme" -type f -exec sha256sum {} + | sort | sha256sum | cut -d' ' -f1)
+cur=$(plymouth-set-default-theme 2> /dev/null || true)
+if [ "$cur" = navi ] && [ -f "$stamp" ] && [ "$(cat "$stamp")" = "$fp" ]; then
+    exit 0
+fi
+
+plymouth-set-default-theme navi
+# cada distro rehace el arranque con su herramienta
+if command -v limine-mkinitcpio > /dev/null; then
+    limine-mkinitcpio
+elif command -v mkinitcpio > /dev/null; then
+    mkinitcpio -P
+elif command -v dracut > /dev/null; then
+    dracut --force --regenerate-all
+elif command -v update-initramfs > /dev/null; then
+    update-initramfs -u -k all
+else
+    echo "no sé rehacer el arranque aquí; hazlo a mano para ver la animación" >&2
+fi
+grep -qw splash /proc/cmdline || echo "falta «splash» en la línea del kernel: sin eso Plymouth no se ve" >&2
+mkdir -p /var/lib/navi
+printf '%s\n' "$fp" > "$stamp"

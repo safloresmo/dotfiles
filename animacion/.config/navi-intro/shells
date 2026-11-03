@@ -1,0 +1,7 @@
+# una expresión por línea: la línea de comandos de la shell del escritorio.
+# Cuando un proceso así vuelve a arrancar, sale la animación.
+^(qs|quickshell) (-c|--config) (shell|caelestia|noctalia-shell|ii|dms)( |$)
+^(caelestia) shell
+^waybar( |$)
+^hyprpanel( |$)
+^(ags|astal) 

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Vigila la shell del escritorio y lanza navi-intro cada vez que vuelve a arrancar.
+# La primera que ve es la del inicio de sesión: esa no lleva animación.
+set -u
+lista="${XDG_CONFIG_HOME:-$HOME/.config}/navi-intro/shells"
+patron="$(grep -Ev '^[[:space:]]*(#|$)' "$lista" | paste -sd'|')"
+[[ -n "$patron" ]] || { echo "no hay shells en $lista"; exit 1; }
+ultimo="" visto=0
+while sleep 1; do
+    pid="$(pgrep -u "$UID" -nf "$patron" || true)"
+    [[ -n "$pid" && "$pid" != "$ultimo" ]] || continue
+    (( visto )) && navi-intro &
+    ultimo="$pid" visto=1
+done
