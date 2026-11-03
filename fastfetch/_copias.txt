@@ -1,0 +1,5 @@
+# estilo Wired; en Ryoku la página Fastfetch del Hub la reescribe
+.config/fastfetch/config.jsonc
+# emblema que muestra (ruta de la tienda de Ryoku, sirve igual sin Ryoku)
+Pictures/ryoemblems/lain.png
+Pictures/ryoemblems/iusearchbtw.png

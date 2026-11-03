@@ -1,0 +1,140 @@
+// Wired - a readout that wraps around a square emblem
+// The top block sits beside the emblem; the hardware block returns to the first
+// column below it with a carriage return; no custom rows or cursor escapes, so
+// a save from Settings -> Fastfetch keeps the layout.
+// Keep the emblem 11 rows tall so the top block clears it.
+// ryoku:recolor keys=primary title=foreground separator=outline
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty-direct",
+    "source": "~/Pictures/ryoemblems/lain.png",
+    "width": 24,
+    "height": 11,
+    "padding": {
+      "left": 2,
+      "right": 4,
+      "top": 1
+    }
+  },
+  "display": {
+    "separator": "",
+    "color": {
+      "keys": "38;2;214;86;104",
+      "title": "#ece8e8",
+      "output": "#cfd0d8",
+      "separator": "#5d6170"
+    },
+    "key": {
+      "width": 0
+    },
+    "percent": {
+      "type": ["num"],
+      "color": {
+        "green": "#9cbfa7",
+        "yellow": "#d8bf8a",
+        "red": "#e0566b"
+      }
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "key": "  User       ",
+      "format": "{#title}{user-name}{#separator}@{#title}{host-name}"
+    },
+    {
+      "type": "separator",
+      "string": "╌",
+      "times": 52,
+      "outputColor": "keys"
+    },
+    {
+      "type": "os",
+      "key": "  OS         ",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "kernel",
+      "key": "  Kernel     ",
+      "format": "{sysname} {release}"
+    },
+    {
+      "type": "uptime",
+      "key": "  Uptime     "
+    },
+    {
+      "type": "shell",
+      "key": "  Shell      ",
+      "format": "{pretty-name}{?version} {version}{?}"
+    },
+    {
+      "type": "display",
+      "key": "  Display    ",
+      "format": "{width}x{height} @ {refresh-rate} Hz"
+    },
+    {
+      "type": "wm",
+      "key": "  WM         ",
+      "format": "{pretty-name}{?version} {version}{?}{?protocol-name} ({protocol-name}){?}"
+    },
+    {
+      "type": "terminal",
+      "key": "  Terminal   ",
+      "format": "{pretty-name}{?version} {version}{?}"
+    },
+    {
+      "type": "packages",
+      "key": "  Pkg        "
+    },
+    {
+      "type": "locale",
+      "key": "  Locale     "
+    },
+    {
+      "type": "cursor",
+      "key": "  Cursor     ",
+      "format": "{theme}{?size} ({size}px){?}"
+    },
+    {
+      "type": "separator",
+      "string": "\r╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌",
+      "times": 1,
+      "outputColor": "keys"
+    },
+    {
+      "type": "cpu",
+      "key": "\r  CPU        ",
+      "format": "{name}",
+      "temp": false
+    },
+    {
+      "type": "gpu",
+      "key": "\r󰢮  GPU        ",
+      "format": "{name}{?driver} {#separator}· {driver}{?}",
+      "driverSpecific": true,
+      "temp": false
+    },
+    {
+      "type": "memory",
+      "key": "\r󰍛  RAM        ",
+      "format": "{used} / {total} ({percentage})"
+    },
+    {
+      "type": "disk",
+      "key": "\r󰋊  Disk       ",
+      "format": "{size-used} / {size-total} ({size-percentage}) {#separator}· {mountpoint} {filesystem}"
+    },
+    {
+      "type": "separator",
+      "string": "\r╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌",
+      "times": 1,
+      "outputColor": "keys"
+    },
+    {
+      "type": "colors",
+      "key": "\r󰏘  Colors     ",
+      "symbol": "circle"
+    }
+  ]
+}

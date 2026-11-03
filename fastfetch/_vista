@@ -1,0 +1,11 @@
+# vista previa del instalador (tecla v): se corre desde esta carpeta, sin instalar nada
+if command -v fastfetch > /dev/null; then
+    config="$(mktemp --suffix=.jsonc)"
+    sed "s|~/Pictures/|$PWD/_copias/Pictures/|" _copias/.config/fastfetch/config.jsonc > "$config"
+    fastfetch -c "$config"
+    rm -f "$config"
+elif command -v kitten > /dev/null; then
+    kitten icat --align center _vista.png
+else
+    echo "  Así se ve: $PWD/_vista.png (o instala fastfetch para verlo aquí)"
+fi
