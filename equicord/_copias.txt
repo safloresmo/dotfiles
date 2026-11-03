@@ -1,2 +1,2 @@
 # tema Ryoku de Discord con sus ajustes (blur y animaciones aligerados)
-.config/equibop/themes/Ryoku.theme.css
+.config/Equicord/themes/Ryoku.theme.css

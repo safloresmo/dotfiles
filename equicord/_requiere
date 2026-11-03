@@ -1,3 +1,4 @@
 # qué comprobar (comando, /ruta o flatpak:<id>) y de dónde sale en cada sistema:
 # pacman: apt: dnf: zypper: aur: flatpak: web:  · un nombre sin prefijo vale para todos
-equibop pacman:equibop aur:equibop-bin web:https://github.com/Equicord/Equibop/releases
+discord pacman:discord web:https://discord.com/download
+equilotl aur:equicord-installer-bin web:https://github.com/Equicord/Equilotl/releases

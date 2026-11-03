@@ -18,9 +18,9 @@ output_path = "~/.config/gtk-4.0/gtk.css"
 input_path = "~/.config/matugen/templates/discord.css"
 output_path = "~/.config/vesktop/themes/matugen.css"
 
-[templates.equibop]
+[templates.equicord]
 input_path = "~/.config/matugen/templates/discord.css"
-output_path = "~/.config/equibop/themes/matugen.css"
+output_path = "~/.config/Equicord/themes/matugen.css"
 
 [templates.obs]
 input_path = "~/.config/matugen/templates/obs.theme"
