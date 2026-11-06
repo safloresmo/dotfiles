@@ -43,7 +43,7 @@ apps_de_este_equipo() {
     while read -r app; do ruta_app "$app"; done < <(grep -Ev '^[[:space:]]*(#|$)' "$equipo/apps.txt" | awk '{print $1}')
 }
 
-categorias=(Terminal Seguridad Navegador Comunicación Música Juegos Desarrollo Escritorio)
+categorias=(Terminal Seguridad Navegador Comunicación Música Juegos Desarrollo IA Escritorio)
 
 categoria_de() { # app -> su categoría; las de la carpeta del equipo van juntas
     if [[ "$1" == _* ]]; then

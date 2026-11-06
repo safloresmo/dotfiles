@@ -11,3 +11,11 @@ ryoku
 animacion
 audio
 openrgb
+claude-code
+claude-desktop
+codex
+chatgpt
+opencode
+gemini
+grok
+cursor

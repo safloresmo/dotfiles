@@ -42,6 +42,14 @@ git clone https://github.com/safloresmo/dotfiles.git ~/dotfiles && ~/dotfiles/in
 | `cider` | Maku Clips: videoclips de YouTube en Cider |
 | `steam` | Millennium con Material Theme |
 | `vscode` | Ajustes y tema de VS Code |
+| `claude-code` | Claude Code |
+| `claude-desktop` | Claude de escritorio |
+| `codex` | Codex de OpenAI |
+| `chatgpt` | ChatGPT de escritorio |
+| `opencode` | OpenCode |
+| `gemini` | Gemini CLI |
+| `grok` | Grok CLI (se instala desde su web) |
+| `cursor` | Cursor |
 | `ryoku` | Escritorio Ryoku: Hub, barra, plugins y su paleta en las demás apps (solo sale si tienes Ryoku) |
 
 Al final, el instalador pregunta si quieres la **actualización automática**: el
