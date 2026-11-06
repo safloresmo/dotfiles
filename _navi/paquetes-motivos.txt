@@ -22,3 +22,5 @@ mdbook 2026-10-27 compilar la guía (docs/) de embedded-rust-lab
 espup 2026-10-27 compilador Rust para Xtensa (ESP32-S3) en embedded-rust-lab; instala ~/.rustup/toolchains/esp
 discord 2026-10-22 cliente oficial de Discord; Equicord va encima (sustituye a equibop)
 equicord-installer-bin 2026-10-22 aur; equilotl, mete Equicord en Discord (repetir tras cada actualización de Discord)
+com.bambulab.BambuStudio 2026-11-04 flatpak user; laminador para impresoras Bambu Lab
+com.overwolf.curseforge 2026-11-04 flatpak user; cliente de CurseForge para instalar mods y modpacks
