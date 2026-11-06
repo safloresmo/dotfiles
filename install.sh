@@ -126,15 +126,58 @@ progreso() { # hechos, total, texto: una barra que se rehace en la misma línea
         "$tenue" "$(raya ─ $(( 24 - llenas )))" "$fin" "$1" "$2" "$tenue$3" "$fin"
 }
 
-paso_n=0 paso_total=0
+paso_n=0 paso_total=0 hechos=() avisos=()
+pantalla_pasos() { # limpia la pantalla y deja cada paso ya hecho en una línea
+    [[ -t 1 ]] || return 0
+    local h
+    printf '\e[H\e[2J\n'
+    for h in "${hechos[@]}"; do
+        if [[ "$h" == ✖* ]]; then
+            printf '  %s%s%s\n' "${tono[1]}" "$h" "$fin"
+        else
+            printf '  %s%s%s\n' "$tenue" "$h" "$fin"
+        fi
+    done
+}
 paso() { # título de un paso de la instalación, numerado si se sabe cuántos hay
     paso_n=$(( paso_n + 1 ))
     local n=""
     (( paso_total )) && n="$paso_n/$paso_total  "
+    pantalla_pasos
+    hechos+=("✔ $n$1")
     printf '\n  %s%s━━ %s%s%s\n' "${tono[2]}" "$negrita" "$n" "$1" "$fin"
 }
 listo() { printf '  %s✔%s %s\n' "${tono[3]}" "$fin" "$1"; }
-fallo() { printf '  %s✖ %s%s\n' "${tono[1]}" "$1" "$fin" >&2; }
+fallo() { # también marca el paso y lo guarda para el resumen final
+    printf '  %s✖ %s%s\n' "${tono[1]}" "$1" "$fin" >&2
+    avisos+=("$1")
+    if (( ${#hechos[@]} )); then hechos[-1]="✖ ${hechos[-1]#✔ }"; fi
+    return 0
+}
+
+registro="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles-instalar.log"
+callado() { # orden…: su salida va a $registro; en pantalla solo se ve su última línea
+    [[ -t 1 ]] || { "$@"; return; }
+    mkdir -p "${registro%/*}"
+    printf '\n$ %s\n' "$*" >> "$registro"
+    local desde linea st=0 ancho=$(( $(columnas) - 6 ))
+    desde=$(wc -l < "$registro")
+    "$@" >> "$registro" 2>&1 < /dev/null &
+    local pid=$!
+    while kill -0 "$pid" 2> /dev/null; do
+        linea="$(tail -n1 "$registro" 2> /dev/null | sed 's/\x1b\[[0-9;?]*[A-Za-z]//g')"
+        linea="${linea%$'\r'}" linea="${linea##*$'\r'}"
+        printf '\r\e[K    %s%s%s' "$tenue" "${linea:0:ancho}" "$fin"
+        sleep 0.2
+    done
+    wait "$pid" || st=$?
+    printf '\r\e[K'
+    if (( st )); then
+        tail -n +"$(( desde + 1 ))" "$registro" | tail -n 12 | sed 's/^/    /'
+        avisos+=("El detalle de lo que falló está en $registro")
+    fi
+    return "$st"
+}
 
 columnas() { tput cols 2> /dev/null || echo 80; }
 
@@ -152,7 +195,11 @@ bloque() { # líneas centradas como un bloque alineado a la izquierda
 }
 
 titulo() { printf '%s%s%s%s%s\n' "$(margen ${#1})" "${tono[2]}" "$negrita" "$1" "$fin"; }
-aviso() { printf '%s%s%s%s\n' "$(margen ${#1})" "${tono[1]}" "$1" "$fin" >&2; }
+aviso() { # durante la instalación se guarda también para el resumen final
+    printf '%s%s%s%s\n' "$(margen ${#1})" "${tono[1]}" "$1" "$fin" >&2
+    if (( paso_n )); then avisos+=("$1"); fi
+    return 0
+}
 
 preguntar() { # texto, s|n por defecto -> verdadero si contesta que sí
     local respuesta opciones="[s/N]"
@@ -185,12 +232,23 @@ en_repos() { # paquete: está en los repositorios oficiales del sistema
 
 poner_paquetes() { # paquetes: sin actualizar el resto del sistema
     local root=()
-    [[ "$(id -u)" -eq 0 ]] || root=(sudo)
+    # la contraseña se pide antes, porque la salida del gestor no se ve
+    [[ "$(id -u)" -eq 0 ]] || { root=(sudo); sudo -v || return 1; }
     case "$(gestor)" in
-        pacman) "${root[@]}" pacman -S --needed "$@" ;;
-        apt-get) "${root[@]}" apt-get install "$@" ;;
-        dnf) "${root[@]}" dnf install "$@" ;;
-        zypper) "${root[@]}" zypper install "$@" ;;
+        pacman) callado "${root[@]}" pacman -S --needed --noconfirm "$@" ;;
+        apt-get) callado "${root[@]}" apt-get install -y "$@" ;;
+        dnf) callado "${root[@]}" dnf install -y "$@" ;;
+        zypper) callado "${root[@]}" zypper --non-interactive install "$@" ;;
+    esac
+}
+
+poner_aur() { # paquetes, con el ayudante que haya y sin preguntas
+    local h
+    h="$(ayudante_aur)"
+    sudo -v || return 1
+    case "$h" in
+        yay) callado yay -S --needed --noconfirm --sudoloop --answerdiff None --answerclean None --answeredit None "$@" ;;
+        *) callado "$h" -S --needed --noconfirm --sudoloop --skipreview "$@" ;;
     esac
 }
 
@@ -554,10 +612,10 @@ poner_de() { # origen, paquetes: instala sin actualizar el resto del sistema
     shift
     case "$de" in
         repo) poner_paquetes "$@" ;;
-        aur) "$(ayudante_aur)" -S --needed "$@" ;;
+        aur) poner_aur "$@" ;;
         flatpak)
             flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-            flatpak install --user flathub "$@" ;;
+            callado flatpak install --user -y --noninteractive flathub "$@" ;;
     esac
 }
 
@@ -679,7 +737,7 @@ elegir() { # dos pantallas: qué apps y qué hacer; deja $elegidos y $hacer_* li
                 poner_paquetes "${guardados_repo[@]}" && listo "reinstalado" || fallo "No se pudo reinstalar todo; sigo." ;;
             restaurar:aur)
                 paso "Reinstalando lo que tenía $nombre_equipo de AUR"
-                "$(ayudante_aur)" -S --needed "${guardados_aur[@]}" && listo "reinstalado" ||
+                poner_aur "${guardados_aur[@]}" && listo "reinstalado" ||
                     fallo "No se pudo reinstalar todo de AUR; sigo." ;;
             config) hacer_config=1 ;;
             repos) hacer_repos=1 ;;
@@ -878,15 +936,22 @@ instalar() { # "" o "adoptar"; usa $elegidos
     (( paso_total )) || paso_total=$(( (hacer_config || hacer_repos) + hacer_sistema + hacer_arranque ))
     if (( hacer_config || hacer_repos )); then
         paso "Configuración"
+        local hechas=0
         for app in "${elegidos[@]}"; do
+            progreso "$hechas" "${#elegidos[@]}" "${app##*/}"
             if (( hacer_config )); then
                 enlazar "$app" "$1"
                 if [[ "$1" == adoptar ]]; then recoger_copias "$app"; else copiar "$app"; fi
             fi
             (( hacer_repos )) && repos "$app" clonar
             (( hacer_config )) && enlaces "$app" poner
-            listo "${app##*/}"
+            hechas=$(( hechas + 1 ))
+            [[ -t 1 ]] || listo "${app##*/}"
         done
+        if [[ -t 1 ]]; then
+            printf '\r\e[K'
+            listo "$hechas apps configuradas"
+        fi
     fi
     if (( hacer_sistema )); then
         paso "Archivos de sistema (pide sudo)"
@@ -907,8 +972,15 @@ instalar() { # "" o "adoptar"; usa $elegidos
         done
     fi
 
+    # al final, la pantalla queda con el resumen de los pasos y los avisos
+    if (( paso_n )); then pantalla_pasos; fi
     echo
     titulo "✔ Listo"
+    if (( ${#avisos[@]} )); then
+        echo
+        local a
+        for a in "${avisos[@]}"; do printf '%s%s%s%s\n' "$(margen ${#a})" "${tono[1]}" "$a" "$fin"; done
+    fi
     [[ -d "$respaldo" ]] && bloque "Lo que estorbaba quedó en $respaldo"
     if [[ " ${elegidos[*]} " == *" animacion "* ]] && ! con_systemd; then
         bloque "Sin systemd, la animación al recargar la shell no arranca sola:" \
