@@ -59,7 +59,9 @@ apps_nuevas() { # las del repo que este equipo nunca ha visto en la lista
 categorias=(Terminal Seguridad Navegador Comunicación Música Juegos Desarrollo IA Escritorio)
 
 categoria_de() { # app -> su categoría; las de la carpeta del equipo van juntas
-    if [[ "$1" == _* ]]; then
+    if [[ "$1" == ia ]]; then
+        echo IA # la fila que abre la lista de las apps de IA
+    elif [[ "$1" == _* ]]; then
         echo "Este equipo"
     else
         head -n1 "$repo/$1/_categoria" 2> /dev/null || echo "Otras"
@@ -402,7 +404,9 @@ analizar() { # por cada app de $lista: desc, inst ("origen:paquete" …), mano, 
 
 extra_de() { # fila -> $extra_plano y $extra_txt: qué pasa con la aplicación
     local t origenes=""
-    if [[ -n "${mano[$1]}" && ( -z "${inst[$1]}" || app_marca[$1] -eq 0 ) ]]; then
+    if [[ "${lista[$1]}" == ia ]]; then
+        extra_plano="→ abre su propia lista" extra_txt="${tono[3]}$extra_plano$fin"
+    elif [[ -n "${mano[$1]}" && ( -z "${inst[$1]}" || app_marca[$1] -eq 0 ) ]]; then
         extra_plano="instálala a mano: ${mano[$1]}" extra_txt="${tono[1]}$extra_plano$fin"
     elif [[ -z "${inst[$1]}" ]]; then
         extra_plano="ya instalada" extra_txt="$tenue$extra_plano$fin"
@@ -447,7 +451,7 @@ partir_ayuda() { # "a · b · c" -> líneas que caben en la terminal
 casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc y marca
     local cabecera="$1" ayuda="$2" modo="${3:-}"
     local n=${#lista[@]} pos=0 arriba=0 alto tecla resto i caja cursor nombre texto relleno
-    local ancho ancho_desc ancho_extra limite sangria grupos=0 anterior lineas cuantas
+    local ancho ancho_desc ancho_extra limite sangria grupos=0 anterior lineas cuantas ancho_nombre=11
     local resumen detalle primera=1 perfil="" perfil_i=-1 apps_perfil l
     local -a cats=() marco=() otros=() ayudas=()
     if [[ "$modo" == app ]]; then
@@ -459,6 +463,10 @@ casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc 
         (( ${#otros[@]} )) && ayuda="${ayuda/ · Enter/ · p como otro equipo · Enter}"
         compgen -G "$repo/*/_vista" > /dev/null && ayuda="${ayuda/ · Enter/ · v ver cómo se ve · Enter}"
     fi
+    for i in "${!lista[@]}"; do
+        nombre="${lista[i]##*/}"
+        (( ${#nombre} > ancho_nombre )) && ancho_nombre=${#nombre}
+    done
     tput smcup 2> /dev/null || true
     tput civis 2> /dev/null || true
     trap 'tput cnorm 2> /dev/null; tput rmcup 2> /dev/null; exit 130' INT TERM
@@ -472,10 +480,10 @@ casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc 
                 (( ${#extra_plano} + 2 > ancho_extra )) && ancho_extra=$(( ${#extra_plano} + 2 ))
             fi
         done
-        limite=$(( $(columnas) - 20 - ancho_extra ))
+        limite=$(( $(columnas) - 9 - ancho_nombre - ancho_extra ))
         (( limite < 10 )) && limite=10
         (( ancho_desc > limite )) && ancho_desc=$limite
-        ancho=$(( 2 + 2 + 11 + 1 + ancho_desc + ancho_extra ))
+        ancho=$(( 2 + 2 + ancho_nombre + 1 + ancho_desc + ancho_extra ))
         lineas=$(tput lines 2> /dev/null || echo 24)
         alto=$(( lineas - 8 - ${#ayudas[@]} - grupos ))
         (( alto < 3 )) && alto=3
@@ -499,9 +507,9 @@ casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc 
             cursor="  " nombre="${lista[i]##*/}"
             if (( i == pos )); then
                 cursor="${tono[3]}▌$fin "
-                printf -v nombre '%s%-11s%s' "$negrita" "$nombre" "$fin"
+                printf -v nombre '%s%-*s%s' "$negrita" "$ancho_nombre" "$nombre" "$fin"
             else
-                printf -v nombre '%-11s' "$nombre"
+                printf -v nombre '%-*s' "$ancho_nombre" "$nombre"
             fi
             if (( marca[i] )); then caja="${tono[3]}●$fin"; else caja="$tenue○$fin"; fi
             texto="${desc[i]}"
@@ -558,7 +566,12 @@ casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc 
                 perfil_i=$(( (perfil_i + 1) % ${#otros[@]} )) perfil="${otros[perfil_i]}"
                 apps_perfil=" $(grep -Ev '^[[:space:]]*(#|$)' "$repo/_$perfil/apps.txt" | awk '{print $1}' | tr '\n' ' ') "
                 for i in "${!lista[@]}"; do
-                    [[ "$apps_perfil" == *" ${lista[i]##*/} "* ]] && marca[i]=1 || marca[i]=0
+                    marca[i]=0
+                    if [[ "${lista[i]}" == ia ]]; then
+                        for l in ${apps_ia:-}; do [[ "$apps_perfil" == *" $l "* ]] && marca[i]=1; done
+                    elif [[ "$apps_perfil" == *" ${lista[i]##*/} "* ]]; then
+                        marca[i]=1
+                    fi
                 done ;;
             v)
                 [[ "$modo" == app && -f "$repo/${lista[pos]}/_vista" ]] || continue
@@ -650,6 +663,59 @@ poner_de() { # origen, paquetes: instala sin actualizar el resto del sistema
     esac
 }
 
+apps_ia=""
+elegir_apps() { # la pantalla de apps; las de IA van en una sola fila que abre su propia lista
+    local i j k con_ia=0 puesta=0
+    local ayuda="↑↓ moverse · espacio elegir · i app o solo config · a todas · n ninguna · Enter seguir · q salir"
+    local -a t_lista=("${lista[@]}") t_desc=("${desc[@]}") t_marca=("${marca[@]}") t_inst=("${inst[@]}") \
+        t_mano=("${mano[@]}") t_webs=("${webs[@]}") t_app=("${app_marca[@]}") de_ia=() fila=()
+    for i in "${!t_lista[@]}"; do
+        [[ "$(categoria_de "${t_lista[i]}")" == IA ]] && de_ia+=("$i") apps_ia+=" ${t_lista[i]##*/}"
+    done
+    (( ${#de_ia[@]} )) || { casillas "Elige qué instalar" "$ayuda" app; return; }
+
+    # fila[j]: qué app de la lista completa es la fila j; -1 es la fila ia
+    lista=() desc=() marca=() inst=() mano=() webs=() app_marca=()
+    for i in "${!t_lista[@]}"; do
+        if [[ " ${de_ia[*]} " == *" $i "* ]]; then
+            (( puesta )) && continue
+            puesta=1
+            for j in "${de_ia[@]}"; do (( t_marca[j] )) && con_ia=1; done
+            fila+=(-1) lista+=(ia) marca+=("$con_ia") inst+=("") mano+=("") webs+=("") app_marca+=(0)
+            desc+=("Claude Code, Codex, OpenCode y las demás: se eligen en la pantalla siguiente")
+        else
+            fila+=("$i") lista+=("${t_lista[i]}") desc+=("${t_desc[i]}") marca+=("${t_marca[i]}")
+            inst+=("${t_inst[i]}") mano+=("${t_mano[i]}") webs+=("${t_webs[i]}") app_marca+=("${t_app[i]}")
+        fi
+    done
+    casillas "Elige qué instalar" "$ayuda" app || return 1
+    for j in "${!fila[@]}"; do
+        if (( fila[j] < 0 )); then
+            con_ia=${marca[j]}
+        else
+            t_marca[fila[j]]=${marca[j]} t_app[fila[j]]=${app_marca[j]}
+        fi
+    done
+
+    if (( con_ia )); then
+        lista=() desc=() marca=() inst=() mano=() webs=() app_marca=()
+        for i in "${de_ia[@]}"; do
+            lista+=("${t_lista[i]}") desc+=("${t_desc[i]}") marca+=("${t_marca[i]}")
+            inst+=("${t_inst[i]}") mano+=("${t_mano[i]}") webs+=("${t_webs[i]}") app_marca+=("${t_app[i]}")
+        done
+        # q deja las de IA como estaban
+        if casillas "Elige las herramientas de IA" "${ayuda/q salir/q dejarlas como estaban}" app; then
+            for k in "${!de_ia[@]}"; do
+                t_marca[de_ia[k]]=${marca[k]} t_app[de_ia[k]]=${app_marca[k]}
+            done
+        fi
+    else
+        for i in "${de_ia[@]}"; do t_marca[i]=0; done
+    fi
+    lista=("${t_lista[@]}") desc=("${t_desc[@]}") marca=("${t_marca[@]}") inst=("${t_inst[@]}")
+    mano=("${t_mano[@]}") webs=("${t_webs[@]}") app_marca=("${t_app[@]}")
+}
+
 elegir() { # dos pantallas: qué apps y qué hacer; deja $elegidos y $hacer_* listos
     local i t o paquete actuales pendientes cuenta
     local -A por_origen=() motivo=()
@@ -665,9 +731,7 @@ elegir() { # dos pantallas: qué apps y qué hacer; deja $elegidos y $hacer_* li
             [[ -z "${inst[i]}${mano[i]}" ]] && marca[i]=1 || marca[i]=0
         fi
     done
-    casillas "Elige qué instalar" \
-        "↑↓ moverse · espacio elegir · i app o solo config · a todas · n ninguna · Enter seguir · q salir" app ||
-        { echo "No se cambió nada."; exit 0; }
+    elegir_apps || { echo "No se cambió nada."; exit 0; }
     elegidos=()
     for i in "${!lista[@]}"; do
         (( marca[i] )) || continue
