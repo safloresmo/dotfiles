@@ -100,8 +100,9 @@ if [[ -t 1 && -z "${NO_COLOR:-}" ]]; then
     negrita=$'\e[1m' tenue=$'\e[2m' fin=$'\e[0m'
 fi
 
-banner() {
+banner() { # "quieto" lo pinta de golpe, sin animación
     [[ -t 1 ]] || return 0
+    printf '\e[H\e[2J'
     local linea logo="$repo/_logo/navi-color.txt"
     if [[ -z "$fin" ]]; then
         logo="$repo/_logo/navi.txt"
@@ -121,7 +122,7 @@ banner() {
         linea="${linea//\$1/${tono[0]}}" linea="${linea//\$2/${tono[1]}}"
         linea="${linea//\$3/${tono[2]}}" linea="${linea//\$4/${tono[3]}}"
         printf '%s%s%s\n' "$sangria" "$linea" "$fin"
-        [[ -n "$fin" ]] && sleep 0.025
+        [[ -n "$fin" && "${1:-}" != quieto ]] && sleep 0.025
     done < "$logo"
     printf '%s%s%s%s\n\n' "$(margen ${#pie})" "$tenue" "$pie" "$fin"
 }
@@ -143,7 +144,7 @@ paso_n=0 paso_total=0 hechos=() avisos=()
 pantalla_pasos() { # limpia la pantalla y deja cada paso ya hecho en una línea
     [[ -t 1 ]] || return 0
     local h
-    printf '\e[H\e[2J\n'
+    banner quieto
     for h in "${hechos[@]}"; do
         if [[ "$h" == ✖* ]]; then
             printf '  %s%s%s\n' "${tono[1]}" "$h" "$fin"
@@ -176,11 +177,12 @@ callado() { # orden…: su salida va a $registro; en pantalla solo se ve su últ
     local desde linea st=0 ancho=$(( $(columnas) - 6 ))
     desde=$(wc -l < "$registro")
     "$@" >> "$registro" 2>&1 < /dev/null &
-    local pid=$!
+    local pid=$! inicio=$SECONDS t
     while kill -0 "$pid" 2> /dev/null; do
+        t=$(( SECONDS - inicio ))
         linea="$(tail -n1 "$registro" 2> /dev/null | sed 's/\x1b\[[0-9;?]*[A-Za-z]//g')"
         linea="${linea%$'\r'}" linea="${linea##*$'\r'}"
-        printf '\r\e[K    %s%s%s' "$tenue" "${linea:0:ancho}" "$fin"
+        printf '\r\e[K    %s%d:%02d%s  %s%s%s' "${tono[2]}" $(( t / 60 )) $(( t % 60 )) "$fin" "$tenue" "${linea:0:ancho-6}" "$fin"
         sleep 0.2
     done
     wait "$pid" || st=$?
@@ -276,11 +278,24 @@ anotar_motivo() { # paquete, motivo
     echo "$1 $(date +%F) $2" >> "$equipo/paquetes-motivos.txt"
 }
 
+declare -A acceso=()
+revisar_repos() { # mira una vez, en esta shell, a qué repos privados de _solo-si llega este equipo
+    local url
+    while read -r url; do
+        [[ -n "${acceso[$url]+x}" ]] && continue
+        if GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=false SSH_ASKPASS=false \
+            timeout 8 git ls-remote "$url" HEAD > /dev/null 2>&1; then
+            acceso[$url]=1
+        else
+            acceso[$url]=0
+        fi
+    done < <(sed -n 's/^repo://p' "$repo"/*/_solo-si 2> /dev/null)
+}
+
 hay() { # una comprobación de _requiere o _solo-si
     case "$1" in
-        # un repo privado: solo responde si este equipo tiene sesión con acceso; nunca pregunta
-        repo:*) GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=false SSH_ASKPASS=false \
-            timeout 15 git ls-remote "${1#repo:}" HEAD > /dev/null 2>&1 ;;
+        # un repo privado: solo vale si este equipo tiene sesión con acceso (lo mira revisar_repos)
+        repo:*) [[ "${acceso[${1#repo:}]:-0}" == 1 ]] ;;
         flatpak:*) flatpak info "${1#flatpak:}" > /dev/null 2>&1 ;;
         /*) [[ -e "$1" ]] ;;
         *) command -v "$1" > /dev/null ;;
@@ -1109,6 +1124,7 @@ if [[ "$orden" == quitar ]] && (( ! apps_sueltas )); then
     exit 1
 fi
 [[ "$orden" == estado || "$orden" == actualizar ]] || banner
+[[ "$orden" == instalar || "$orden" == elegir ]] && [[ -t 0 ]] && revisar_repos
 # un equipo con su lista ya hecha: si el repo trae apps que aquí no se han visto, se ofrecen
 if [[ "$orden" == instalar && $# -eq 0 && -f "$equipo/apps.txt" && -t 0 ]]; then
     mapfile -t nuevas < <(apps_nuevas)
