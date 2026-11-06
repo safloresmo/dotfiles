@@ -43,6 +43,19 @@ apps_de_este_equipo() {
     while read -r app; do ruta_app "$app"; done < <(grep -Ev '^[[:space:]]*(#|$)' "$equipo/apps.txt" | awk '{print $1}')
 }
 
+apps_vistas() { # las que apps.txt ya nombra: elegidas o, con «# no:», ofrecidas y no elegidas
+    [[ -f "$equipo/apps.txt" ]] || return 0
+    sed -nE 's/^[[:space:]]*(# no: *)?([^#[:space:]]+).*/\2/p' "$equipo/apps.txt"
+}
+
+apps_nuevas() { # las del repo que este equipo nunca ha visto en la lista
+    local vistas a
+    vistas=" $(apps_vistas | tr '\n' ' ') "
+    while read -r a; do
+        [[ "$vistas" == *" ${a##*/} "* ]] || echo "$a"
+    done < <(apps_del_repo)
+}
+
 categorias=(Terminal Seguridad Navegador Comunicación Música Juegos Desarrollo IA Escritorio)
 
 categoria_de() { # app -> su categoría; las de la carpeta del equipo van juntas
@@ -664,7 +677,11 @@ elegir() { # dos pantallas: qué apps y qué hacer; deja $elegidos y $hacer_* li
         fi
     fi
     mkdir -p "$equipo"
-    { echo "# una app por línea"; printf '%s\n' "${elegidos[@]##*/}"; } > "$equipo/apps.txt"
+    {
+        echo "# una app por línea; las «# no:» se ofrecieron y no se eligieron"
+        printf '%s\n' "${elegidos[@]##*/}"
+        for i in "${!lista[@]}"; do (( marca[i] )) || echo "# no: ${lista[i]##*/}"; done
+    } > "$equipo/apps.txt"
 
     # segunda pantalla: cada paso se puede quitar
     lista=() desc=() marca=() pasos=()
@@ -1089,6 +1106,19 @@ if [[ "$orden" == quitar ]] && (( ! apps_sueltas )); then
     exit 1
 fi
 [[ "$orden" == estado || "$orden" == actualizar ]] || banner
+# un equipo con su lista ya hecha: si el repo trae apps que aquí no se han visto, se ofrecen
+if [[ "$orden" == instalar && $# -eq 0 && -f "$equipo/apps.txt" && -t 0 ]]; then
+    mapfile -t nuevas < <(apps_nuevas)
+    if (( ${#nuevas[@]} )); then
+        titulo "Hay ${#nuevas[@]} apps que este equipo aún no ha visto:"
+        bloque "$(printf '%s ' "${nuevas[@]##*/}")"
+        if preguntar "¿Quieres elegir cuáles instalar?" s; then
+            orden=elegir
+        else
+            printf '# no: %s\n' "${nuevas[@]##*/}" >> "$equipo/apps.txt"
+        fi
+    fi
+fi
 if [[ "$orden" == elegir ]] || { [[ "$orden" == instalar && $# -eq 0 && ! -f "$equipo/apps.txt" ]]; }; then
     if [[ ! -t 0 ]]; then
         aviso "Elegir apps necesita una terminal; o pásalas: ./install.sh base zen"
