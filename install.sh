@@ -7,7 +7,7 @@
 #   _sistema/                archivos de fuera de ~ (se instalan con sudo); también en _<equipo>/
 #   _descripcion             una línea que se ve al elegir apps
 #   _requiere                lo que la app necesita: comando, flatpak:<id> o /ruta, y su paquete
-#   _solo-si                 la app solo se ofrece si esto existe (comando o /ruta), p. ej. ryoku
+#   _solo-si                 la app solo se ofrece si esto existe (comando, /ruta o repo:<url> legible), p. ej. ryoku
 #   _vista                   lo que enseña la tecla v al elegir apps (se corre desde su carpeta)
 # _<equipo>/apps.txt dice qué apps lleva cada equipo; junto a él van
 # paquetes-motivos.txt, las listas de paquetes de pacman y las apps que solo
@@ -276,8 +276,11 @@ anotar_motivo() { # paquete, motivo
     echo "$1 $(date +%F) $2" >> "$equipo/paquetes-motivos.txt"
 }
 
-hay() { # una comprobación de _requiere
+hay() { # una comprobación de _requiere o _solo-si
     case "$1" in
+        # un repo privado: solo responde si este equipo tiene sesión con acceso; nunca pregunta
+        repo:*) GIT_TERMINAL_PROMPT=0 GIT_ASKPASS=false SSH_ASKPASS=false \
+            timeout 15 git ls-remote "${1#repo:}" HEAD > /dev/null 2>&1 ;;
         flatpak:*) flatpak info "${1#flatpak:}" > /dev/null 2>&1 ;;
         /*) [[ -e "$1" ]] ;;
         *) command -v "$1" > /dev/null ;;

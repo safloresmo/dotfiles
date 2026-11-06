@@ -1,0 +1,3 @@
+# el vigilante arranca con la sesión y, al arrancar, su sync lo engancha todo (hooks de git, ia.fish…)
+.config/systemd/user/ai-rules-watch.service .config/ai-rules/ai-rules-watch.service
+.config/systemd/user/default.target.wants/ai-rules-watch.service .config/systemd/user/ai-rules-watch.service

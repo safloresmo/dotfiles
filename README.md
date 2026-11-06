@@ -50,6 +50,7 @@ git clone https://github.com/safloresmo/dotfiles.git ~/dotfiles && ~/dotfiles/in
 | `gemini` | Gemini CLI |
 | `grok` | Grok CLI (se instala desde su web) |
 | `cursor` | Cursor |
+| `reglas-ia` | Mis reglas para esas herramientas (solo sale con acceso a su repo privado) |
 | `ryoku` | Escritorio Ryoku: Hub, barra, plugins y su paleta en las demás apps (solo sale si tienes Ryoku) |
 
 Al final, el instalador pregunta si quieres la **actualización automática**: el

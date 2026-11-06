@@ -1,0 +1,2 @@
+# ruta en ~ y url; el repo es privado
+.config/ai-rules https://github.com/safloresmo/ai-rules
