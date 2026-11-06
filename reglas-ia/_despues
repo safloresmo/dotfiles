@@ -1,0 +1,3 @@
+# tras clonar el repo: engancha las reglas (sync) y pone las skills, MCP y plugins guardados (restaurar)
+"$HOME/.config/ai-rules/sync"
+"$HOME/.config/ai-rules/restaurar"

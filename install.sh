@@ -9,6 +9,7 @@
 #   _requiere                lo que la app necesita: comando, flatpak:<id> o /ruta, y su paquete
 #   _solo-si                 la app solo se ofrece si esto existe (comando, /ruta o repo:<url> legible), p. ej. ryoku
 #   _vista                   lo que enseña la tecla v al elegir apps (se corre desde su carpeta)
+#   _despues                 órdenes que se corren tras instalar la app (no en la actualización automática)
 # _<equipo>/apps.txt dice qué apps lleva cada equipo; junto a él van
 # paquetes-motivos.txt, las listas de paquetes de pacman y las apps que solo
 # sirven en ese equipo (una carpeta con _descripcion). _logo/ es el banner.
@@ -1044,6 +1045,9 @@ instalar() { # "" o "adoptar"; usa $elegidos
             fi
             (( hacer_repos )) && repos "$app" clonar
             (( hacer_config )) && enlaces "$app" poner
+            if (( hacer_config )) && [[ "$orden" != actualizar && -f "$repo/$app/_despues" ]]; then
+                callado bash "$repo/$app/_despues" || fallo "${app##*/}: falló lo que se hace tras instalarla"
+            fi
             hechas=$(( hechas + 1 ))
             [[ -t 1 ]] || listo "${app##*/}"
         done
