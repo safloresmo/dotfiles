@@ -1183,7 +1183,8 @@ orden=instalar
 hacer_config=1 hacer_repos=1 hacer_sistema=1 hacer_arranque=1
 case "${1:-}" in
     adoptar | estado | recoger | elegir | quitar) orden="$1"; shift ;;
-    actualizar) orden="$1" hacer_sistema=0 hacer_arranque=0; shift ;;
+    # sin DOTFILES_DESDE, ninguna copia cuenta como cambiada: lo de ~ se queda
+    actualizar) orden="$1" hacer_sistema=0 hacer_arranque=0 DOTFILES_DESDE="${DOTFILES_DESDE:-HEAD}"; shift ;;
     -h | --help | ayuda) sed -n '2,23p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
 esac
 apps_sueltas=$(( $# > 0 ))
