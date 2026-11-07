@@ -39,6 +39,8 @@ dosfstools
 easyeffects
 edk2-ovmf
 efibootmgr
+espflash
+espup
 eza
 fastfetch
 fd
@@ -103,6 +105,7 @@ linux-firmware
 linux-headers
 mangohud
 matugen
+mdbook
 mesa
 mise
 mkinitcpio
@@ -123,6 +126,7 @@ nvidia-open
 nvidia-utils
 obs-studio
 obs-vkcapture
+obsidian
 openai-codex
 opencode
 openocd
@@ -158,7 +162,7 @@ ripgrep
 rpi-imager
 rsync
 rtkit
-rust
+rustup
 ryoku-desktop
 ryoku-desktop-hyprland
 ryoku-keyring

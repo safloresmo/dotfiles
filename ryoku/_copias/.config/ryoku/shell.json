@@ -2222,13 +2222,13 @@
         "fileUploadApiEndpoint": "https://0x0.st",
         "fileUploadApiFallback": "https://litterbox.catbox.moe/resources/internals/api.php",
         "fileUploadApiFallback2": "https://catbox.moe/user/api.php",
-        "imageSearchEngineBaseUrl": "https://yandex.com/images/search?rpt=imageview&url=",
+        "imageSearchEngineBaseUrl": "https://yandex.com/images/search?rpt=imageview\u0026url=",
         "useCircleSelection": false
       },
       "nonAppResultDelay": 30,
       "prefix": {
         "action": "/",
-        "app": ">",
+        "app": "\u003e",
         "clipboard": ";",
         "emojis": ":",
         "math": "=",
@@ -2567,7 +2567,6 @@
     },
     "time": {
       "dateFormat": "ddd, dd/MM",
-      "format": "hh:mm",
       "pomodoro": {
         "breakTime": 300,
         "cyclesBeforeLongBreak": 4,
@@ -2941,6 +2940,7 @@
     "workspaceStyle": "default"
   },
   "screenShader": "",
+  "showJapaneseGloss": true,
   "sounds": {
     "enabled": true,
     "events": {

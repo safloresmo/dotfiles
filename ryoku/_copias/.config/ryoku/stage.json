@@ -1,53 +1,51 @@
 {
-  "depth": {
-    "cut": {
-      "matting": false,
-      "model": "birefnet-general-lite"
+    "depth": {
+        "cut": {
+            "matting": false,
+            "model": "birefnet-general-lite"
+        },
+        "edge": 0,
+        "front": [
+        ],
+        "shadow": 1,
+        "shadowAngle": 6
     },
-    "edge": 0,
-    "front": [
-      "music",
-      "github-heatmap"
-    ],
-    "shadow": 1,
-    "shadowAngle": 6
-  },
-  "editGridSize": 32,
-  "editGridSnap": true,
-  "parallax": {
-    "cut": {
-      "matting": false,
-      "model": "birefnet-general-lite"
+    "editGridSize": 32,
+    "editGridSnap": true,
+    "parallax": {
+        "cut": {
+            "matting": false,
+            "model": "birefnet-general-lite"
+        },
+        "depthBackdrop": true,
+        "edge": 0,
+        "front": [
+            "music",
+            "github-heatmap"
+        ],
+        "motion": {
+            "amount": "strong",
+            "backdrop": 0,
+            "idle": "breathe",
+            "mouse": false,
+            "music": true,
+            "musicLevel": 0.6,
+            "range": 1,
+            "sensitivity": 1,
+            "speed": 0.6
+        },
+        "shadow": 1,
+        "shadowAngle": 6
     },
-    "depthBackdrop": true,
-    "edge": 0,
-    "front": [
-      "music",
-      "github-heatmap"
-    ],
-    "motion": {
-      "amount": "strong",
-      "backdrop": 0,
-      "idle": "breathe",
-      "mouse": false,
-      "music": true,
-      "musicLevel": 0.6,
-      "range": 1,
-      "sensitivity": 1,
-      "speed": 0.6
+    "spatial": {
+        "model": "large",
+        "motion": {
+            "amount": "strong",
+            "mouse": false,
+            "range": 1,
+            "sensitivity": 1
+        },
+        "shadowAngle": 6
     },
-    "shadow": 1,
-    "shadowAngle": 6
-  },
-  "spatial": {
-    "model": "large",
-    "motion": {
-      "amount": "strong",
-      "mouse": false,
-      "range": 1,
-      "sensitivity": 1
-    },
-    "shadowAngle": 6
-  },
-  "version": 3
+    "version": 3
 }
