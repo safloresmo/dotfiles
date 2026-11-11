@@ -110,3 +110,8 @@ output_path = "~/.config/starship.toml"
 [templates.starship-user-edits]
 input_path = "~/.config/matugen/templates/starship.toml"
 output_path = "~/.config/ryoku/user_edits/starship.toml"
+
+# T3 Code vigila su carpeta de temas: el cambio se ve al momento
+[templates.t3code]
+input_path = "~/.config/matugen/templates/t3code.json"
+output_path = "~/.t3/userdata/themes/matugen.json"

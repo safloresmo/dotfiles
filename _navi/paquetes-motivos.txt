@@ -24,3 +24,4 @@ discord 2026-10-22 cliente oficial de Discord; Equicord va encima (sustituye a e
 equicord-installer-bin 2026-10-22 aur; equilotl, mete Equicord en Discord (repetir tras cada actualización de Discord)
 com.bambulab.BambuStudio 2026-11-04 flatpak user; laminador para impresoras Bambu Lab
 com.overwolf.curseforge 2026-11-04 flatpak user; cliente de CurseForge para instalar mods y modpacks
+t3code-bin 2026-11-11 aur; app de escritorio de T3 Code para manejar agentes de código locales
