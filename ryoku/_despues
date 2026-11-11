@@ -1,5 +1,6 @@
-# tras clonar los repos: instala o actualiza los plugins de Ryoku. Sus ajustes
-# y su sitio llegan con las copias de plugins.json y shell.json.
+# tras clonar los repos: instala o actualiza los plugins de Ryoku y las demás
+# personalizaciones (el dictado con Voxtral). Ajustes y sitio de los plugins
+# llegan con las copias de plugins.json y shell.json.
 command -v ryostore >/dev/null || exit 0
 fallos=0
 
