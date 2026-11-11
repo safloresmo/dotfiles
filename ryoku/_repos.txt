@@ -7,3 +7,5 @@ Proyectos/kaku-extension https://github.com/safloresmo/kaku-extension.git
 Proyectos/tailscale-barra https://github.com/safloresmo/tailscale-barra.git
 # plugins propios de la barra y demás personalizaciones de Ryoku
 Proyectos/ryoku-personalizacion https://github.com/safloresmo/ryoku-personalizacion.git
+# plugin de barra Cloudflare
+Proyectos/cloudflare-barra https://github.com/safloresmo/cloudflare-barra.git

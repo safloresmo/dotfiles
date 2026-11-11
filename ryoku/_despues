@@ -1,4 +1,19 @@
-# tras clonar los repos: instala o actualiza los plugins de ryoku-personalizacion
-if [[ -x "$HOME/Proyectos/ryoku-personalizacion/instalar" ]]; then
-    "$HOME/Proyectos/ryoku-personalizacion/instalar"
+# tras clonar los repos: instala o actualiza los plugins de Ryoku. Sus ajustes
+# y su sitio llegan con las copias de plugins.json y shell.json.
+command -v ryostore >/dev/null || exit 0
+fallos=0
+
+# plugins propios: los de ryoku-personalizacion y los repos de un solo plugin
+p="$HOME/Proyectos"
+instalar="$p/ryoku-personalizacion/instalar"
+if [[ -x "$instalar" ]]; then
+    "$instalar" || fallos=1
+    "$instalar" "$p/tailscale-barra" "$p/cloudflare-barra" || fallos=1
 fi
+
+# plugins de Ryostore
+for id in github-heatmap claude-companion; do
+    [[ -d "${XDG_DATA_HOME:-$HOME/.local/share}/ryoku/plugins/$id" ]] && continue
+    ryostore install plugins "$id" >/dev/null 2>&1 || { echo "no se pudo instalar $id de Ryostore" >&2; fallos=1; }
+done
+exit "$fallos"
