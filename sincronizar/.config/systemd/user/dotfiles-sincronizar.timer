@@ -3,7 +3,7 @@ Description=Mantener los dotfiles al día con GitHub
 
 [Timer]
 OnActiveSec=2min
-OnUnitActiveSec=1h
+OnUnitActiveSec=15min
 RandomizedDelaySec=2min
 
 [Install]

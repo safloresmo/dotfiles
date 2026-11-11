@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Baja los cambios de los dotfiles y los aplica con ./install.sh actualizar.
-# Lo lanza dotfiles-sincronizar.timer cada hora; también se puede correr a mano.
+# Lo lanza dotfiles-sincronizar.timer cada 15 minutos; también se puede correr a mano.
+# Antes baja también los repos de otras_rutas (el cuaderno, las reglas) si están clonados.
 # Nunca mezcla: si aquí hay cambios o commits sin subir, avisa y no toca nada.
 set -euo pipefail
 
@@ -12,6 +13,21 @@ avisar() {
     echo "$1"
     command -v notify-send > /dev/null && notify-send -a Dotfiles -i system-software-update "Dotfiles" "$1" 2> /dev/null || true
 }
+
+# repos que se mantienen al día solo con bajar (no hay nada que aplicar después)
+otras_rutas=("$HOME/Proyectos/cuaderno" "$HOME/.config/ai-rules")
+for r in "${otras_rutas[@]}"; do
+    [[ -d "$r/.git" ]] || continue
+    git -C "$r" fetch --quiet 2> /dev/null || continue
+    [[ "$(git -C "$r" rev-parse HEAD)" == "$(git -C "$r" rev-parse '@{u}')" ]] && continue
+    if [[ -n "$(git -C "$r" status --porcelain --untracked-files=no)" ]]; then
+        avisar "Hay cambios sin subir en $r; no se bajó nada."
+    elif git -C "$r" merge --ff-only --quiet '@{u}'; then
+        avisar "Bajé los cambios nuevos de $(basename "$r")."
+    else
+        avisar "$r tiene commits que GitHub no tiene; no se bajó nada."
+    fi
+done
 
 # sin red no hay nada que hacer; se reintenta en la próxima vuelta
 git fetch --quiet || { echo "sin conexión con $(git remote get-url origin)"; exit 0; }

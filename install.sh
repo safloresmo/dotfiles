@@ -1090,7 +1090,7 @@ instalar() { # "" o "adoptar"; usa $elegidos
             "añade navi-intro-vigia a lo que tu escritorio lanza al iniciar sesión."
     fi
     if [[ " ${elegidos[*]} " == *" sincronizar "* && "$orden" != actualizar ]]; then
-        bloque "Este equipo baja solo los cambios de GitHub cada hora." "Para bajarlos ya: dotfiles-sincronizar"
+        bloque "Este equipo baja solo los cambios de GitHub cada 15 minutos." "Para bajarlos ya: dotfiles-sincronizar"
     fi
     if [[ -n "${a_mano:-}" ]]; then
         echo
