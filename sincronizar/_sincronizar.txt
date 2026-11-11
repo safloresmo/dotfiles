@@ -1,0 +1,5 @@
+# ruta en ~ y url: en cada equipo se clonan si faltan y se bajan cada 15 minutos;
+# si el repo trae ./instalar, se ejecuta después para aplicar lo nuevo
+Proyectos/cuaderno https://github.com/safloresmo/cuaderno.git
+.config/ai-rules https://github.com/safloresmo/ai-rules
+Proyectos/ryoku-personalizacion https://github.com/safloresmo/ryoku-personalizacion.git
