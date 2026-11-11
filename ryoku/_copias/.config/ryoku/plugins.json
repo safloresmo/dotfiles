@@ -90,5 +90,16 @@
       "barLabel": "profile",
       "poll": 5
     }
+  },
+  "uso-ia": {
+    "enabled": true,
+    "host": "topbarGlyph",
+    "settings": {
+      "tools": "claude,codex,opencode",
+      "showLogo": true,
+      "showNames": false,
+      "showPct": true,
+      "showCountdown": false
+    }
   }
 }

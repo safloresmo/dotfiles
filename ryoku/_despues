@@ -1,0 +1,4 @@
+# tras clonar los repos: instala o actualiza los plugins de ryoku-personalizacion
+if [[ -x "$HOME/Proyectos/ryoku-personalizacion/instalar" ]]; then
+    "$HOME/Proyectos/ryoku-personalizacion/instalar"
+fi

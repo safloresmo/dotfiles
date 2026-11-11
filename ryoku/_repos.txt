@@ -5,3 +5,5 @@ Proyectos/ryoku-cider https://github.com/safloresmo/ryoku-cider.git
 Proyectos/kaku-extension https://github.com/safloresmo/kaku-extension.git
 # plugin de barra Tailscale
 Proyectos/tailscale-barra https://github.com/safloresmo/tailscale-barra.git
+# plugins propios de la barra y demás personalizaciones de Ryoku
+Proyectos/ryoku-personalizacion https://github.com/safloresmo/ryoku-personalizacion.git

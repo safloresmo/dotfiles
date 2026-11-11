@@ -233,6 +233,29 @@
   "frameEnabled": true,
   "frameOpacity": 1,
   "frameThickness": 2,
+  "gamebar": {
+    "damping": 0.58,
+    "dim": 0.62,
+    "enabled": true,
+    "fade": 200,
+    "gridAlpha": 0.28,
+    "gridStep": 48,
+    "guideGrid": true,
+    "mass": 1,
+    "radius": 14,
+    "scale": 1,
+    "snap": true,
+    "snapGrid": 24,
+    "snapReach": 9,
+    "spring": 3.2,
+    "voiceAvatarSize": 52,
+    "voiceAvatars": 8,
+    "voiceBgOpacity": 0.72,
+    "voiceControls": true,
+    "voiceDim": true,
+    "voiceDimOpacity": 0.5,
+    "voiceNames": true
+  },
   "general": {
     "clock_format_24_h": false,
     "temperature_unit": "Metric",
@@ -2893,7 +2916,8 @@
         "cpu",
         "volume",
         "memory",
-        "ai"
+        "ai",
+        "uso-ia"
       ],
       "right": [
         "media",
@@ -2908,7 +2932,8 @@
         "bluetooth",
         "layout",
         "cloudflare",
-        "tailscale"
+        "tailscale",
+        "fluxdeck"
       ],
       "version": 1
     },
@@ -2920,7 +2945,7 @@
       "battery": false,
       "bluetooth": false,
       "brightness": false,
-      "claude": true,
+      "claude": false,
       "cpu": true,
       "cpuTemperature": true,
       "gpu": true,
