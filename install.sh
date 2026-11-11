@@ -21,7 +21,10 @@
 #   ./install.sh recoger [apps]   trae al repo las copias y los archivos que sustituyeron a su enlace
 #   ./install.sh quitar apps      deshace sus enlaces y las saca de _<equipo>/apps.txt
 #   ./install.sh actualizar       sin preguntar ni sudo, tras un git pull (lo usa la app sincronizar)
+#   ./install.sh sincronizar      baja ya los cambios de GitHub (lo mismo que dotfiles-sincronizar)
 #
+# La instalación deja el comando `dotfiles` (este script) en ~/.local/bin: `dotfiles` a secas
+# abre la lista de apps para añadir o quitar alguna; `dotfiles estado`, `dotfiles recoger`… igual que aquí.
 # Sin decir apps se usan las de _<equipo>/apps.txt; si el equipo no tiene, se eligen.
 set -euo pipefail
 
@@ -449,8 +452,9 @@ partir_ayuda() { # "a · b · c" -> líneas que caben en la terminal
     echo "$linea"
 }
 
-casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc y marca
-    local cabecera="$1" ayuda="$2" modo="${3:-}"
+casillas() { # título, ayuda, "app" para la columna de la app, "volver"; usa lista, desc y marca
+    # sale con 0 al seguir (Enter), 1 al salir (q) y 2 al volver a la pantalla anterior
+    local cabecera="$1" ayuda="$2" modo="${3:-}" volver="${4:-}"
     local n=${#lista[@]} pos=0 arriba=0 alto tecla resto i caja cursor nombre texto relleno
     local ancho ancho_desc ancho_extra limite sangria grupos=0 anterior lineas cuantas ancho_nombre=11
     local resumen detalle primera=1 perfil="" perfil_i=-1 apps_perfil l
@@ -464,6 +468,7 @@ casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc 
         (( ${#otros[@]} )) && ayuda="${ayuda/ · Enter/ · p como otro equipo · Enter}"
         compgen -G "$repo/*/_vista" > /dev/null && ayuda="${ayuda/ · Enter/ · v ver cómo se ve · Enter}"
     fi
+    [[ -n "$volver" ]] && ayuda="${ayuda/ · Enter/ · ← volver · Enter}"
     for i in "${!lista[@]}"; do
         nombre="${lista[i]##*/}"
         (( ${#nombre} > ancho_nombre )) && ancho_nombre=${#nombre}
@@ -582,6 +587,7 @@ casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc 
                 printf '\n\n%s%sCualquier tecla para volver%s' "$(margen 27)" "$tenue" "$fin"
                 IFS= read -rsn1 tecla || true
                 printf '\e[2J' ;;
+            $'\e[D' | $'\x7f' | $'\b' | h) [[ -n "$volver" ]] && { pos=-2; break; } ;;
             "") break ;;
             q | $'\e') pos=-1; break ;;
         esac
@@ -589,6 +595,7 @@ casillas() { # título, ayuda, "app" para la columna de la app; usa lista, desc 
     tput cnorm 2> /dev/null || true
     tput rmcup 2> /dev/null || true
     trap - INT TERM
+    (( pos == -2 )) && return 2
     (( pos >= 0 ))
 }
 
@@ -667,6 +674,7 @@ poner_de() { # origen, paquetes: instala sin actualizar el resto del sistema
 apps_ia=""
 elegir_apps() { # la pantalla de apps; las de IA van en una sola fila que abre su propia lista
     local i j k con_ia=0 puesta=0
+    apps_ia=""
     local ayuda="↑↓ moverse · espacio elegir · i app o solo config · a todas · n ninguna · Enter seguir · q salir"
     local -a t_lista=("${lista[@]}") t_desc=("${desc[@]}") t_marca=("${marca[@]}") t_inst=("${inst[@]}") \
         t_mano=("${mano[@]}") t_webs=("${webs[@]}") t_app=("${app_marca[@]}") de_ia=() fila=()
@@ -675,8 +683,10 @@ elegir_apps() { # la pantalla de apps; las de IA van en una sola fila que abre s
     done
     (( ${#de_ia[@]} )) || { casillas "Elige qué instalar" "$ayuda" app; return; }
 
+    local r
+    while true; do
     # fila[j]: qué app de la lista completa es la fila j; -1 es la fila ia
-    lista=() desc=() marca=() inst=() mano=() webs=() app_marca=()
+    lista=() desc=() marca=() inst=() mano=() webs=() app_marca=() fila=() con_ia=0 puesta=0
     for i in "${!t_lista[@]}"; do
         if [[ " ${de_ia[*]} " == *" $i "* ]]; then
             (( puesta )) && continue
@@ -704,8 +714,14 @@ elegir_apps() { # la pantalla de apps; las de IA van en una sola fila que abre s
             lista+=("${t_lista[i]}") desc+=("${t_desc[i]}") marca+=("${t_marca[i]}")
             inst+=("${t_inst[i]}") mano+=("${t_mano[i]}") webs+=("${t_webs[i]}") app_marca+=("${t_app[i]}")
         done
-        # q deja las de IA como estaban
-        if casillas "Elige las herramientas de IA" "${ayuda/q salir/q dejarlas como estaban}" app; then
+        # q deja las de IA como estaban; ← vuelve a la lista de apps
+        r=0
+        casillas "Elige las herramientas de IA" "${ayuda/q salir/q dejarlas como estaban}" app volver || r=$?
+        if (( r == 2 )); then
+            for k in "${!de_ia[@]}"; do t_marca[de_ia[k]]=${marca[k]} t_app[de_ia[k]]=${app_marca[k]}; done
+            continue
+        fi
+        if (( r == 0 )); then
             for k in "${!de_ia[@]}"; do
                 t_marca[de_ia[k]]=${marca[k]} t_app[de_ia[k]]=${app_marca[k]}
             done
@@ -713,6 +729,8 @@ elegir_apps() { # la pantalla de apps; las de IA van en una sola fila que abre s
     else
         for i in "${de_ia[@]}"; do t_marca[i]=0; done
     fi
+    break
+    done
     lista=("${t_lista[@]}") desc=("${t_desc[@]}") marca=("${t_marca[@]}") inst=("${t_inst[@]}")
     mano=("${t_mano[@]}") webs=("${t_webs[@]}") app_marca=("${t_app[@]}")
 }
@@ -732,7 +750,14 @@ elegir() { # dos pantallas: qué apps y qué hacer; deja $elegidos y $hacer_* li
             [[ -z "${inst[i]}${mano[i]}" ]] && marca[i]=1 || marca[i]=0
         fi
     done
+    local r=0
+    local -a a_lista a_desc a_marca a_inst a_mano a_webs a_app
+    while true; do
     elegir_apps || { echo "No se cambió nada."; exit 0; }
+    # lo elegido se guarda para volver a esta pantalla desde la de pasos
+    a_lista=("${lista[@]}") a_desc=("${desc[@]}") a_marca=("${marca[@]}") a_inst=("${inst[@]}")
+    a_mano=("${mano[@]}") a_webs=("${webs[@]}") a_app=("${app_marca[@]}")
+    por_origen=() motivo=()
     elegidos=()
     for i in "${!lista[@]}"; do
         (( marca[i] )) || continue
@@ -804,12 +829,20 @@ elegir() { # dos pantallas: qué apps y qué hacer; deja $elegidos y $hacer_* li
     fi
     if con_systemd; then
         lista+=("actualizar") pasos+=(sincronizar)
-        desc+=("actualización automática: bajar los cambios de GitHub cada hora")
+        desc+=("actualización automática: bajar los cambios de GitHub cada 15 minutos")
         if [[ "$actuales" == *" sincronizar "* ]]; then marca+=(1); else marca+=(0); fi
     fi
+    r=0
     casillas "Esto es lo que se va a hacer" \
-        "↑↓ moverse · espacio quitar o poner · Enter empezar · q salir sin instalar" ||
-        { titulo "No se instaló nada; tu elección quedó en _$nombre_equipo/apps.txt"; exit 0; }
+        "↑↓ moverse · espacio quitar o poner · Enter empezar · q salir sin instalar" "" volver || r=$?
+    if (( r == 2 )); then
+        lista=("${a_lista[@]}") desc=("${a_desc[@]}") marca=("${a_marca[@]}") inst=("${a_inst[@]}")
+        mano=("${a_mano[@]}") webs=("${a_webs[@]}") app_marca=("${a_app[@]}")
+        continue
+    fi
+    (( r == 0 )) || { titulo "No se instaló nada; tu elección quedó en _$nombre_equipo/apps.txt"; exit 0; }
+    break
+    done
     titulo "Guardado en _$nombre_equipo/apps.txt: ${elegidos[*]##*/}"
 
     hacer_config=0 hacer_repos=0 hacer_sistema=0 hacer_arranque=0
@@ -1023,6 +1056,7 @@ aplicar_splash() {
 instalar() { # "" o "adoptar"; usa $elegidos
     requisitos_instalador
     mkdir -p "$HOME/.config" "$HOME/.local/bin" "$HOME/.local/share"
+    ln -sfn "$repo/install.sh" "$HOME/.local/bin/dotfiles"
     local app t
     local -a de_sistema=("${elegidos[@]}")
     # con apps sueltas solo se toca lo de esas apps, no lo del equipo
@@ -1181,11 +1215,14 @@ recoger() {
 
 orden=instalar
 hacer_config=1 hacer_repos=1 hacer_sistema=1 hacer_arranque=1
+# `dotfiles` a secas es para añadir o quitar apps, no para reinstalar todo
+[[ $# -eq 0 && "$(basename "$0")" == dotfiles ]] && set -- elegir
 case "${1:-}" in
+    sincronizar) exec "$repo/sincronizar/.local/bin/dotfiles-sincronizar" ;;
     adoptar | estado | recoger | elegir | quitar) orden="$1"; shift ;;
     # sin DOTFILES_DESDE, ninguna copia cuenta como cambiada: lo de ~ se queda
     actualizar) orden="$1" hacer_sistema=0 hacer_arranque=0 DOTFILES_DESDE="${DOTFILES_DESDE:-HEAD}"; shift ;;
-    -h | --help | ayuda) sed -n '2,23p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h | --help | ayuda) sed -n '2,27p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
 esac
 apps_sueltas=$(( $# > 0 ))
 if [[ "$orden" == quitar ]] && (( ! apps_sueltas )); then
