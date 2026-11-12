@@ -1,0 +1,4 @@
+# baja el modelo y lo pone como motor del dictado
+p="$HOME/Proyectos/ryoku-personalizacion"
+[[ -x "$p/instalar" ]] || { echo "falta ~/Proyectos/ryoku-personalizacion" >&2; exit 1; }
+"$p/instalar" "$p/dictado/voxtral"

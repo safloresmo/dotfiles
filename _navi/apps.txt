@@ -8,6 +8,8 @@ steam
 equicord
 vscode
 ryoku
+uso-ia
+voxtral
 animacion
 audio
 openrgb

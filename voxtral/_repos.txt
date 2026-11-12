@@ -1,0 +1,2 @@
+# ruta en ~ y url
+Proyectos/ryoku-personalizacion https://github.com/safloresmo/ryoku-personalizacion.git

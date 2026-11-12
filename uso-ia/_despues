@@ -1,0 +1,5 @@
+# instala el plugin; la primera vez, quita el widget de Ryoku que sustituye
+p="$HOME/Proyectos/ryoku-personalizacion"
+[[ -x "$p/instalar" ]] || { echo "falta ~/Proyectos/ryoku-personalizacion" >&2; exit 1; }
+"$p/instalar" "$p/barra-qs/uso-ia" || exit 1
+ryoku-shell bar hide ai 2> /dev/null || true
