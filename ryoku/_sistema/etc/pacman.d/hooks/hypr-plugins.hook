@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = hyprland
+
+[Action]
+Description = Recompilar los plugins de Hyprland de cada usuario
+When = PostTransaction
+Exec = /usr/local/sbin/hypr-plugins-recompilar

@@ -1,0 +1,22 @@
+#!/bin/bash
+# Recompila los plugins de Hyprland que cada usuario tiene en
+# ~/.local/lib/hyprland/plugins tras actualizar hyprland, contra las cabeceras
+# nuevas. Corre como servicio del usuario y en segundo plano para no frenar pacman.
+# /etc/pacman.d/hooks/hypr-plugins.hook lo llama.
+set -u
+
+[ "$(id -u)" -eq 0 ] || { echo "hace falta root" >&2; exit 1; }
+
+loginctl list-users --no-legend 2> /dev/null | while read -r _ usuario _; do
+    casa=$(getent passwd "$usuario" | cut -d: -f6)
+    ids=()
+    for so in "$casa"/.local/lib/hyprland/plugins/*.so; do
+        [ -e "$so" ] && ids+=("$(basename "$so" .so)")
+    done
+    [ "${#ids[@]}" -gt 0 ] || continue
+    echo "recompilando para $usuario: ${ids[*]}"
+    systemd-run --user -M "$usuario@" --no-block --collect --unit=hypr-plugins-recompilar \
+        bash -c 'ryoku-wm-hyprland plugins rebuild "$@" || notify-send -u critical "Plugins de Hyprland" "No se pudieron recompilar; mira: journalctl --user -u hypr-plugins-recompilar"' _ "${ids[@]}" \
+        || echo "no se pudo lanzar la recompilación para $usuario" >&2
+done
+exit 0
