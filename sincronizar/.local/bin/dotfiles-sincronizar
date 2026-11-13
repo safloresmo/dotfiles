@@ -15,7 +15,12 @@ avisar() {
 }
 
 # proyectos que este equipo mantiene al día (lista en _sincronizar.txt)
-aplicar() { [[ -x "$1/instalar" ]] && "$1/instalar" || true; }
+aplicar() { # su ./instalar, o el de ryoku-personalizacion si es un plugin de la barra
+    local plugins="$HOME/Proyectos/ryoku-personalizacion/instalar"
+    if [[ -x "$1/instalar" ]]; then "$1/instalar" < /dev/null || true
+    elif [[ -f "$1/manifest.json" && -x "$plugins" ]]; then "$plugins" "$1" < /dev/null || true
+    fi
+}
 export GIT_TERMINAL_PROMPT=0 # un repo privado sin acceso no debe quedarse esperando contraseña
 while read -r ruta url <&3; do
     [[ -z "$ruta" || "$ruta" == \#* ]] && continue

@@ -1,11 +1,12 @@
-# ruta en ~ y url; después de clonar, ejecuta ./instalar dentro
+# ruta en ~ y url; al clonarlos se instalan solos. ryoku-personalizacion va primero:
+# su ./instalar es el que instala los plugins de barra que no traen uno propio
+# plugins propios de la barra y demás personalizaciones de Ryoku
+Proyectos/ryoku-personalizacion https://github.com/safloresmo/ryoku-personalizacion.git
 # tema de Cider con la paleta del escritorio
 Proyectos/ryoku-cider https://github.com/safloresmo/ryoku-cider.git
 # Kaku: Helium y los sitios con la paleta del escritorio
 Proyectos/kaku-extension https://github.com/safloresmo/kaku-extension.git
 # plugin de barra Tailscale
 Proyectos/tailscale-barra https://github.com/safloresmo/tailscale-barra.git
-# plugins propios de la barra y demás personalizaciones de Ryoku
-Proyectos/ryoku-personalizacion https://github.com/safloresmo/ryoku-personalizacion.git
 # plugin de barra Cloudflare
 Proyectos/cloudflare-barra https://github.com/safloresmo/cloudflare-barra.git

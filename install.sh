@@ -2,7 +2,8 @@
 # Pone estos dotfiles en ~. Cada carpeta del repo es una aplicación: su contenido
 # es un espejo de ~ y se enlaza con GNU Stow. Lo que empieza por _ no se enlaza:
 #   _copias/ y _copias.txt   lo que se copia porque no puede ser un enlace
-#   _repos.txt               proyectos con repo propio que la app necesita
+#   _repos.txt               proyectos con repo propio que la app necesita; al clonarlos se instalan
+#                            (su ./instalar, o el de ryoku-personalizacion si son plugins de la barra)
 #   _enlaces.txt             enlaces dentro de ~ ("ruta destino"), p. ej. hacia un repo clonado
 #   _sistema/                archivos de fuera de ~ (se instalan con sudo); también en _<equipo>/
 #   _descripcion             una línea que se ve al elegir apps
@@ -960,13 +961,27 @@ recoger_copias() { # app: de ~ al repo, sustituyendo lo guardado
     done < <(copias "$1")
 }
 
+instalar_repo() { # carpeta recién clonada: queda instalada, no solo clonada
+    local plugins="$HOME/Proyectos/ryoku-personalizacion/instalar"
+    if [[ -x "$1/instalar" ]]; then
+        "$1/instalar"
+    elif [[ -f "$1/manifest.json" && -x "$plugins" ]]; then
+        # un plugin de la barra de Ryoku sin instalador propio
+        "$plugins" "$1"
+    fi
+}
+
 repos() { # app, "clonar" o "avisar": líneas "ruta url" de _repos.txt
     [[ -f "$repo/$1/_repos.txt" ]] || return 0
     local ruta url
     while read -r ruta url; do
         [[ -z "$ruta" || "$ruta" == \#* || -d "$HOME/$ruta" ]] && continue
         if [[ "$2" == clonar ]]; then
-            git clone "$url" "$HOME/$ruta" || echo "no se pudo clonar $url" >&2
+            if git clone "$url" "$HOME/$ruta"; then
+                instalar_repo "$HOME/$ruta" < /dev/null || echo "no se pudo instalar ~/$ruta; mira su README" >&2
+            else
+                echo "no se pudo clonar $url" >&2
+            fi
         else
             echo "falta el repo: ~/$ruta ($url)"
         fi
