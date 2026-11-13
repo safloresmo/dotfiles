@@ -1,0 +1,2 @@
+# ruta en ~ y url; el repo es privado; al clonarlo se instala solo
+Proyectos/tuber https://github.com/safloresmo/tuber.git

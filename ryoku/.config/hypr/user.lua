@@ -18,3 +18,11 @@
 -- hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("kitty"))
 -- hl.window_rule({ name = "float-mpv", match = { class = "mpv" }, float = true })
 -- hl.config({ general = { border_size = 3 } })
+
+-- tuber (avatar para OBS): sigue animándose aunque su ventana esté en otro espacio.
+hl.window_rule({ name = "tuber", match = { class = "^miniquad-application$", title = "^tuber$" }, render_unfocused = true })
+hl.config({ misc = { render_unfocused_fps = 60 } })
+
+-- Alt + N escribe ñ (Alt + Shift + N, Ñ) sin cambiar la distribución us.
+hl.bind("ALT + N", hl.dsp.exec_cmd("wtype ñ"))
+hl.bind("ALT + SHIFT + N", hl.dsp.exec_cmd("wtype Ñ"))

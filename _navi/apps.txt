@@ -21,3 +21,4 @@ opencode
 gemini
 grok
 cursor
+tuber
