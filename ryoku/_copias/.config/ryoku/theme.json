@@ -1,6 +1,6 @@
 {
   "followWallpaper": true,
-  "scheme": "",
+  "gnomeAccent": true,
   "gtkTheme": "adw",
-  "gnomeAccent": true
+  "scheme": ""
 }

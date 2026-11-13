@@ -23,6 +23,7 @@ cachyos-v3-mirrorlist
 cachyos-v4-mirrorlist
 cava
 chatgpt-desktop-bin
+chromium
 claude-code
 claude-desktop
 cliphist
@@ -68,6 +69,7 @@ gst-plugins-base
 gst-plugins-good
 gst-plugins-ugly
 handbrake
+headsetcontrol
 helium-browser-bin
 hypridle
 hyprpicker

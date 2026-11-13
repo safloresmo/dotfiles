@@ -15,6 +15,8 @@ x-scheme-handler/dlmm=deadlock-mod-manager-handler.desktop
 x-scheme-handler/rpi-imager=com.raspberrypi.rpi-imager-uri-handler.desktop
 application/pdf=helium.desktop
 application/xhtml+xml=zen.desktop
+x-scheme-handler/t3code=com.t3tools.T3Code.desktop
 
 [Added Associations]
 application/pdf=helium.desktop;
+x-scheme-handler/t3code=com.t3tools.T3Code.desktop;

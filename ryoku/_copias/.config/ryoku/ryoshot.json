@@ -7,5 +7,16 @@
   "delaySeconds": 0,
   "recordMic": false,
   "lastAction": "shot",
-  "toolStyle": {}
+  "toolStyle": {
+    "rect": {
+      "color": "#ffffff",
+      "width": 4,
+      "filled": false
+    },
+    "marker": {
+      "color": "#0054f2",
+      "width": 4,
+      "filled": false
+    }
+  }
 }

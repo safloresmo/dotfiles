@@ -21,6 +21,7 @@ phinger-cursors
 pipes.sh
 quickemu
 steamcmd
+t3code-bin
 ttf-fraunces-variable
 varlock-bin
 visual-studio-code-bin

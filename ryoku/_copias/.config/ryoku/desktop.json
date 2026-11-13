@@ -104,6 +104,9 @@
       "touchScrollFactor": 1,
       "workspaceSwipe": false
     },
+    "keybindDisabled": [
+      "SUPER + SHIFT + A"
+    ],
     "keybinds": [
       {
         "action": "exec",
@@ -387,6 +390,9 @@
           "release": true,
           "volume": 0.6
         }
+      },
+      "render": {
+        "autoHdr": false
       },
       "settingsWindow": {
         "height": 0.5,

@@ -8,6 +8,9 @@ hl.config({
   input = { kb_layout = "us", kb_variant = "", kb_options = "", touchpad = { clickfinger_behavior = true } },
 })
 
+-- the Hub made tiled windows translucent so blur should win
+hl.window_rule({ name = "tiled-blur", match = { float = false }, no_blur = false })
+
 hl.curve("ryokuWobble", { type = "bezier", points = { { 0.34, 1.5 }, { 0.64, 1.0 } } })
 hl.curve("ryokuBloom", { type = "bezier", points = { { 0.16, 1.12 }, { 0.24, 1.0 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1.0 } } })
@@ -46,7 +49,17 @@ local function ryoku_plugin_loaded(name)
   return false
 end
 
--- hyprglass: no copy built for this Hyprland; rebuild it from Settings > Plugins
+do
+  local ok, err = pcall(function()
+    hl.plugin.load("/home/sfm/.local/lib/hyprland/plugins/hyprglass.so")
+    if ryoku_plugin_loaded("hyprglass") then
+      hl.config({ plugin = { hyprglass = { enabled = 1, default_preset = "clear", blur_strength = 2.0, glass_opacity = 1.0, tint_color = 0x8899aa22, brightness = 1.0, default_theme = "dark" } } })
+    end
+  end)
+  if not ok then
+    print("Ryoku plugin hyprglass: " .. tostring(err))
+  end
+end
 
 hl.on("hyprland.start", function()
   hl.exec_cmd("ryoku-wm-hyprland plugins sync >/dev/null 2>&1")
