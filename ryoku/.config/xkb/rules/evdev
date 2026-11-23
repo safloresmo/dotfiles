@@ -1,0 +1,4 @@
+! include %S/evdev
+
+! option = symbols
+  enie:code230 = +enie(code230)

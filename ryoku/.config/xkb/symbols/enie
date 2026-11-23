@@ -1,0 +1,5 @@
+// ñ y Ñ en un código libre (230) para que Alt+N las mande con send_shortcut
+partial alphanumeric_keys
+xkb_symbols "code230" {
+    key <I230> { [ ntilde, Ntilde ] };
+};

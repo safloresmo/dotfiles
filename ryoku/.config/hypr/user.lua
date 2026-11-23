@@ -23,6 +23,9 @@
 hl.window_rule({ name = "tuber", match = { class = "^miniquad-application$", title = "^tuber$" }, render_unfocused = true })
 hl.config({ misc = { render_unfocused_fps = 60 } })
 
--- Alt + N escribe ñ (Alt + Shift + N, Ñ) sin cambiar la distribución us.
-hl.bind("ALT + N", hl.dsp.exec_cmd("wtype ñ"))
-hl.bind("ALT + SHIFT + N", hl.dsp.exec_cmd("wtype Ñ"))
+-- Alt + N escribe ñ (Alt + Shift + N, Ñ). La opción xkb enie:code230 (~/.config/xkb)
+-- pone ñ/Ñ en un código libre, y send_shortcut la manda sin la Alt presionada,
+-- que haría que la ventana descarte el carácter. Reemplaza las opciones del Hub.
+hl.config({ input = { kb_options = "enie:code230" } })
+hl.bind("ALT + N", hl.dsp.send_shortcut({ mods = "", key = "code:230" }))
+hl.bind("ALT + SHIFT + N", hl.dsp.send_shortcut({ mods = "SHIFT", key = "code:230" }))
