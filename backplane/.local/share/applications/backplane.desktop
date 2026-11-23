@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Backplane
+Comment=Diseño de placas con KiCad y FreeCAD
+Exec=sh -c "exec ~/.local/bin/backplane"
+Icon=backplane
+Terminal=false
+Categories=Development;Electronics;Engineering;
