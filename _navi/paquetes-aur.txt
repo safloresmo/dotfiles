@@ -26,5 +26,4 @@ ttf-fraunces-variable
 varlock-bin
 visual-studio-code-bin
 vkbasalt
-voxtype-bin
 yay-bin

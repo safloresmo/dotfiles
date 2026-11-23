@@ -44,7 +44,9 @@ hl.window_rule({ name = "ryoku-tame-maximize-on-open", match = { class = ".*" },
 hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd("zen-browser --name zen-x --profile /home/sfm/.config/zen/webapps/x --new-window https://x.com"))
 local function ryoku_plugin_loaded(name)
   for _, p in ipairs(hl.get_loaded_plugins()) do
-    if p.name == name then return true end
+    if p.name == name then
+      return not tostring(p.description or ""):find("^Paused")
+    end
   end
   return false
 end

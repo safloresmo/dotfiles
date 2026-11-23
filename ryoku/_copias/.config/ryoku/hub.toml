@@ -1,5 +1,6 @@
 [ui]
-  section = "gamebar"
+  section = "profile"
   update_interval = "hourly"
   update_system = "on"
+  update_notifications = "ryoku"
   advanced = "1"

@@ -2878,7 +2878,7 @@
     "aiShowCountdown": false,
     "aiShowName": false,
     "aiShowPct": true,
-    "aiTools": "claude,codex,opencode,grok,gemini,antigravity",
+    "aiTools": "claude,codex,opencode",
     "audioBoost": false,
     "barAnim": 3,
     "barAutoHide": false,
@@ -2893,17 +2893,18 @@
     "barPosition": "top",
     "barScale": 1,
     "barSeps": [
-      "G2",
       "G10",
       "G4",
       "G17",
-      "G1",
-      "G3"
+      "G3",
+      "G2",
+      "G1"
     ],
     "barShadowEnabled": true,
     "barShellStyle": "islands",
-    "barTemperatureSource": "cpu",
+    "barTemperatureSource": "gpu",
     "iconOnlyGids": [],
+    "isolateMonitors": false,
     "launcherLogoMode": "icon",
     "layout": {
       "center": [
@@ -2931,12 +2932,13 @@
         "gpu",
         "bluetooth",
         "layout",
-        "cloudflare",
-        "tailscale",
+        "tailflare",
         "fluxdeck"
       ],
       "version": 1
     },
+    "mprisBarStyle": "default",
+    "mprisTitleWidth": 88,
     "panelTooltipBorderEnabled": true,
     "pickerStyle": "tanzaku",
     "widgetColorStyles": "-",

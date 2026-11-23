@@ -16,7 +16,9 @@ x-scheme-handler/rpi-imager=com.raspberrypi.rpi-imager-uri-handler.desktop
 application/pdf=helium.desktop
 application/xhtml+xml=zen.desktop
 x-scheme-handler/t3code=com.t3tools.T3Code.desktop
+x-scheme-handler/ldstudio=ldstudio.desktop
+x-scheme-handler/discord-1390278946049884221=ldstudio.desktop
+x-scheme-handler/backplane=backplane.desktop
 
 [Added Associations]
 application/pdf=helium.desktop;
-x-scheme-handler/t3code=com.t3tools.T3Code.desktop;

@@ -8,6 +8,7 @@ base
 base-devel
 bash-completion
 bat
+blender
 blesh
 bluez
 bluez-utils
@@ -49,6 +50,7 @@ ffmpeg
 firefox
 fish
 flatpak
+freecad
 fuzzel
 fzf
 game-devices-udev
@@ -81,6 +83,7 @@ inter-font
 iw
 iwd
 jq
+jre25-openjdk-headless
 kdenlive
 khal
 kicad
@@ -95,6 +98,7 @@ lib32-vulkan-radeon
 libisoburn
 libnotify
 libqalculate
+libratbag
 libva-nvidia-driver
 limine
 limine-mkinitcpio-hook
@@ -131,8 +135,10 @@ obs-vkcapture
 obsidian
 openai-codex
 opencode
+openmpi
 openocd
 openrgb
+openucx
 otf-space-grotesk
 papirus-icon-theme
 pavucontrol
@@ -146,6 +152,7 @@ playerctl
 plymouth
 polkit
 power-profiles-daemon
+prismlauncher
 proton-cachyos-slr
 python
 python-pip

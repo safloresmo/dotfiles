@@ -1,6 +1,6 @@
 {
   "tailscale": {
-    "enabled": true,
+    "enabled": false,
     "host": "topbarGlyph",
     "settings": {
       "barLabel": "name",
@@ -11,7 +11,7 @@
     }
   },
   "cloudflare": {
-    "enabled": true,
+    "enabled": false,
     "host": "topbarGlyph",
     "settings": {
       "showCount": true,
@@ -100,6 +100,18 @@
       "showNames": false,
       "showPct": true,
       "showCountdown": false
+    }
+  },
+  "tailflare": {
+    "enabled": true,
+    "host": "topbarGlyph",
+    "settings": {
+      "barLabel": "name",
+      "poll": 30,
+      "confirmOff": true,
+      "resume": true,
+      "sshUser": "",
+      "terminal": "kitty"
     }
   }
 }

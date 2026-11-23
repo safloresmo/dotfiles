@@ -57,7 +57,8 @@
     },
     "apps": {
       "browser": "zen-browser",
-      "editor": "code"
+      "editor": "code",
+      "notes": "obsidian"
     },
     "autostart": [
       {

@@ -28,3 +28,6 @@ headsetcontrol 2026-11-06 extra; batería y retorno de voz de auriculares (el Vi
 t3code-bin 2026-11-11 aur; app de escritorio de T3 Code para manejar agentes de código locales
 libratbag 2026-11-11 extra; ratbagd: DPI y perfiles de ratones de otras marcas desde FluxDeck (desarrollo y prueba)
 blender 2026-11-12 modelar y exportar STL del cosplay de Seven (7-cosplay)
+jre25-openjdk-headless 2026-11-13 extra; java para el servidor paper 26.3 de Lode Studio
+freecad 2026-11-16 extra; modelar piezas mecánicas (cajas, soportes) desde Backplane para las placas de ~/Proyectos/pcb
+# platformio raspberrypi (framework-arduinopico, toolchain-rp2040-earlephilhower) 2026-11-17 en ~/.platformio, no pacman; compilar los ejemplos de Arduino para la Pico 2 de ~/Proyectos/libro-programacion-embebida
