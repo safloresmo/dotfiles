@@ -9,7 +9,6 @@ io.github.philipk.boilr 2026-10-18 flatpak; añade a Steam los juegos de Heroic,
 varlock-bin 2026-10-21 aur; variables de entorno con .env.schema y secretos de 1Password en los proyectos
 android-tools 2026-10-22 adb para limpiar el Android TV con CleanYourTV
 zen-browser-bin 2026-10-24 aur; Zen Browser, navegador principal (sustituye a Helium)
-org.mozilla.firefox 2026-10-24 flatpak user; Firefox estable
 nct6687d-dkms-git 2026-10-25 aur; driver de sensores de la placa MSI (RPM de ventiladores y bomba)
 gpu-screen-recorder-ui 2026-10-25 interfaz y atajos de gpu-screen-recorder (arranca con el escritorio)
 umu-launcher 2026-10-27 Proton fuera de Steam para Hikari (lanzador de juegos)
@@ -31,3 +30,4 @@ blender 2026-11-12 modelar y exportar STL del cosplay de Seven (7-cosplay)
 jre25-openjdk-headless 2026-11-13 extra; java para el servidor paper 26.3 de Lode Studio
 freecad 2026-11-16 extra; modelar piezas mecánicas (cajas, soportes) desde Backplane para las placas de ~/Proyectos/pcb
 # platformio raspberrypi (framework-arduinopico, toolchain-rp2040-earlephilhower) 2026-11-17 en ~/.platformio, no pacman; compilar los ejemplos de Arduino para la Pico 2 de ~/Proyectos/libro-programacion-embebida
+sh.cider.Cider 2026-10-13 flatpak user; cliente de Apple Music
