@@ -10,3 +10,5 @@ Proyectos/kaku-extension https://github.com/safloresmo/kaku-extension.git
 Proyectos/tailscale-barra https://github.com/safloresmo/tailscale-barra.git
 # plugin de barra Cloudflare
 Proyectos/cloudflare-barra https://github.com/safloresmo/cloudflare-barra.git
+# plugin de barra Tailscale y Cloudflare juntos (sustituye a los dos de arriba)
+Proyectos/tailflare-barra https://github.com/safloresmo/tailflare-barra.git
