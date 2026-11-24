@@ -11,3 +11,8 @@ millennium 2026-11-06 lo necesita la app steam
 visual-studio-code-bin 2026-11-06 lo necesita la app vscode
 obsidian 2026-11-11 lo necesita la app cuaderno
 helium-browser-bin 2026-11-24 lo necesita la app helium; navegador por defecto y web apps de YouTube y X
+rsync 2026-11-24 lo necesita install.sh para _copias y recoger
+tailscale 2026-11-24 túnel de la tailnet; lo usa el plugin de barra tailflare
+cloudflared 2026-11-24 túneles de Cloudflare; lo usa el plugin de barra tailflare
+1password-cli 2026-11-24 aur; comando op para que varlock lea las claves de 1Password
+varlock-bin 2026-11-24 aur; variables de entorno con .env.schema y 1Password, y firmar Kaku para Firefox
