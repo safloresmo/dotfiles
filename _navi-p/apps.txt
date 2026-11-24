@@ -1,0 +1,27 @@
+# una app por línea; las «# no:» se ofrecieron y no se eligieron
+base
+fastfetch
+1password
+helium
+equicord
+cider
+steam
+backplane
+cuaderno
+vscode
+chatgpt
+claude-code
+claude-desktop
+codex
+grok
+opencode
+reglas-ia
+animacion
+ryoku
+uso-ia
+# no: zen
+# no: cursor
+# no: gemini
+# no: tuber
+# no: voxtral
+sincronizar

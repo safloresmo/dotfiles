@@ -1,0 +1,13 @@
+stow 2026-11-06 lo necesita install.sh
+discord 2026-11-06 lo necesita la app equicord
+steam 2026-11-06 lo necesita la app steam
+sh.cider.Cider 2026-11-06 lo necesita la app cider
+chatgpt-desktop-bin 2026-11-06 lo necesita la app chatgpt
+claude-desktop 2026-11-06 lo necesita la app claude-desktop
+openai-codex 2026-11-06 lo necesita la app codex
+opencode 2026-11-06 lo necesita la app opencode
+equicord-installer-bin 2026-11-06 lo necesita la app equicord
+millennium 2026-11-06 lo necesita la app steam
+visual-studio-code-bin 2026-11-06 lo necesita la app vscode
+obsidian 2026-11-11 lo necesita la app cuaderno
+helium-browser-bin 2026-11-24 lo necesita la app helium; navegador por defecto y web apps de YouTube y X
