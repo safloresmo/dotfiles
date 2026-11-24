@@ -3,3 +3,4 @@
 Proyectos/cuaderno https://github.com/safloresmo/cuaderno.git
 .config/ai-rules https://github.com/safloresmo/ai-rules
 Proyectos/ryoku-personalizacion https://github.com/safloresmo/ryoku-personalizacion.git
+Proyectos/kaku-extension https://github.com/safloresmo/kaku-extension.git
