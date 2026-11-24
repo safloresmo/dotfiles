@@ -3,7 +3,7 @@ base
 fastfetch
 1password
 cider
-zen
+helium
 steam
 equicord
 vscode

@@ -56,7 +56,7 @@
       "wobblyWindows": false
     },
     "apps": {
-      "browser": "zen-browser",
+      "browser": "helium-browser",
       "editor": "code",
       "notes": "obsidian"
     },
@@ -113,7 +113,7 @@
         "action": "exec",
         "keys": "SUPER + SHIFT + X",
         "release": false,
-        "value": "zen-browser --name zen-x --profile /home/sfm/.config/zen/webapps/x --new-window https://x.com"
+        "value": "helium-browser --app=https://x.com"
       }
     ],
     "windowRules": [],

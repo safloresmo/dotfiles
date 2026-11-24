@@ -36,6 +36,7 @@ git clone https://github.com/safloresmo/dotfiles.git ~/dotfiles && ~/dotfiles/in
 | `base` | Fish, Git y lo básico de la terminal |
 | `fastfetch` | Fastfetch con el estilo Wired y su emblema |
 | `animacion` | Animación Navi al encender, al apagar y cada vez que se recarga la shell |
+| `helium` | YouTube y X como apps de Helium |
 | `zen` | X y YouTube como apps de Zen, en su propia ventana |
 | `1password` | Integración con el navegador y arranque con la sesión |
 | `equicord` | Tema para Discord (Equicord); activarlo con `equilotl -install` |
