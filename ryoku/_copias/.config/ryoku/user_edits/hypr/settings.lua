@@ -53,7 +53,7 @@ end
 
 do
   local ok, err = pcall(function()
-    hl.plugin.load("/home/sfm/.local/lib/hyprland/plugins/hyprglass.so")
+    hl.plugin.load("/usr/lib/hyprland/plugins/hyprglass.so")
     if ryoku_plugin_loaded("hyprglass") then
       hl.config({ plugin = { hyprglass = { enabled = 1, default_preset = "clear", blur_strength = 2.0, glass_opacity = 1.0, tint_color = 0x8899aa22, brightness = 1.0, default_theme = "dark" } } })
     end
