@@ -2,3 +2,4 @@
 # pacman: apt: dnf: zypper: aur: flatpak: web:  · un nombre sin prefijo vale para todos
 steam pacman:steam apt:steam-installer dnf:steam zypper:steam web:https://store.steampowered.com/about
 /usr/lib/millennium pacman:millennium aur:millennium web:https://steambrew.app
+/usr/lib/millennium/libmillennium_x86.so aur:millennium-x86 web:https://steambrew.app
