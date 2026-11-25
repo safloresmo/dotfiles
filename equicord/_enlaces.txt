@@ -1,0 +1,2 @@
+# arranca el vigilante con la sesión: el enlace apunta a la unidad de ~, no al repo
+.config/systemd/user/default.target.wants/equicord-parche.path .config/systemd/user/equicord-parche.path

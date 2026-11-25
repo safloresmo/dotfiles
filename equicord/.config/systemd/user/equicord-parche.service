@@ -1,0 +1,8 @@
+[Unit]
+Description=Parchea con Equicord las versiones de Discord que no lo estén
+# Discord escribe varias veces al actualizarse: sin límite de arranques.
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/equicord-parche

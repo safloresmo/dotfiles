@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Discord se actualiza solo y cada versión va en su propia carpeta
+# (~/.config/discord/app-<versión>); Equicord solo queda parcheado en la que
+# ya estaba. Esto parchea cada versión que aún no lo esté.
+set -u
+discord=${XDG_CONFIG_HOME:-$HOME/.config}/discord
+command -v equilotl > /dev/null || exit 0
+for app in "$discord"/app-*/; do
+    recursos=${app}resources
+    # La versión nueva se descarga por partes: se espera a que esté su app.asar.
+    [[ -f "$recursos/app.asar" && ! -e "$recursos/_app.asar" ]] || continue
+    if equilotl -install -location "${app%/}" > /dev/null 2>&1; then
+        notify-send -a Equicord "Equicord" "Parcheada la versión nueva de Discord ($(basename "$app")); reinícialo para ver el tema." 2> /dev/null
+    else
+        notify-send -u critical -a Equicord "Equicord" "No se pudo parchear $(basename "$app"); mira: journalctl --user -u equicord-parche" 2> /dev/null
+    fi
+done

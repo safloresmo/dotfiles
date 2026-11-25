@@ -1,0 +1,9 @@
+[Unit]
+Description=Vigila las versiones nuevas de Discord para parchearlas con Equicord
+
+[Path]
+PathChanged=%h/.config/discord
+Unit=equicord-parche.service
+
+[Install]
+WantedBy=default.target
