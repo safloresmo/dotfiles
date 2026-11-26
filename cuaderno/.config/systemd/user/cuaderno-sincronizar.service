@@ -1,0 +1,6 @@
+[Unit]
+Description=Guardar, bajar y subir el cuaderno
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/cuaderno-sincronizar

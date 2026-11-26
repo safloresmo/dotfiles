@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Guarda, baja y sube el cuaderno. Lo lanza cuaderno-sincronizar.timer cada
+# 5 minutos; también se puede correr a mano.
+# Ante un conflicto o un commit rechazado se detiene y avisa: nunca resuelve solo.
+set -uo pipefail
+
+cd "$HOME/Proyectos/cuaderno" 2> /dev/null || exit 0
+export GIT_TERMINAL_PROMPT=0
+
+avisar() {
+    echo "$1"
+    command -v notify-send > /dev/null && notify-send -a Cuaderno -i dialog-warning "Cuaderno" "$1" 2> /dev/null || true
+}
+
+# shortcut: mientras el problema siga ahí avisa en cada vuelta; si molesta, recordar el último aviso
+if [[ -e .git/rebase-merge || -e .git/rebase-apply || -e .git/MERGE_HEAD ]]; then
+    avisar "Hay una fusión a medias en el cuaderno; no se sincroniza hasta resolverla."
+    exit 1
+fi
+
+if [[ -n "$(git status --porcelain)" ]]; then
+    git add -A
+    if ! salida="$(git commit --quiet -m "update notes" 2>&1)"; then
+        echo "$salida"
+        avisar "No se pudo guardar el cuaderno: el commit fue rechazado. Corre cuaderno-sincronizar en una terminal para ver por qué."
+        exit 1
+    fi
+fi
+
+git fetch --quiet 2> /dev/null || exit 0 # sin red: se reintenta en la próxima vuelta
+git rev-parse --quiet --verify '@{u}' > /dev/null || exit 0
+
+# --autostash: una nota puede cambiar entre el commit y este punto
+if ! git rebase --quiet --autostash '@{u}' 2> /dev/null; then
+    git rebase --abort 2> /dev/null
+    avisar "El cuaderno tiene un conflicto con lo que hay en GitHub; lo de este equipo quedó guardado sin subir. Resuélvelo con git pull --rebase."
+    exit 1
+fi
+
+if [[ "$(git rev-parse HEAD)" != "$(git rev-parse '@{u}')" ]]; then
+    git push --quiet || { avisar "No se pudo subir el cuaderno a GitHub."; exit 1; }
+fi

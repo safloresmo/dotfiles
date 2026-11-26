@@ -1,0 +1,9 @@
+[Unit]
+Description=Mantener el cuaderno igual en todos los equipos
+
+[Timer]
+OnActiveSec=1min
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target
