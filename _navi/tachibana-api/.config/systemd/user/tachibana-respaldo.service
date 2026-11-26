@@ -1,0 +1,9 @@
+[Unit]
+Description=Respaldar la base de datos de la API de Tachibana Labs
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Proyectos/tachibana-api
+ExecStart=/usr/bin/bash scripts/respaldo.sh
+# necesita 1Password desbloqueado; si falla, avisa y el temporizador lo reintenta a la semana
+ExecStopPost=/usr/bin/sh -c '[ "$SERVICE_RESULT" = success ] || notify-send -u critical "Respaldo de la API" "No se pudo exportar la base de datos. Córrelo a mano: bash scripts/respaldo.sh"'

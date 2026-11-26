@@ -1,0 +1,9 @@
+[Unit]
+Description=Respaldo semanal de la base de datos de la API de Tachibana Labs
+
+[Timer]
+OnCalendar=Sun 12:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
